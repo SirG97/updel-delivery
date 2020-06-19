@@ -231,13 +231,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modal.find('#delivery_landmark').val(button.data('delivery_address')); // Extract info from data-* attributes
         modal.find('#description').val(button.data('description')); // Extract info from data-* attributes
 
-        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-
-        // modal.find('#pick_up_address').val(route_id);
-        // modal.find('#district').val(district);
-        // modal.find('#district_id').val(district_id);
-        // modal.find('#name').val(name);
 
     });
 
@@ -293,6 +286,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 interval(5000);
             }
         });
+    });
+
+    // show the delete confirmation modal
+    $('#deleteOrderModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget); // Button that triggered the modal
+        let order_no = button.data('order_no'); // Extract info from data-* attributes
+        let form_action = `/order/${order_no}/delete`;
+
+        let modal = $(this);
+        modal.find('#orderDeleteForm').attr("action", form_action);
+    });
+
+    $('#deleteOrderBtn').on('click', (e)=>{
+        e.preventDefault();
+        $("#orderDeleteForm").submit();
     });
 
     function alertMessage(status, message){
@@ -546,6 +554,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     }
-
 
 });

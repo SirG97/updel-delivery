@@ -40,6 +40,7 @@ $router->map('GET', '/create_order', '\App\Controllers\OrderController@get_order
 $router->map('POST', '/save_order', '\App\Controllers\OrderController@save_order', 'save_order');
 $router->map('GET', '/order/[:order_no]', '\App\Controllers\OrderController@edit_order', 'get_order');
 $router->map('POST', '/order/[:order_no]/edit', '\App\Controllers\OrderController@edit_order', 'edit_order');
+$router->map('POST', '/order/[:order_no]/delete', '\App\Controllers\OrderController@delete_order', 'delete_order');
 
 
 
