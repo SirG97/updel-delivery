@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8538c06b-4e34-43a3-be8e-bb227e44e364" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/mclone.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/CSRFToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Encryption.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/ErrorHandler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Random.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Redirect.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Request.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/config/_env.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/ContributionController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/DashboardController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/DistrictController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/IndexController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/PinController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/SettingsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/functions/helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/District.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/Route.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routing/RouteDispatcher.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/routing/routes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/includes/message.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user.layout.auth.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user.layout.base.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/dashboard.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/district.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/login.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/managers.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/orders.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/riders.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/staff_form.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/support_staff.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/cache/user/user_form.bladec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap/init.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/Chart.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/fontawesome-all.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/avatar-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/loginbg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/Chart.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/jquery-3.2.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/moment.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-brands-400d41d.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-regular-400d41d.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/webfonts/fa-solid-900d41d.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/assets/dist/app.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/errors.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/emails/welcome.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/errors/404.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/errors/generic.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/hello.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/includes/message.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/contribute.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/customer.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/customercontributions.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/customerdetails.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/customers.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/dashboard.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/district.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/generate.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/layout/auth.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/layout/base.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/managers.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/order_form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/orders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/riders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/settings.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/staff_form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/support_staff.blade.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/stackkit/blade-standalone" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random-lib" />
+      <path value="$PROJECT_DIR$/vendor/ircmaxell/security-lib" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/vendor/altorouter/altorouter" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/view" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/voku/pagination" />
+      <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/vendor/eftec/bladeone" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1dNKJ5G5O9LIeLuRa2kLoG55zup" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8538c06b-4e34-43a3-be8e-bb227e44e364" name="Default Changelist" comment="" />
+      <created>1592319504381</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592319504381</updated>
+      <workItem from="1592319510427" duration="14463000" />
+      <workItem from="1592416436729" duration="23872000" />
+      <workItem from="1592475958945" duration="31670000" />
+      <workItem from="1592548047943" duration="14620000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

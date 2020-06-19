@@ -1,0 +1,138 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title', 'Dashboard'); ?>
+<?php $this->startSection('icon', 'fa-tachometer-alt'); ?>
+<?php $this->startSection('content'); ?>
+ <div class="container-fluid">
+ <div class="row">
+ <div class="col-md-6 col-xl-3">
+ <div class="card bg-c-blue order-card text-secondary">
+ <div class="card-body">
+ <h6 class="text-primary">Total Customers</h6>
+ <h5 class="text-right">
+ <i class="fas fa-user  float-left"></i>
+ <span>
+ 10
+ </span>
+ </h5>
+ <p class="mb-0">New customers<span class="float-right">n/a</span></p>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-6 col-xl-3">
+ <div class="card bg-c-blue order-card text-secondary">
+ <div class="card-body">
+ <h6 class="text-primary">Total Saved</h6>
+ <h5 class="text-right">
+ <i class="fas fa-award  float-left"></i>
+ <span>
+ 10
+ </span>
+ </h5>
+ <p class="mb-0">This week<span class="float-right">n/a</span></p>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-6 col-xl-3">
+ <div class="card bg-c-blue order-card text-secondary">
+ <div class="card-body">
+ <h6 class="text-primary">Total Revenue</h6>
+ <h5 class="text-right">
+ <i class="fas fa-coins  float-left"></i>
+ <span>
+ 10
+ </span>
+ </h5>
+ <p class="mb-0">This week<span class="float-right">n/a</span></p>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-6 col-xl-3">
+ <div class="card bg-c-blue order-card text-secondary">
+ <div class="card-body">
+ <h6 class="text-primary">Total Pins</h6>
+ <h5 class="text-right">
+ <i class="fas fa-key  float-left"></i>
+ <span>
+ 12
+ </span>
+ </h5>
+ <p class="mb-0">This week<span class="float-right">n/a</span></p>
+ </div>
+ </div>
+ </div>
+
+ </div>
+<?php /*        Daily contribution chart*/ ?>
+ <div class="row">
+ <div class="col-md-12">
+ <div class="custom-panel card py-2">
+ <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
+ Daily contributions
+ </div>
+ <div id="canvas-container" class="">
+ <canvas id="contribution-canvas"></canvas>
+ </div>
+ </div>
+ </div>
+ </div>
+
+<?php /*        Latest transaction and channedl used section*/ ?>
+ <div class="row">
+ <div class="col-md-8">
+ <div class="custom-panel card py-2">
+ <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
+ Latest Transactions
+ </div>
+ <div class="table-responsive">
+ <table class="table table-hover ">
+ <thead class="trx-bg-head text-secondary py-3 px-3">
+ <tr>
+ <th scope="col">Pin</th>
+ <th scope="col">Phone</th>
+ <th scope="col">Balance</th>
+ <th scope="col">Point</th>
+ <th scope="col">Date</th>
+ </tr>
+ </thead>
+ <tbody>
+
+ <tr>
+ <td scope="row">contribution </td>
+ <td>phone</td>
+ <td>available_bal</td>
+ <td>contributionpoints</td>
+ <td>iffForHumans</td>
+ </tr>
+
+ <tr>
+ <td colspan="5">
+ <div class="d-flex justify-content-center">No Contributions yet</div>
+ </td>
+ </tr>
+
+
+ </tbody>
+ </table>
+ </div>
+
+ </div>
+ </div>
+ <div class="col-md-4">
+ <div class="custom-panel card py-2">
+ <div class="font-weight-bold text-primary mb-1 py-3 px-3">
+ Used Channel
+ </div>
+ <div id="channel-container" class="cool-border px-2">
+ <canvas id="channel-canvas"></canvas>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+<?php /*    <script>*/ ?>
+{{--        var app = <?php echo json_encode($contribution_count); ?>;--}}
+<?php /*        console.log(app);*/ ?>
+<?php /*    </script>*/ ?>
+
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.base'); } ?>
