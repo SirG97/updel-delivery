@@ -19,11 +19,11 @@
                     <table class="table table-hover ">
                         <thead class="trx-bg-head text-secondary py-3 px-3">
                         <tr>
-                            <th scope="col">Serial</th>
-                            <th scope="col">Pin</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Generated On</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Created </th>
+                            <th scope="col">Actions</th>
                         </tr>
                         </thead>
                         <tbody class="table-style">
@@ -31,11 +31,11 @@
                             @foreach($managers as $manager)
                                 <tr>
                                 <td scope="row">
-                                    {{ $manager['serial'] }}
+                                    {{ $manager['firstname'] }} {{ $manager['lastname']  }}
                                 </td>
-                                <td>{{ $manager['pin'] }}</td>
-                                <td>{{ $manager['amount'] }}</td>
-                                <td>{{ $manager['created_at'] }}</td>
+                                <td>{{ $manager['email'] }}</td>
+                                <td>{{ $manager['phone'] }}</td>
+                                <td>{{ $manager['created_at']->diffForHumans() }}</td>
                                 <td>{{ $manager['status'] }}</td>
 
                             </tr>

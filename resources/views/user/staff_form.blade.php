@@ -9,7 +9,7 @@
                     <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
                         Add new user
                     </div>
-                    <form action="/customer" method="POST">
+                    <form action="/staff/add" method="POST">
                         <div class="container">
                             <div class="row cool-border trx-bg-head py-3">
                                 <div class="col-md-8 offset-md-2">
@@ -19,10 +19,9 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="firstname">First name</label>
                                             <input type="text" class="form-control" id="firstname" name="firstname" value="" required>
-
                                         </div>
                                         <div class="col-md-4 mb-3">
-                                            <label for="surname">Surname</label>
+                                            <label for="lastname">Last name</label>
                                             <input type="text" class="form-control" id="lastname" name="lastname" value="" required>
 
                                         </div>
@@ -39,15 +38,23 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-5 mb-3">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control"  name="username" id="username" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
                                             <label for="phone">Phone number</label>
                                             <input type="text" class="form-control"  name="phone" id="phone" required>
 
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="city">City</label>
                                             <input type="text" class="form-control" name="city" id="city" required>
 
                                         </div>
+
+
+                                    </div>
+                                    <div class="form-row">
                                         <div class="col-md-3 mb-3">
                                             <label for="state">State</label>
                                             <select class="custom-select" id="state" name="state" required>
@@ -59,41 +66,37 @@
                                                 <option value="Abia">Abia</option>
                                             </select>
                                         </div>
-
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-3 mb-3">
+                                        <div class="col-md-4 mb-3">
                                             <label for="amount">Password</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" name="password" value=""  class="form-control" >
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 mb-3">
-                                            <label for="admin_right">Admin right</label>
+                                        <div class="col-md-5 mb-3">
+                                            <label for="admin_right">Priviledge</label>
                                             <select class="custom-select" id="admin_right" name="admin_right" required>
                                                 <option selected value="Admin">Admin</option>
                                                 <option value="Manager">Manager</option>
                                                 <option value="Customer Service Adviser">Customer Service Adviser</option>
                                                 <option value="Rider">Rider</option>
-
                                             </select>
-                                        </div>
-                                        <div class="col-md-5 mb-3">
-                                            <label for="job_title">Job title</label>
-                                            <input type="text" class="form-control"  name="job_title" id="job_title" required>
                                         </div>
 
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-md-6 mb-3">
+                                        <div class="col-md-4 mb-3">
                                             <label for="address">Address</label>
                                             <input type="text" class="form-control"  name="address" id="address" required>
                                         </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="amount">Job Description</label>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="job_title">Job title</label>
+                                            <input type="text" class="form-control"  name="job_title" id="job_title" required>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <label for="job_description">Job Description</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" name="job_description" value=""  class="form-control" >
+                                                <input type="text" name="job_description" value="" id="job_description"  class="form-control" >
                                             </div>
                                         </div>
                                     </div>

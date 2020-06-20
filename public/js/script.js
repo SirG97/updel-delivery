@@ -303,6 +303,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
         $("#orderDeleteForm").submit();
     });
 
+    $("#request_type").on('change', () => {
+        let request = $("#request_type").val();
+        if(request === 'collection'){
+            $("#delivery_address, #delivery_landmark").prop('readonly', true).val('').css('cursor', 'not-allowed');
+            // $("").prop('readonly', true);
+            $("#pick_up_address, #pick_up_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('readonly', false);
+        }else if(request === 'delivery'){
+            $("#pick_up_address, #pick_up_landmark").prop('readonly', true).val('').css('cursor', 'not-allowed');
+            // $("").prop('readonly', true);
+            $("#delivery_address, #delivery_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('disabled', false);
+        }else if(request === 'combo' || request === 'swap'){
+            $("#pick_up_address,#pick_up_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('disabled', false);
+            $("#delivery_address, #delivery_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('disabled', false);
+        }
+    });
+
     function alertMessage(status, message){
         return `<div class="alert alert-${status} m-t-20 alert-dismissible fade show" role="alert">
                     ${message}

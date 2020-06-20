@@ -51,7 +51,7 @@ class AuthController{
                         Session::add('error', 'incorrect password');
                         return view('user\login');
                      }else{
-                         Session::add('SESSION_USER_ID', $user->userid);
+                         Session::add('SESSION_USER_ID', $user->user_id);
                          Session::add('SESSION_USERNAME', $user->firstname);
 
                          Redirect::to('/dashboard');

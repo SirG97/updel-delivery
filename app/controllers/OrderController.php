@@ -64,10 +64,11 @@ class OrderController extends BaseController{
                     'phone' => ['required' => true, 'maxLength' => '50'],
                     'parcel_name' => ['required' => true, 'maxLength' => '150'],
                     'parcel_size' => ['number' => true],
-                    'pick_up_address' => ['required' => true],
-                    'pick_up_landmark' => ['required' => true],
-                    'delivery_address' => ['required' => true],
-                    'delivery_landmark' => ['required' => true],
+                    'parcel_quantity' => ['number' => true],
+                    'pick_up_address' => ['mixed' => true],
+                    'pick_up_landmark' => ['mixed' => true],
+                    'delivery_address' => ['mixed' => true],
+                    'delivery_landmark' => ['mixed' => true],
                     'description' => ['required' => true]
                 ];
                 $validation = new Validation();
@@ -88,6 +89,7 @@ class OrderController extends BaseController{
                     'phone' => $request->phone,
                     'parcel_name' => $request->parcel_name,
                     'parcel_size' => $request->parcel_size,
+                    'parcel_quantity' => $request->parcel_quantity,
                     'pick_up_address' => $request->pick_up_address,
                     'pick_up_landmark' => $request->pick_up_landmark,
                     'delivery_address' => $request->delivery_address,
@@ -123,10 +125,11 @@ class OrderController extends BaseController{
                     'phone' => ['required' => true, 'maxLength' => '50'],
                     'parcel_name' => ['required' => true, 'maxLength' => '150'],
                     'parcel_size' => ['number' => true],
-                    'pick_up_address' => ['required' => true],
-                    'pick_up_landmark' => ['required' => true],
-                    'delivery_address' => ['required' => true],
-                    'delivery_landmark' => ['required' => true],
+                    'parcel_quantity' => ['number' => true],
+                    'pick_up_address' => ['mixed' => true],
+                    'pick_up_landmark' => ['mixed' => true],
+                    'delivery_address' => ['mixed' => true],
+                    'delivery_landmark' => ['mixed' => true],
                     'description' => ['required' => true]
                 ];
                 $validation = new Validation();
@@ -159,11 +162,11 @@ class OrderController extends BaseController{
 
                 try{
                     Order::where('order_no', $order_no)->update($details);
-                    echo json_encode(['success' => 'Route updated successfully']);
+                    echo json_encode(['success' => 'Order updated successfully']);
                     exit();
                 }catch (\Exception $e){
                     header('HTTP 1.1 500 Server Error', true, 500);
-                    echo json_encode(['error' => 'Route updated failed ' . $e]);
+                    echo json_encode(['error' => 'Order updated failed ' . $e]);
                     exit();
                 }
             }else{
