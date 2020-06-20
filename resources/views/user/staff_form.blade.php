@@ -23,7 +23,6 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="lastname">Last name</label>
                                             <input type="text" class="form-control" id="lastname" name="lastname" value="" required>
-
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="email">Email</label>
@@ -32,7 +31,6 @@
                                                     <span class="input-group-text" id="inputGroupPrepend3">@</span>
                                                 </div>
                                                 <input type="email" class="form-control" name="email" id="email" aria-describedby="inputGroupPrepend3" required>
-
                                             </div>
                                         </div>
                                     </div>
@@ -44,15 +42,11 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="phone">Phone number</label>
                                             <input type="text" class="form-control"  name="phone" id="phone" required>
-
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="city">City</label>
                                             <input type="text" class="form-control" name="city" id="city" required>
-
                                         </div>
-
-
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-3 mb-3">
@@ -69,7 +63,7 @@
                                         <div class="col-md-4 mb-3">
                                             <label for="amount">Password</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" name="password" value=""  class="form-control" >
+                                                <input type="text" name="password" value="" id="password" class="form-control" >
                                             </div>
                                         </div>
 
@@ -100,7 +94,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

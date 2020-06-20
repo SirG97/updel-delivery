@@ -14,16 +14,16 @@ use App\Models\User;
 
 class UserController extends BaseController {
      public function get_riders(){
-        return view('user\riders', ['riders' => []]);
+        return view('user\riders', ['staffs' => []]);
      }
 
      public function get_support_staff(){
-         return view('user\support_staff', ['support_staffs' => []]);
+         return view('user\support_staff', ['staffs' => []]);
      }
 
      public function get_managers(){
          $managers = User::all();
-         return view('user\managers', ['managers' => $managers]);
+         return view('user\managers', ['staffs' => $managers]);
      }
 
      public function new_staff_form(){
@@ -80,8 +80,80 @@ class UserController extends BaseController {
                  exit();
 
              }
-
              Redirect::to('/staff');
+         }
+
+     }
+
+     public function edit_staff($id){
+         $user_id = $id['user_id'];
+
+         if(Request::has('post')){
+             $request = Request::get('post');
+             if(CSRFToken::verifyCSRFToken($request->token, false)){
+                 $rules = [
+                     'email' => ['required' => true, 'maxLength' => 30, 'email' => true, 'unique_edit' => 'users|' .$user_id .'|user_id'],
+                     'username' => ['required' => true, 'maxLength' => 40, 'string' => true, 'unique_edit' => 'users|' .$user_id .'|user_id'],
+                     'firstname' => ['required' => true, 'maxLength' => 40, 'string' => true],
+                     'lastname' => ['string' => true, 'maxLength' => 40],
+                     'phone' => ['required' => true,'maxLength' => 14,  'number' => true, 'unique_edit' => 'users|' .$user_id .'|user_id'],
+                     'city' => ['required' => true, 'maxLength' => '50', 'string' => true],
+                     'state' => ['required' => true, 'maxLength' => '50', 'string' => true],
+                     'address' => ['required' => true, 'maxLength' => '150'],
+                     'password' => ['minLength' => 5],
+                     'admin_right' => ['required' => true, 'maxLength' => 50],
+                     'job_title' => ['required' => true, 'maxLength' => 100],
+                     'job_description' => ['required' => true,  'maxLength' => 150]
+                 ];
+
+                 $validation = new Validation();
+                 $validation->validate($_POST, $rules);
+                 if($validation->hasError()){
+                     $errors = $validation->getErrorMessages();
+                     header('HTTP 1.1 422 Unprocessable Entity', true, 422);
+                     echo json_encode($errors);
+                     exit();
+                 }
+
+                 //Add the order details to an array
+                 //Add the user
+                 $details = [
+                     'user_id' => Random::generateId(16),
+                     'username' => $request->username,
+                     'lastname' => $request->lastname,
+                     'firstname' => $request->firstname,
+                     'email' => $request->email,
+                     'phone' => $request->phone,
+                     'address' => $request->address,
+                     'city' => $request->city,
+                     'state' => $request->state,
+
+                     'admin_right' => $request->admin_right,
+                     'job_title' => $request->job_title,
+                     'job_description' => $request->job_description
+                 ];
+
+                 if($request->password !== ''){
+                     $password = password_hash($request->password, PASSWORD_BCRYPT);
+                     $details['password'] = $password;
+                 }
+
+                 try{
+                     User::where('user_id', $user_id)->update($details);
+                     echo json_encode(['success' => 'Staff updated successfully']);
+                     exit();
+                 }catch (\Exception $e){
+                     header('HTTP 1.1 500 Server Error', true, 500);
+                     echo json_encode(['error' => 'Staff updated failed ']);
+                     exit();
+                 }
+             }else{
+                 echo 'token error';
+             }
+
+             //Redirect::to('/customer');
+         }else{
+             echo 'request error';
          }
      }
 

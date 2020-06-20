@@ -22,10 +22,12 @@ $router->map('GET', '/dashboard/chart', '\App\Controllers\DashboardController@ch
 
 // Staff routes
 $router->map('GET', '/managers', '\App\Controllers\UserController@get_managers', 'managers');
+$router->map('GET', '/staff/[:staff_id]', '\App\Controllers\UserController@get_staff', 'staff');
 $router->map('GET', '/support_staff', '\App\Controllers\UserController@get_support_staff', 'support_staff');
 $router->map('GET', '/riders', '\App\Controllers\UserController@get_riders', 'riders');
 $router->map('GET', '/staff', '\App\Controllers\UserController@new_staff_form', 'new_staff_form');
-$router->map('POST', '/staff/add', '\App\Controllers\UserController@store_staff', 'store');
+$router->map('POST', '/staff/add', '\App\Controllers\UserController@store_staff', 'store_staff');
+$router->map('POST', '/staff/[:user_id]/edit', '\App\Controllers\UserController@edit_staff', 'edit_staff');
 
 //District and route routes
 $router->map('GET', '/district_routes', '\App\Controllers\DistrictController@get_district', 'district');

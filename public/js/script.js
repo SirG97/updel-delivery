@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 
-    // show the delete confirmation modal
+    // show the delete confirmation modal for an order
     $('#deleteOrderModal').on('show.bs.modal', function (event) {
         let button = $(event.relatedTarget); // Button that triggered the modal
         let order_no = button.data('order_no'); // Extract info from data-* attributes
@@ -301,6 +301,95 @@ document.addEventListener('DOMContentLoaded', (event) => {
     $('#deleteOrderBtn').on('click', (e)=>{
         e.preventDefault();
         $("#orderDeleteForm").submit();
+    });
+
+    // Edit staff modal
+    $('#editStaffModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget); // Button that triggered the modal
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        let modal = $(this);
+        modal.find('#user_id').val( button.data('user_id')); // Extract info from data-* attributes
+        modal.find('#username').val( button.data('username')); // Extract info from data-* attributes
+        modal.find('#email').val(button.data('email')); // Extract info from data-* attributes
+        modal.find('#password').val(button.data('password')); // Extract info from data-* attributes
+        modal.find('#firstname').val(button.data('firstname')); // Extract info from data-* attributes
+        modal.find('#lastname').val(button.data('lastname')); // Extract info from data-* attributes
+        modal.find('#address').val(button.data('address')); // Extract info from data-* attributes
+        modal.find('#phone').val(button.data('phone')); // Extract info from data-* attributes
+        modal.find('#city').val(button.data('city')); // Extract info from data-* attributes
+        modal.find('#state').val(button.data('state')); // Extract info from data-* attributes
+        modal.find('#admin_right').val(button.data('admin_right')); // Extract info from data-* attributes
+        modal.find('#job_title').val(button.data('job_title')); // Extract info from data-* attributes
+        modal.find('#job_description').val(button.data('job_description')); // Extract info from data-* attributes
+    });
+
+    $('#editStaffBtn').on('click', (e)=>{
+        e.preventDefault();
+        let user_id = $('#user_id').val();
+        const url = `/staff/${user_id}/edit`;
+        const data = {
+            token : $('#token').val(),
+            username : $('#username').val(),
+            firstname: $('#firstname').val(),
+            lastname : $('#lastname').val(),
+            email : $('#email').val(),
+            password : $('#password').val(),
+            phone : $('#phone').val(),
+            address : $('#address').val(),
+            city : $('#city').val(),
+            state : $('#state').val(),
+            admin_right : $('#admin_right').val(),
+            job_title : $('#job_title').val(),
+            job_description : $('#job_description').val(),
+
+        };
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: data,
+            beforeSend: function(){
+                $('#editStaffBtn').html('<i class="fa fa-spinner fa-spin"></i> Please wait...');
+            },
+            success: function (response) {
+                let data = JSON.parse(response);
+                console.log(JSON.parse(response));
+                let message = data.success;
+                msg.innerHTML = alertMessage('success', message);
+                $('#editStaffBtn').html('Save');
+                //interval(5000);
+                window.location.reload()
+            },
+            error: function(request, error){
+                let errors = JSON.parse(request.responseText);
+                console.log(errors);
+                let ul = '';
+                $.each(errors, (key, value) => {
+                    $.each(value, (index, item)=>{
+                        console.log(item);
+                        ul += `${item} <br>`;
+                    });
+                });
+
+                msg.innerHTML = alertMessage('danger', ul);
+                $('#editStaffBtn').html('Save');
+                interval(5000);
+            }
+        });
+    });
+
+    // show the delete confirmation modal for staff
+    $('#deleteStaffModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget); // Button that triggered the modal
+        let user_id = button.data('user_id'); // Extract info from data-* attributes
+        let form_action = `/staff/${user_id}/delete`;
+
+        let modal = $(this);
+        modal.find('#staffDeleteForm').attr("action", form_action);
+    });
+
+    $('#deleteStaffBtn').on('click', (e)=>{
+        e.preventDefault();
+        $("#staffDeleteForm").submit();
     });
 
     $("#request_type").on('change', () => {
