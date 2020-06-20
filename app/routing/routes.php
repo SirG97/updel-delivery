@@ -28,6 +28,7 @@ $router->map('GET', '/riders', '\App\Controllers\UserController@get_riders', 'ri
 $router->map('GET', '/staff', '\App\Controllers\UserController@new_staff_form', 'new_staff_form');
 $router->map('POST', '/staff/add', '\App\Controllers\UserController@store_staff', 'store_staff');
 $router->map('POST', '/staff/[:user_id]/edit', '\App\Controllers\UserController@edit_staff', 'edit_staff');
+$router->map('POST', '/staff/[:user_id]/delete', '\App\Controllers\UserController@delete_staff', 'delete_staff');
 
 //District and route routes
 $router->map('GET', '/district_routes', '\App\Controllers\DistrictController@get_district', 'district');

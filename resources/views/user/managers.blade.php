@@ -60,7 +60,7 @@
                                            title="Delete staff details"
                                            data-toggle="modal"
                                            data-target="#deleteStaffModal"
-                                           data-order_no="{{ $staff['user_id'] }}"></i>
+                                           data-user_id="{{ $staff['user_id'] }}"></i>
                                     </td>
 
                             </tr>

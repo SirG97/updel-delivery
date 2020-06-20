@@ -157,4 +157,27 @@ class UserController extends BaseController {
          }
      }
 
+     public function delete_staff($id){
+         $user_id = $id['user_id'];
+         if(Request::has('post')){
+             $request = Request::get('post');
+             if(CSRFToken::verifyCSRFToken($request->token)){
+                 try{
+                     $staff = User::where('user_id', '=', $user_id)->first();
+                     $staff->delete();
+                     Session::add('success', 'Staff deleted successfully');
+
+                     Redirect::back();
+                 }catch (\Exception $e){
+                     Session::add('error', 'Staff deletion failed');
+                     Redirect::back();
+                 }
+
+             }
+         }else{
+             Session::add('error', 'Staff deletion failed');
+             Redirect::back();
+         }
+     }
+
 }

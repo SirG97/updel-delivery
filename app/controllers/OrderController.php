@@ -181,10 +181,8 @@ class OrderController extends BaseController{
 
     public function delete_order($id){
         $order_no = $id['order_no'];
-
         if(Request::has('post')){
             $request = Request::get('post');
-
             if(CSRFToken::verifyCSRFToken($request->token)){
                 $order = Order::where('order_no', '=', $order_no)->first();
                 $order->delete();

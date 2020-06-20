@@ -16,7 +16,7 @@ class Redirect{
      *
      */
     public static function back(){
-        $uri = $_SERVER['REQUEST_URI'];
+        $uri = $_SERVER['HTTP_REFERER'];
         header("Location:{$uri}");
     }
 
