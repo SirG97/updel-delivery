@@ -169,13 +169,12 @@
 </header>
 <main class="main" id="main">
     <div class="main_container">
-    @yield('content')
+        @yield('content')
     </div>
 </main>
 
 <script>
     let ctx = $('#contribution-canvas');
 </script>
-
 </body>
 </html>

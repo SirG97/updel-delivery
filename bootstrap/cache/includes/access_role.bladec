@@ -1,0 +1,17 @@
+<?php 
+ $priviledge = app\classes\Session::get('priviledge');
+ ?>
+<?php if($priviledge === 'Admin'): ?>
+ <?php $_shouldextend[1]=1; ?>
+<?php elseif($priviledge === 'Manager'): ?>
+ <?php $_shouldextend[2]=1; ?>
+<?php elseif($priviledge === 'Customer Service Adviser'): ?>
+ <?php $_shouldextend[3]=1; ?>
+<?php elseif($priviledge === 'Rider'): ?>
+ <?php $_shouldextend[4]=1; ?>
+<?php endif; ?>
+
+<?php if (@$_shouldextend[4]) { echo $this->runChild('user.layout.rider'); } ?>
+<?php if (@$_shouldextend[3]) { echo $this->runChild('user.layout.support'); } ?>
+<?php if (@$_shouldextend[2]) { echo $this->runChild('user.layout.manager'); } ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.base'); } ?>

@@ -1,4 +1,4 @@
-@extends('user.layout.base')
+@extends('user.layout.access_role')
 @section('title', 'Customers')
 @section('icon', 'fa-users')
 @section('content')

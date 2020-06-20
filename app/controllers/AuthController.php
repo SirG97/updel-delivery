@@ -53,11 +53,12 @@ class AuthController{
                      }else{
                          Session::add('SESSION_USER_ID', $user->user_id);
                          Session::add('SESSION_USERNAME', $user->firstname);
+                         Session::add('priviledge', $user->admin_right);
 
                          Redirect::to('/dashboard');
                      }
                  }else{
-                     Session::add('error', 'username not found');
+                     Session::add('error', 'Invalid credentials');
                      return view('user\login');
                  }
 

@@ -206,4 +206,4 @@
  </div>
  </div>
 <?php $this->stopSection(); ?>
-<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.base'); } ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.access_role'); } ?>

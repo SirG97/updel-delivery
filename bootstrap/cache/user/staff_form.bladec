@@ -1,5 +1,5 @@
 <?php $_shouldextend[1]=1; ?>
-<?php $this->startSection('title', 'New Customer'); ?>
+<?php $this->startSection('title', 'New Staff'); ?>
 <?php $this->startSection('icon', 'fa-user-plus'); ?>
 <?php $this->startSection('content'); ?>
  <div class="container-fluid">
@@ -108,4 +108,4 @@
  </div>
 <?php $this->stopSection(); ?>
 
-<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.base'); } ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.access_role'); } ?>

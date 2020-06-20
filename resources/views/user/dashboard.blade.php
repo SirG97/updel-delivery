@@ -1,4 +1,4 @@
-@extends('user.layout.base')
+@extends('user.layout.access_role')
 @section('title', 'Dashboard')
 @section('icon', 'fa-tachometer-alt')
 @section('content')
@@ -123,15 +123,11 @@
                             Used Channel
                         </div>
                         <div id="channel-container" class="cool-border px-2">
-                            <canvas id="channel-canvas"></canvas>
+{{--                            <canvas id="channel-canvas"></canvas>--}}
                         </div>
                     </div>
                 </div>
             </div>
     </div>
-{{--    <script>--}}
-{{--        var app = <?php echo json_encode($contribution_count); ?>;--}}
-{{--        console.log(app);--}}
-{{--    </script>--}}
 
 @endsection()

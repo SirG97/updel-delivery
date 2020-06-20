@@ -123,16 +123,12 @@
  Used Channel
  </div>
  <div id="channel-container" class="cool-border px-2">
- <canvas id="channel-canvas"></canvas>
+<?php /*                            <canvas id="channel-canvas"></canvas>*/ ?>
  </div>
  </div>
  </div>
  </div>
  </div>
-<?php /*    <script>*/ ?>
-{{--        var app = <?php echo json_encode($contribution_count); ?>;--}}
-<?php /*        console.log(app);*/ ?>
-<?php /*    </script>*/ ?>
 
 <?php $this->stopSection(); ?>
-<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.base'); } ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.access_role'); } ?>

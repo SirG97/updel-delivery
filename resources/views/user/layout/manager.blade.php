@@ -59,14 +59,7 @@
                         <span class="nav_link_text">Profile</span>
                     </a>
                 </div>
-                <div class="nav_item prelative">
-                    <a href="/managers" class="nav_link nav_flex">
-                            <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-user-shield"></i>
-                            </span>
-                        <span class="nav_link_text">Managers</span>
-                    </a>
-                </div>
+
                 <div class="nav_item prelative">
                     <a href="/support_staff" class="nav_link nav_flex">
                             <span class="nav_link_icon">
@@ -169,12 +162,14 @@
 </header>
 <main class="main" id="main">
     <div class="main_container">
-    @yield('content')
+        @yield('content')
     </div>
 </main>
 
+
 <script>
     let ctx = $('#contribution-canvas');
+
 </script>
 
 </body>

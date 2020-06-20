@@ -1,5 +1,5 @@
-@extends('user.layout.base')
-@section('title', 'New Customer')
+@extends('user.layout.access_role')
+@section('title', 'New Staff')
 @section('icon', 'fa-user-plus')
 @section('content')
     <div class="container-fluid">
