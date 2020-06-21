@@ -1,6 +1,6 @@
 @extends('user.layout.access_role')
 @section('title', 'Contributions')
-@section('icon', 'fa-coins')
+@section('icon', 'fa-bicycle')
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -8,7 +8,7 @@
                 <div class="searchbox mt-0 mr-0">
                     <div class="form-group has-search">
                         <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control" id="search-contribution" placeholder="Search Contributions" style="border:0;">
+                        <input type="text" class="form-control" id="search-contribution" placeholder="Search Riders" style="border:0;">
                     </div>
                     <div class="search-result">
                         <ul class="list-group list-group-flush" id="search-result-list">

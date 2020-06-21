@@ -15,7 +15,7 @@ use App\Models\Pin;
 use App\Models\Contribution;
 
 
-class ContributionController extends BaseController {
+class DeliveryController extends BaseController {
 
     public $table_name = 'contributions';
     public $customers;

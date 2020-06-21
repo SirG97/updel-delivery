@@ -21,6 +21,7 @@ $router->map('POST', '/dashboard', '\App\Controllers\DashboardController@store',
 $router->map('GET', '/dashboard/chart', '\App\Controllers\DashboardController@chart_info', 'chart');
 
 // Staff routes
+$router->map('GET', '/profile', '\App\Controllers\UserController@view_profile', 'profile');
 $router->map('GET', '/managers', '\App\Controllers\UserController@get_managers', 'managers');
 $router->map('GET', '/staff/[:staff_id]', '\App\Controllers\UserController@get_staff', 'staff');
 $router->map('GET', '/support_staff', '\App\Controllers\UserController@get_support_staff', 'support_staff');

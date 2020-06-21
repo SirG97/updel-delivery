@@ -60,6 +60,14 @@
  </a>
  </div>
  <div class="nav_item prelative">
+ <a href="/generate" class="nav_link nav_flex">
+ <span class="nav_link_icon">
+ <i class="fas fa-fw fa-qrcode"></i>
+ </span>
+ <span class="nav_link_text">Generate QR code</span>
+ </a>
+ </div>
+ <div class="nav_item prelative">
  <a href="/managers" class="nav_link nav_flex">
  <span class="nav_link_icon">
  <i class="fas fa-fw fa-user-shield"></i>

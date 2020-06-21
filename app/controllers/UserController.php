@@ -180,4 +180,10 @@ class UserController extends BaseController {
          }
      }
 
+     public function view_profile(){
+         $id = Session::get('SESSION_USER_ID');
+         $profile = User::where('user_id', $id)->first();
+         return view('user\profile', ['profile' => $profile]);
+     }
+
 }

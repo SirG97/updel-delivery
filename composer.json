@@ -13,7 +13,8 @@
         "stackkit/blade-standalone": "^7.5",
         "eftec/bladeone": "^3.46",
         "symfony/var-dumper": "^5.1",
-        "illuminate/database": "^7.16"
+        "illuminate/database": "^7.16",
+        "tecnickcom/tc-lib-barcode": "1.15"
     },
     "autoload":{
         "psr-4":{
