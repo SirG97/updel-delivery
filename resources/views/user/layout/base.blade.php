@@ -64,7 +64,7 @@
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-qrcode"></i>
                             </span>
-                        <span class="nav_link_text">Generate QR code</span>
+                        <span class="nav_link_text">Authorize Delivery</span>
                     </a>
                 </div>
                 <div class="nav_item prelative">

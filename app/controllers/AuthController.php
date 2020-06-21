@@ -62,9 +62,9 @@ class AuthController{
                      return view('user\login');
                  }
 
-                Session::add('success', 'user created successfully');
-
-                Redirect::to('/dashboard');
+//                Session::add('success', 'user created successfully');
+                Session::add('error', 'An error occured');
+                return view('user\login');
 
             }
 

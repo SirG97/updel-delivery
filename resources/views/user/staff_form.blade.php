@@ -79,18 +79,24 @@
 
                                     </div>
                                     <div class="form-row">
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="address">Address</label>
                                             <input type="text" class="form-control"  name="address" id="address" required>
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="job_title">Job title</label>
                                             <input type="text" class="form-control"  name="job_title" id="job_title" required>
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="job_description">Job Description</label>
                                             <div class="input-group mb-3">
                                                 <input type="text" name="job_description" value="" id="job_description"  class="form-control" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <div class="custom-file">
+                                                <input type="file" name="profile_pics" class="custom-file-input" id="profile_pics">
+                                                <label class="custom-file-label" for="profile_pics">Choose file</label>
                                             </div>
                                         </div>
                                     </div>

@@ -15,9 +15,9 @@
  <div class="col-md-8 offset-md-2">
  <?php echo $this->runChild('includes\message'); ?>
  <div class="form-row">
- <div class="col-md-4 mb-3">
- <div class="profile-img">
-
+ <div class="col-md-4 mb-3 d-flex align-items-center flex-column justify-content-center" style="height: inherit">
+ <div class="profile-img my-auto">
+ <img class=" rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
  </div>
  </div>
  <div class="col-md-8 mb-3">

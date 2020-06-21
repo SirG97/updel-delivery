@@ -50,6 +50,9 @@ class UserController extends BaseController {
                  ];
                  $validation = new Validation();
                  $validation->validate($_POST, $rules);
+
+                 // File validation in case it exists
+                 $file = Request::get('file');
                  if($validation->hasError()){
                      $errors = $validation->getErrorMessages();
                      return view('user\staff_form', ['errors' => $errors]);

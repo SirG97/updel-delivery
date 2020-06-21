@@ -13,7 +13,7 @@ class Request{
         $result = [];
         if(count($_GET) > 0) $result['get'] = $_GET;
         if(count($_POST) > 0) $result['post'] = $_POST;
-        $files = $_FILES;
+        $result['file'] = $_FILES;
 
         return  json_decode(json_encode($result), $is_array);
     }
