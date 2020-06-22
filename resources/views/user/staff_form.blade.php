@@ -9,7 +9,7 @@
                     <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
                         Add new user
                     </div>
-                    <form action="/staff/add" method="POST">
+                    <form action="/staff/add" method="POST" enctype="multipart/form-data">
                         <div class="container">
                             <div class="row cool-border trx-bg-head py-3">
                                 <div class="col-md-8 offset-md-2">
@@ -93,10 +93,10 @@
                                                 <input type="text" name="job_description" value="" id="job_description"  class="form-control" >
                                             </div>
                                         </div>
-                                        <div class="col-md-3 mb-3">
-                                            <div class="custom-file">
+                                        <div class="col-md-3">
+                                            <label class="custom-file-label" for="profile_pics">Choose file</label>
+                                            <div class="input-group custom-file">
                                                 <input type="file" name="profile_pics" class="custom-file-input" id="profile_pics">
-                                                <label class="custom-file-label" for="profile_pics">Choose file</label>
                                             </div>
                                         </div>
                                     </div>

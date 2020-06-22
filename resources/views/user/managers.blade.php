@@ -31,8 +31,15 @@
                             @foreach($staffs as $staff)
                                 <tr>
                                 <td scope="row">
-                                    {{ $staff['firstname'] }} {{ $staff['lastname']  }}
+                                    @if($staff['image'] !== '')
+                                        <img class="avatar rounded-circle img-thumbnail img-fluid" src="/{{$staff['image']}}" alt="profile pics">
+                                    @else
+                                        <img class="avatar rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
+                                    @endif
                                 </td>
+                                    <td scope="row">
+                                        {{ $staff['firstname'] }} {{ $staff['lastname']  }}
+                                    </td>
                                 <td>{{ $staff['email'] }}</td>
                                 <td>{{ $staff['phone'] }}</td>
                                 <td>{{ $staff['created_at']->diffForHumans() }}</td>

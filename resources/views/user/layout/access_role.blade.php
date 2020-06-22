@@ -1,13 +1,13 @@
  @php
-    $priviledge = app\classes\Session::get('priviledge');
+    $priviledge = App\Classes\Session::get('priviledge');
 @endphp
 @if($priviledge === 'Admin')
     @extends('user.layout.base')
 @elseif($priviledge === 'Manager')
-    @extends('user.layout.manager')
+    @extends('user.layout.managermenu')
 @elseif($priviledge === 'Customer Service Adviser')
-    @extends('user.layout.support')
+    @extends('user.layout.supportmenu')
 @elseif($priviledge === 'Rider')
-    @extends('user.layout.rider')
+    @extends('user.layout.ridermenu')
 @endif
 

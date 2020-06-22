@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8538c06b-4e34-43a3-be8e-bb227e44e364" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/classes/Upload.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/classes/Resize.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/classes/Request.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/Request.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user.layout.base.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user.layout.base.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/classes/Upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/Upload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user.layout.access_role.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user.layout.access_role.bladec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/managers.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/managers.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/profile.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/profile.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/layout/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layout/base.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/orders.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/orders.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/riders.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/riders.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/settings.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/settings.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/staff_form.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/staff_form.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/support_staff.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/support_staff.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/layout/access_role.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layout/access_role.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/layout/manager.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layout/manager.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/layout/rider.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layout/ridermenu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/layout/support.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layout/support.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/managers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/managers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/staff_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/staff_form.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +32,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable />
+      <executable path="composer" />
     </execution>
   </component>
   <component name="Git.Settings">
@@ -114,7 +125,8 @@
       <workItem from="1592548047943" duration="21831000" />
       <workItem from="1592574614898" duration="42778000" />
       <workItem from="1592759239838" duration="6997000" />
-      <workItem from="1592772092271" duration="2347000" />
+      <workItem from="1592772092271" duration="14297000" />
+      <workItem from="1592825557755" duration="9223000" />
     </task>
     <servers />
   </component>

@@ -60,14 +60,7 @@
                     </a>
                 </div>
 
-                <div class="nav_item prelative">
-                    <a href="/support_staff" class="nav_link nav_flex">
-                            <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-headset"></i>
-                            </span>
-                        <span class="nav_link_text">Customer service</span>
-                    </a>
-                </div>
+
                 <div class="nav_item prelative">
                     <a href="/riders" class="nav_link nav_flex">
                         <span class="nav_link_icon">
@@ -76,14 +69,7 @@
                         <span class="nav_link_text">Riders</span>
                     </a>
                 </div>
-                <div class="nav_item prelative">
-                    <a href="/staff" class="nav_link nav_flex">
-                            <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-user-plus"></i>
-                            </span>
-                        <span class="nav_link_text">New staff</span>
-                    </a>
-                </div>
+
                 <div class="nav_item prelative">
                     <a href="/district_routes" class="nav_link nav_flex">
                             <span class="nav_link_icon">

@@ -1,5 +1,5 @@
  <?php 
- $priviledge = app\classes\Session::get('priviledge');
+ $priviledge = App\Classes\Session::get('priviledge');
  ?>
 <?php if($priviledge === 'Admin'): ?>
  <?php $_shouldextend[2]=1; ?>
@@ -12,7 +12,7 @@
 <?php endif; ?>
 
 
-<?php if (@$_shouldextend[5]) { echo $this->runChild('user.layout.rider'); } ?>
+<?php if (@$_shouldextend[5]) { echo $this->runChild('user.layout.ridermenu'); } ?>
 <?php if (@$_shouldextend[4]) { echo $this->runChild('user.layout.support'); } ?>
 <?php if (@$_shouldextend[3]) { echo $this->runChild('user.layout.manager'); } ?>
 <?php if (@$_shouldextend[2]) { echo $this->runChild('user.layout.base'); } ?>

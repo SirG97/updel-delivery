@@ -8,8 +8,10 @@ use App\Classes\CSRFToken;
 use App\Classes\Random;
 use App\Classes\Redirect;
 use App\Classes\Request;
+use App\Classes\Resize;
 use App\Classes\Session;
 use App\Classes\Validation;
+use App\Classes\Upload;
 use App\Models\User;
 
 class UserController extends BaseController {
@@ -53,9 +55,30 @@ class UserController extends BaseController {
 
                  // File validation in case it exists
                  $file = Request::get('file');
+//                 dd($file);
+                 $filename = isset($file->profile_pics->name) ? $filename = $file->profile_pics->name: $filename = '';
+                 $file_error = [];
+                 if(empty($filename)){
+                     $file_error['profile_pics'] = ['upload an image'];
+                 }elseif (!Upload::is_image($filename)){
+                     $file_error['profile_pics'] = ['Image is not a valid image'];
+                 }
                  if($validation->hasError()){
-                     $errors = $validation->getErrorMessages();
+                     $input_errors = $validation->getErrorMessages();
+                     count($file_error) ? $errors = array_merge($input_errors, $file_error) : $errors = $input_errors;
                      return view('user\staff_form', ['errors' => $errors]);
+                 }
+
+                 // Deal with the upload first
+                 $ds = DIRECTORY_SEPARATOR;
+                 // Resize the image
+                 $temp_file = $file->profile_pics->tmp_name;
+
+
+                 $image_path = Upload::move($temp_file, "img{$ds}uploads{$ds}profile", $filename)->path();
+                 if($image_path !== ''){
+                     $resize = new Resize();
+                     $resize->squareImage($image_path, $image_path, 128);
                  }
 
                  //Add the user
@@ -72,7 +95,8 @@ class UserController extends BaseController {
                      'password' => password_hash($request->password, PASSWORD_BCRYPT),
                      'admin_right' => $request->admin_right,
                      'job_title' => $request->job_title,
-                     'job_description' => $request->job_description
+                     'job_description' => $request->job_description,
+                     'image' => $image_path
                  ];
 
                  User::create($details);

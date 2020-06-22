@@ -59,30 +59,8 @@
                         <span class="nav_link_text">Profile</span>
                     </a>
                 </div>
-                <div class="nav_item prelative">
-                    <a href="/riders" class="nav_link nav_flex">
-                        <span class="nav_link_icon">
-                         <i class="fas fa-fw fa-motorcycle"></i>
-                        </span>
-                        <span class="nav_link_text">Riders</span>
-                    </a>
-                </div>
-                <div class="nav_item prelative">
-                    <a href="/staff" class="nav_link nav_flex">
-                            <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-user-plus"></i>
-                            </span>
-                        <span class="nav_link_text">New staff</span>
-                    </a>
-                </div>
-                <div class="nav_item prelative">
-                    <a href="/district_routes" class="nav_link nav_flex">
-                            <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-route"></i>
-                            </span>
-                        <span class="nav_link_text">Districts/Routes</span>
-                    </a>
-                </div>
+
+
                 <div class="nav_item prelative">
                     <a href="/orders" class="nav_link nav_flex">
                          <span class="nav_link_icon">
