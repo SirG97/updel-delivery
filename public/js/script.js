@@ -327,26 +327,48 @@ document.addEventListener('DOMContentLoaded', (event) => {
         e.preventDefault();
         let user_id = $('#user_id').val();
         const url = `/staff/${user_id}/edit`;
-        const data = {
-            token : $('#token').val(),
-            username : $('#username').val(),
-            firstname: $('#firstname').val(),
-            lastname : $('#lastname').val(),
-            email : $('#email').val(),
-            password : $('#password').val(),
-            phone : $('#phone').val(),
-            address : $('#address').val(),
-            city : $('#city').val(),
-            state : $('#state').val(),
-            admin_right : $('#admin_right').val(),
-            job_title : $('#job_title').val(),
-            job_description : $('#job_description').val(),
+        // const data = {
+        //     token : $('#token').val(),
+        //     username : $('#username').val(),
+        //     firstname: $('#firstname').val(),
+        //     lastname : $('#lastname').val(),
+        //     email : $('#email').val(),
+        //     password : $('#password').val(),
+        //     phone : $('#phone').val(),
+        //     address : $('#address').val(),
+        //     city : $('#city').val(),
+        //     state : $('#state').val(),
+        //     admin_right : $('#admin_right').val(),
+        //     job_title : $('#job_title').val(),
+        //     job_description : $('#job_description').val(),
+        //     image: $("#profile_pics").prop("files")[0]
+        // };
+        // serialize
 
-        };
+        let d = new FormData();
+        d.append('token', $('#token').val());
+        d.append('username', $('#username').val());
+        d.append('firstname', $('#firstname').val());
+        d.append('lastname', $('#lastname').val());
+        d.append('email', $('#email').val());
+        d.append('password', $('#password').val());
+        d.append('phone', $('#phone').val());
+        d.append('address', $('#address').val());
+        d.append('city', $('#city').val());
+        d.append('state', $('#state').val());
+        d.append('admin_right', $('#admin_right').val());
+        d.append('job_title', $('#job_title').val());
+        d.append('job_description', $('#job_description').val());
+        d.append('profile_pics', $("#profile_pics").prop("files")[0]);
+
+
         $.ajax({
             url: url,
             type: 'POST',
-            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+            data: d,
             beforeSend: function(){
                 $('#editStaffBtn').html('<i class="fa fa-spinner fa-spin"></i> Please wait...');
             },

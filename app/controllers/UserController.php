@@ -74,7 +74,6 @@ class UserController extends BaseController {
                  // Resize the image
                  $temp_file = $file->profile_pics->tmp_name;
 
-
                  $image_path = Upload::move($temp_file, "img{$ds}uploads{$ds}profile", $filename)->path();
                  if($image_path !== ''){
                      $resize = new Resize();
@@ -114,9 +113,10 @@ class UserController extends BaseController {
 
      public function edit_staff($id){
          $user_id = $id['user_id'];
-
+//            dd(Request::all());
          if(Request::has('post')){
              $request = Request::get('post');
+
              if(CSRFToken::verifyCSRFToken($request->token, false)){
                  $rules = [
                      'email' => ['required' => true, 'maxLength' => 30, 'email' => true, 'unique_edit' => 'users|' .$user_id .'|user_id'],
@@ -135,6 +135,13 @@ class UserController extends BaseController {
 
                  $validation = new Validation();
                  $validation->validate($_POST, $rules);
+
+                 $file = Request::get('file');
+                 $filename = isset($file->profile_pics->name) ? $filename = $file->profile_pics->name: $filename = '';
+                 $file_error = [];
+                 if(isset($file->profile_pics->name) && !Upload::is_image($filename)){
+                     $file_error['profile_pics'] = ['Image is not a valid image'];
+                 }
                  if($validation->hasError()){
                      $errors = $validation->getErrorMessages();
                      header('HTTP 1.1 422 Unprocessable Entity', true, 422);
@@ -142,31 +149,43 @@ class UserController extends BaseController {
                      exit();
                  }
 
+                 $user = User::findOrFail($user_id);
+
                  //Add the order details to an array
                  //Add the user
-                 $details = [
-                     'user_id' => Random::generateId(16),
-                     'username' => $request->username,
-                     'lastname' => $request->lastname,
-                     'firstname' => $request->firstname,
-                     'email' => $request->email,
-                     'phone' => $request->phone,
-                     'address' => $request->address,
-                     'city' => $request->city,
-                     'state' => $request->state,
-
-                     'admin_right' => $request->admin_right,
-                     'job_title' => $request->job_title,
-                     'job_description' => $request->job_description
-                 ];
+                     $user->username = $request->username;
+                     $user->lastname = $request->lastname;
+                     $user->firstname = $request->firstname;
+                     $user->email = $request->email;
+                     $user->phone = $request->phone;
+                     $user->address = $request->address;
+                     $user->city = $request->city;
+                     $user->state = $request->state;
+                     $user->admin_right = $request->admin_right;
+                     $user->job_title = $request->job_title;
+                     $user->job_description = $request->job_description;
 
                  if($request->password !== ''){
-                     $password = password_hash($request->password, PASSWORD_BCRYPT);
-                     $details['password'] = $password;
+                     $user->password = password_hash($request->password, PASSWORD_BCRYPT);
+                 }
+
+                 // Deal with the upload first
+                 if($filename){
+                     $ds = DIRECTORY_SEPARATOR;
+                     //get the old image for deletion
+                     $old_image = BASE_PATH ."{$ds}public{$ds}$user->image";
+                     $temp_file = $file->profile_pics->tmp_name;
+                     $image_path = Upload::move($temp_file, "img{$ds}uploads{$ds}profile", $filename)->path();
+                     if($image_path !== ''){
+                         $resize = new Resize();
+                         $resize->squareImage($image_path, $image_path, 128);
+                     }
+                     unlink($old_image);
+                     $user->image = $image_path;
                  }
 
                  try{
-                     User::where('user_id', $user_id)->update($details);
+                     $user->save();
                      echo json_encode(['success' => 'Staff updated successfully']);
                      exit();
                  }catch (\Exception $e){

@@ -13,6 +13,6 @@
 
 
 <?php if (@$_shouldextend[5]) { echo $this->runChild('user.layout.ridermenu'); } ?>
-<?php if (@$_shouldextend[4]) { echo $this->runChild('user.layout.support'); } ?>
-<?php if (@$_shouldextend[3]) { echo $this->runChild('user.layout.manager'); } ?>
+<?php if (@$_shouldextend[4]) { echo $this->runChild('user.layout.supportmenu'); } ?>
+<?php if (@$_shouldextend[3]) { echo $this->runChild('user.layout.managermenu'); } ?>
 <?php if (@$_shouldextend[2]) { echo $this->runChild('user.layout.base'); } ?>
