@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        <div class="nav_section">
+        <div class="nav_section margin-fix scroll-menu">
             <div class="nav_section_content">
                 <div class="nav_item prelative">
                     <a href="/dashboard" class="nav_link nav_flex">
@@ -60,7 +60,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/generate" class="nav_link nav_flex">
+                    <a href="/authorize" class="nav_link nav_flex">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-qrcode"></i>
                             </span>
@@ -102,11 +102,20 @@
                 <div class="nav_item prelative">
                     <a href="/district_routes" class="nav_link nav_flex">
                             <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-route"></i>
+                             <i class="fas fa-fw fa-paper-plane"></i>
                             </span>
                         <span class="nav_link_text">Districts/Routes</span>
                     </a>
                 </div>
+                <div class="nav_item prelative">
+                    <a href="/assign_routes" class="nav_link nav_flex">
+                            <span class="nav_link_icon">
+                             <i class="fas fa-fw fa-route"></i>
+                            </span>
+                        <span class="nav_link_text">Assign Routes</span>
+                    </a>
+                </div>
+
                 <div class="nav_item prelative">
                     <a href="/orders" class="nav_link nav_flex">
                          <span class="nav_link_icon">
@@ -115,6 +124,7 @@
                         <span class="nav_link_text">Orders</span>
                     </a>
                 </div>
+
                 <div class="nav_item prelative">
                     <a href="/create_order" class="nav_link nav_flex">
                             <span class="nav_link_icon">

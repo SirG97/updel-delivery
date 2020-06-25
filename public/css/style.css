@@ -42,7 +42,7 @@ body {
     top: 0;
     bottom: 0;
     padding-top: 55px;
-    padding-bottom: 22px;
+    /*padding-bottom: 22px;*/
     flex-direction: column;
     overflow: hidden;
     z-index: 2;
@@ -485,6 +485,10 @@ header{
 
 /*STYLES FOR LOGIN PAGE ENDS*/
 
+.scroll-menu:hover{
+    overflow-y: auto;
+}
+
 @media screen and (min-width: 768px){
     .main{
         padding: 80px 40px 124px 7px;
@@ -504,6 +508,9 @@ header{
         padding: 10px 15px;
     }
 
+    /*.margin-fix{*/
+    /*    margin-left: 0;*/
+    /*}*/
     header{
         top: 0;
         left: 60px;
@@ -532,6 +539,10 @@ header{
     .navigation-menu {
         display: none;
     }
+
+    /*.margin-fix{*/
+    /*    margin-left: -44px;*/
+    /*}*/
     header{
         left: 252px;
     }
@@ -550,7 +561,7 @@ header{
     .nav-sidebar {
         width: 250px;
         padding-top: 60px;
-        padding-bottom: 44px;
+        /*padding-bottom: 44px;*/
     }
 }
 

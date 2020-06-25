@@ -1,0 +1,42 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title', 'Authorization'); ?>
+<?php $this->startSection('icon', 'fa-user-plus'); ?>
+<?php $this->startSection('content'); ?>
+ <div class="container-fluid">
+ <div class="row ">
+ <div class="col-md-12">
+ <div class="custom-panel card py-2">
+ <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
+ Authorization QR code
+ </div>
+ <div class="container">
+ <div class="row cool-border trx-bg-head py-3">
+ <div class="col-md-8 offset-md-2">
+ <?php echo $this->runChild('includes\message'); ?>
+ <div class="qrcode-container text-center">
+ <?php if($qr_code !== '' and $qr_code !== null): ?>
+ <img src="/<?php echo \htmlentities($qr_code->auth_img, ENT_QUOTES, 'UTF-8', false); ?>" class="img-fluid" alt="QR_code authorizer">
+ <?php else: ?>
+ <i class="fas fa-fw fa-qrcode fa-2x"></i>
+ No barcode generated yet
+ <?php endif; ?>
+ </div>
+ </div>
+ </div>
+ </div>
+ <form action="/generate_qr_code" method="POST">
+ <input type="hidden" name="token" value="<?php echo \htmlentities(\App\Classes\CSRFToken::_token(), ENT_QUOTES, 'UTF-8', false); ?>">
+ <input type="hidden" name="user_id" value="<?php echo \htmlentities(\App\Classes\Session::get('SESSION_USER_ID'), ENT_QUOTES, 'UTF-8', false); ?>">
+ <div class="panel-footer py-2 mt-2 mr-3 d-flex justify-content-end">
+ <button type="submit" class="btn btn-primary btn-sm px-3">Generate QRcode</button>
+ </div>
+ </form>
+ </div>
+ </div>
+
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+
+
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.access_role'); } ?>

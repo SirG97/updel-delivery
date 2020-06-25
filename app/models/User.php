@@ -9,7 +9,6 @@ use Carbon\Carbon;
 
 class User extends Model{
     public $timestamps = true;
-    public $incrementing = false;
     protected $primaryKey = 'user_id';
     protected $keyType = 'string';
     protected $fillable = ['user_id','username', 'lastname', 'firstname', 'email', 'password',

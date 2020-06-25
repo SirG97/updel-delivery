@@ -135,7 +135,7 @@ class UserController extends BaseController {
 
                  $validation = new Validation();
                  $validation->validate($_POST, $rules);
-
+                 //Handle file upload
                  $file = Request::get('file');
                  $filename = isset($file->profile_pics->name) ? $filename = $file->profile_pics->name: $filename = '';
                  $file_error = [];
@@ -229,6 +229,7 @@ class UserController extends BaseController {
      public function view_profile(){
          $id = Session::get('SESSION_USER_ID');
          $profile = User::where('user_id', $id)->first();
+         //dd($profile);
          return view('user\profile', ['profile' => $profile]);
      }
 

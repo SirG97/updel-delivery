@@ -35,8 +35,12 @@ $router->map('POST', '/staff/[:user_id]/delete', '\App\Controllers\UserControlle
 $router->map('GET', '/district_routes', '\App\Controllers\DistrictController@get_district', 'district');
 $router->map('POST', '/district/create', '\App\Controllers\DistrictController@store_district', 'store_district');
 $router->map('POST', '/route/create', '\App\Controllers\DistrictController@store_route', 'store_route');
+$router->map('GET', '/assign_routes', '\App\Controllers\DeliveryController@get_assign_route', 'get_assign_route');
+$router->map('POST', '/route/assign', '\App\Controllers\DeliveryController@assign_route', 'assign_route');
+
 $router->map('POST', '/route/[:route_id]/edit', '\App\Controllers\DistrictController@edit_route', 'edit_route');
 $router->map('POST', '/route/[:route_id]/delete', '\App\Controllers\DistrictController@delete_route', 'delete_route');
+
 
 //Order Routes
 $router->map('GET', '/orders', '\App\Controllers\OrderController@show_orders', 'orders');
@@ -47,31 +51,14 @@ $router->map('POST', '/order/[:order_no]/edit', '\App\Controllers\OrderControlle
 $router->map('POST', '/order/[:order_no]/delete', '\App\Controllers\OrderController@delete_order', 'delete_order');
 
 
-
-$router->map('GET', '/customer/[:customer_id]', '\App\Controllers\OrderController@getcustomer', 'get_customer');
+// Delivery Authorization and authentication
+$router->map('GET', '/authorize', '\App\Controllers\DeliveryController@get_authorization_page', 'authorize');
+$router->map('POST', '/generate_qr_code', '\App\Controllers\DeliveryController@generate_authorization_qr_code', 'generate_qr');
+$router->map('GET', '/get_authorized', '\App\Controllers\DeliveryController@get_authorization_page', 'get_authorize');
 
 
 //$router->map('GET', '/customer/[:contribution_id]', '\App\Controllers\CustomerController@getcontribution', 'get_contribution');
 $router->map('POST', '/customer/[:customer_id]/edit', '\App\Controllers\CustomerController@editcustomer', 'edit_customer');
-$router->map('POST', '/customer/[:customer_id]/delete', '\App\Controllers\CustomerController@deletecustomer', 'delete_customer');
-$router->map('GET', '/customer/[:terms]/search', '\App\Controllers\CustomerController@searchcustomer', 'search_customer');
-
-//Fastrak Pin Route
-$router->map('GET', '/pins', '\App\Controllers\PinController@index', 'pins');
-$router->map('GET', '/newpins', '\App\Controllers\PinController@generate_form', 'generate_pins_form');
-$router->map('POST', '/pins/new', '\App\Controllers\PinController@generate', 'generate_pins');
-$router->map('GET', '/pins/live', '\App\Controllers\PinController@live', 'get_live_pins');
-$router->map('GET', '/pins/used', '\App\Controllers\PinController@used', 'get_used_pins');
-$router->map('GET', '/pins/pending', '\App\Controllers\PinController@pending', 'get_pending_pins');
-
-//$router->addMatchTypes(array('cId' => '[a-zA-Z]{2}[0-9](?:_[0-9]++)?'));
-
-//Contributions
-$router->map('GET', '/contributions', '\App\Controllers\ContributionController@get_all', 'contributions');
-$router->map('GET', '/contribute', '\App\Controllers\ContributionController@contribute_form', 'contribute_form');
-$router->map('POST', '/contribute', '\App\Controllers\ContributionController@contribute', 'contribute');
-$router->map('GET', '/contributions/[:terms]/search', '\App\Controllers\ContributionController@search_contribution', 'search_contribution');
-$router->map('POST', '/ussd', '\App\Controllers\ContributionController@ussd', 'ussd');
 
 // Settings
 $router->map('GET', '/settings', '\App\Controllers\SettingsController@showSettings', 'show_settings');

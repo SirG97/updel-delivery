@@ -30,23 +30,23 @@
                         <tbody class="table-style">
                         @if(!empty($staffs) && count($staffs) > 0)
                             @foreach($staffs as $staff)
-                                <tr>
-                                <td scope="row">
+                                <tr class="">
+                                <td scope="row" class="align-middle py-2">
                                     @if($staff['image'] !== '')
                                         <img class="avatar rounded-circle img-thumbnail img-fluid" src="/{{$staff['image']}}" alt="profile pics">
                                     @else
                                         <img class="avatar rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
                                     @endif
                                 </td>
-                                    <td scope="row">
+                                    <td class="align-middle">
                                         {{ $staff['firstname'] }} {{ $staff['lastname']  }}
                                     </td>
-                                <td>{{ $staff['email'] }}</td>
-                                <td>{{ $staff['phone'] }}</td>
-                                <td>{{ $staff['created_at']->diffForHumans() }}</td>
-                                    <td class="table-action d-flex flex-nowrap">
+                                <td class="align-middle">{{ $staff['email'] }}</td>
+                                <td class="align-middle">{{ $staff['phone'] }}</td>
+                                <td class="align-middle">{{ $staff['created_at']->diffForHumans() }}</td>
+                                    <td class="table-action align-middle">
                                         <a href="/staff/{{ $staff['user_id'] }}" ><i class="fas fa-fw fa-eye text-success" title="View order details"></i></a> &nbsp; &nbsp;
-                                        <i class="fas fa-fw fa-edit text-primary"
+                                        <i class="fas fa-fw fa-edit text-primary align-"
                                            data-toggle="modal"
                                            data-target="#editStaffModal"
                                            title="Edit staff details"
