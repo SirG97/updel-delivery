@@ -17,6 +17,10 @@ class District extends Model
     public $incrementing = false;
     protected $fillable = ['district_id', 'name', 'created_by',];
 
+    public function routes(){
+        return $this->hasMany(Route::class, 'district_id', 'route_id');
+    }
+
 
     public function transform($data){
         $district = [];

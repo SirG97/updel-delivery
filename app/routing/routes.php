@@ -36,6 +36,7 @@ $router->map('GET', '/district_routes', '\App\Controllers\DistrictController@get
 $router->map('POST', '/district/create', '\App\Controllers\DistrictController@store_district', 'store_district');
 $router->map('POST', '/route/create', '\App\Controllers\DistrictController@store_route', 'store_route');
 $router->map('GET', '/assign_routes', '\App\Controllers\DeliveryController@get_assign_route', 'get_assign_route');
+$router->map('GET', '/assign_routes/[:rider_id]', '\App\Controllers\DeliveryController@get_rider_routes', 'rider_routes');
 $router->map('POST', '/route/assign', '\App\Controllers\DeliveryController@assign_route', 'assign_route');
 
 $router->map('POST', '/route/[:route_id]/edit', '\App\Controllers\DistrictController@edit_route', 'edit_route');

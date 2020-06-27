@@ -1,22 +1,18 @@
 <?php
 
 
-namespace App\Models;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Route extends Model{
-//    protected $primaryKey = 'route_id';
+class Rider extends Model{
     public $timestamps = true;
+//    protected $primaryKey = 'user_id';
     protected $dates = ['deleted_at'];
-    protected $fillable = ['district_id','district','route_id', 'name', 'created_by'];
+    protected $fillable = ['rider_id','user_id','route_id'];
 
-    public function district(){
-        return $this->belongsTo(District::class, 'district_id', 'route_id');
-    }
-
-    public function riders(){
-        return $this->hasMany(Rider::class, 'route_id', 'user_id');
+    public function routes(){
+        return $this->hasMany(Route::class, 'route_id', 'route_id');
     }
 
     public function transform($data){

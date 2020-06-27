@@ -13,7 +13,7 @@
 
                 <div class="custom-panel card py-2">
                     <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
-                        Riders
+                       Select a rider to assign route
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover ">
@@ -40,34 +40,14 @@
                                         <td class="align-middle">
                                             {{ $staff['firstname'] }} {{ $staff['lastname']  }}
                                         </td>
-                                        <td class="align-middle">{{ $staff['email'] }}</td>
                                         <td class="align-middle">{{ $staff['phone'] }}</td>
                                         <td class="align-middle">{{ $staff['created_at']->diffForHumans() }}</td>
                                         <td class="table-action align-middle">
-                                            <a href="/staff/{{ $staff['user_id'] }}" ><i class="fas fa-fw fa-eye text-success" title="View order details"></i></a> &nbsp; &nbsp;
-                                            <i class="fas fa-fw fa-edit text-primary align-"
-                                               data-toggle="modal"
-                                               data-target="#editStaffModal"
-                                               title="Edit staff details"
-                                               data-user_id="{{ $staff['user_id'] }}"
-                                               data-firstname="{{ $staff['firstname'] }}"
-                                               data-lastname="{{ $staff['lastname'] }}"
-                                               data-username="{{ $staff['username'] }}"
-                                               data-email="{{ $staff['email'] }}"
-                                               data-password=""
-                                               data-phone="{{ $staff['phone'] }}"
-                                               data-address="{{ $staff['address'] }}"
-                                               data-city="{{ $staff['city'] }}"
-                                               data-state="{{ $staff['state'] }}"
-                                               data-admin_right="{{ $staff['admin_right'] }}"
-                                               data-job_title="{{ $staff['job_title'] }}"
-                                               data-job_description="{{ $staff['job_description'] }}"
-                                            ></i>
+                                            <a href="/assign_routes/{{ $staff['user_id'] }}" >Assign route</a> &nbsp; &nbsp;
                                         </td>
 
                                     </tr>
                                 @endforeach
-
                             @else
                                 <tr>
                                     <td colspan="5">

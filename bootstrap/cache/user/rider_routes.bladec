@@ -1,0 +1,244 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('title', 'Profile'); ?>
+<?php $this->startSection('icon', 'fa-user-plus'); ?>
+<?php $this->startSection('content'); ?>
+ <div class="container-fluid">
+ <?php echo $this->runChild('includes\message'); ?>
+ <div class="row">
+ <div class="col-md-5">
+ <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
+ <?php if(!empty($profile)): ?>
+ <div class="row">
+ <div class="col-md-12">
+ <div class="col-md-12 mb-3 d-flex align-items-center flex-column justify-content-center" style="height: inherit">
+ <div class="profile-img my-auto">
+ <img class=" rounded-circle img-thumbnail img-fluid" src="/<?php echo \htmlentities($profile->image, ENT_QUOTES, 'UTF-8', false); ?>" alt="profile pics">
+ </div>
+ </div>
+ <div class="basic-section">
+ <h3 class="text-center"><?php echo \htmlentities($profile->firstname, ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($profile->lastname, ENT_QUOTES, 'UTF-8', false); ?></h3>
+ <h6 class="text-center text-primary"><?php echo \htmlentities($profile->admin_right, ENT_QUOTES, 'UTF-8', false); ?></h6>
+ </div>
+ </div>
+ </div>
+ <?php endif; ?>
+ </div>
+ </div>
+ <div class="col-md-7">
+ <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
+ <div class="d-flex flex-column">
+ <i class="far fa-fw fa-paper-plane fa-3x align-self-center icon-color"></i>
+ <h6 class="text-center">Assigned Routes</h6>
+ <div class="table-responsive">
+ <table class="table table-hover ">
+ <thead class="trx-bg-head text-secondary py-3 px-3">
+ <tr>
+ <th scope="col">Route name</th>
+ <th scope="col">District</th>
+ <th scope="col">Actions</th>
+ </tr>
+ </thead>
+ <tbody class="table-style">
+
+ <?php if(!empty($assigned_routes) && count($assigned_routes) > 0): ?>
+ <?php $__currentLoopData = $assigned_routes; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $assigned_route): $loop = $this->incrementLoopIndices();  ?>
+ <?php $__currentLoopData = $assigned_route->routes; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $r): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <td scope="row"><?php echo \htmlentities($r['name'], ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td><?php echo \htmlentities($r['district'], ENT_QUOTES, 'UTF-8', false); ?></td>
+ <td class="table-action d-flex flex-nowrap">
+ &nbsp; &nbsp
+ <i class="fas fa-fw fa-trash text-danger"
+ title="Delete assigned route"
+ data-toggle="modal"
+ data-target="#deleteModal"
+ data-route_id="<?php echo \htmlentities($assigned_route['rider_id'], ENT_QUOTES, 'UTF-8', false); ?>"></i>
+ </td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ <?php /* Delete Modal*/ ?>
+ <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered" role="document">
+ <div class="modal-content">
+ <div class="modal-header">
+ <h5 class="modal-title" id="exampleModalLabel">Delete route</h5>
+ <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ <span aria-hidden="true">&times;</span>
+ </button>
+ </div>
+ <div class="modal-body">
+ <form id="routeDeleteForm" action="" method="POST">
+ <div class="col-md-12">
+ Delete route?
+ <input type="hidden" id="token" name="token" value="<?php echo \htmlentities(\App\Classes\CSRFToken::_token(), ENT_QUOTES, 'UTF-8', false); ?>">
+ </div>
+ </form>
+ </div>
+ <div class="modal-footer">
+ <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ <button type="button" class="btn btn-danger" id="deleteRouteBtn">Delete</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ <?php else: ?>
+ <tr>
+ <td colspan="7">
+ <div class="d-flex justify-content-center">No routes assigned</div>
+ </td>
+ </tr>
+ <?php endif; ?>
+ </tbody>
+ </table>
+ </div>
+
+
+ </div>
+
+ </div>
+ <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
+ <div class="d-flex flex-column">
+
+ <form class="mt-3" action="/route/assign" method="POST">
+ <input type="hidden" id="token" name="token" value="<?php echo \htmlentities(\App\Classes\CSRFToken::_token(), ENT_QUOTES, 'UTF-8', false); ?>">
+ <input type="hidden" id="user_id" name="user_id" value="<?php echo \htmlentities($profile->user_id, ENT_QUOTES, 'UTF-8', false); ?>">
+ <label for="routes_to_assign" class="">Select a route to assign</label>
+ <select class="custom-select" name="route_to_assign" id="routes_to_assign" required>
+ <?php if(!empty($routes) && count($routes) > 0): ?>
+ <option value="" selected>Select a route</option>
+ <?php $__currentLoopData = $routes; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $route): $loop = $this->incrementLoopIndices();  ?>
+ <option value=<?php echo \htmlentities($route['route_id'], ENT_QUOTES, 'UTF-8', false); ?>> <?php echo \htmlentities($route['name'], ENT_QUOTES, 'UTF-8', false); ?></option>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+ <?php else: ?>
+ <option value="" disabled selected>No routes available to assign</option>
+ <?php endif; ?>
+ </select>
+ <div class="panel-footer py-2 mt-2  d-flex justify-content-end">
+ <button type="submit" class="btn btn-primary btn-sm px-3">Assign</button>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ </div>
+<?php /*        <div class="row ">*/ ?>
+<?php /*            <div class="col-md-12">*/ ?>
+<?php /*                <div class="custom-panel card py-2">*/ ?>
+<?php /*                    <div class="font-weight-bold text-secondary mb-1 py-3 px-3">*/ ?>
+<?php /*                        Rider routes*/ ?>
+<?php /*                    </div>*/ ?>
+<?php /*                        <div class="container">*/ ?>
+<?php /*                            <div class="row trx-bg-head py-3">*/ ?>
+<?php /*                                <div class="col-md-10 offset-md-1">*/ ?>
+<?php /*                                    <?php echo $this->runChild('includes\message'); ?>*/ ?>
+
+<?php /*                                    <?php if(!empty($profile)): ?>*/ ?>
+<?php /*                                        <div class="row">*/ ?>
+<?php /*                                            <div class="col-md-6">*/ ?>
+<?php /*                                                <div class="col-md-12 mb-3 d-flex align-items-center flex-column justify-content-center" style="height: inherit">*/ ?>
+<?php /*                                                    <div class="profile-img my-auto">*/ ?>
+<?php /*                                                        <img class=" rounded-circle img-thumbnail img-fluid" src="/<?php echo \htmlentities($profile->image, ENT_QUOTES, 'UTF-8', false); ?>" alt="profile pics">*/ ?>
+<?php /*                                                    </div>*/ ?>
+<?php /*                                                </div>*/ ?>
+<?php /*                                                <div class="basic-section">*/ ?>
+<?php /*                                                    <h3 class="text-center"><?php echo \htmlentities($profile->firstname, ENT_QUOTES, 'UTF-8', false); ?> <?php echo \htmlentities($profile->lastname, ENT_QUOTES, 'UTF-8', false); ?></h3>*/ ?>
+<?php /*                                                    <h6 class="text-center text-primary"><?php echo \htmlentities($profile->admin_right, ENT_QUOTES, 'UTF-8', false); ?></h6>*/ ?>
+<?php /*                                                </div>*/ ?>
+<?php /*                                            </div>*/ ?>
+<?php /*                                            <div class="col-md-6">*/ ?>
+<?php /*                                                <div class="col-md-12">*/ ?>
+<?php /*                                                    <div class="card  order-card text-secondary">*/ ?>
+<?php /*                                                        <div class="card-body">*/ ?>
+<?php /*                                                            <div class="row">*/ ?>
+<?php /*                                                                <div class="col-md-5">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">Job title:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->job_title, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                                <div class="col-md-7">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">Job description:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->job_description, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                            </div>*/ ?>
+<?php /*                                                            <div class="row">*/ ?>
+<?php /*                                                                <div class="col-md-4">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">Email:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->email, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                                <div class="col-md-4">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">Username:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->username, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                                <div class="col-md-4">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">Phone:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->phone, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                            </div>*/ ?>
+<?php /*                                                            <div class="row">*/ ?>
+<?php /*                                                                <div class="col-md-3">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">City:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->city, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                                <div class="col-md-3">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">State:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->state, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                                <div class="col-md-6">*/ ?>
+<?php /*                                                                    <h6 class="text-secondary">Address:</h6>*/ ?>
+<?php /*                                                                    <p><?php echo \htmlentities($profile->address, ENT_QUOTES, 'UTF-8', false); ?></p>*/ ?>
+<?php /*                                                                </div>*/ ?>
+<?php /*                                                            </div>*/ ?>
+<?php /*                                                        </div>*/ ?>
+<?php /*                                                    </div>*/ ?>
+<?php /*                                                </div>*/ ?>
+<?php /*                                            </div>*/ ?>
+<?php /*                                        </div>*/ ?>
+<?php /*                                    <?php endif; ?>*/ ?>
+<?php /*                                </div>*/ ?>
+<?php /*                            </div>*/ ?>
+<?php /*                        </div>*/ ?>
+
+
+<?php /*                </div>*/ ?>
+<?php /*            </div>*/ ?>
+
+<?php /*        </div>*/ ?>
+<?php /*        <div class="row ">*/ ?>
+<?php /*            <div class="col-md-12">*/ ?>
+<?php /*                <div class="custom-panel card py-2">*/ ?>
+<?php /*                    <div class="font-weight-bold text-secondary mb-1 py-3 px-3">*/ ?>
+<?php /*                        Password settings*/ ?>
+<?php /*                    </div>*/ ?>
+<?php /*                    <div class="container">*/ ?>
+<?php /*                        <div class="row trx-bg-head py-3" style="border-top: 1px solid #e3e8ee; border-bottom: 1px solid #e3e8ee">*/ ?>
+<?php /*                            <div class="col-md-4 offset-md-3">*/ ?>
+<?php /*                                <div class="form-group">*/ ?>
+<?php /*                                    <label for="oldpassword" class="">Old Password</label>*/ ?>
+<?php /*                                    <input type="password" class="form-control" value="" id="oldpassword" name="oldpassword">*/ ?>
+<?php /*                                </div>*/ ?>
+<?php /*                                <div class="form-group">*/ ?>
+<?php /*                                    <label for="password" class="">Password</label>*/ ?>
+<?php /*                                    <input type="password" class="form-control" value="" id="password" name="password">*/ ?>
+<?php /*                                </div>*/ ?>
+<?php /*                                <div class="form-group">*/ ?>
+<?php /*                                    <label for="cpassword" class="">Confirm Password</label>*/ ?>
+<?php /*                                    <input type="password" class="form-control" value="" id="cpassword" name="cpassword">*/ ?>
+<?php /*                                </div>*/ ?>
+<?php /*                            </div>*/ ?>
+<?php /*                        </div>*/ ?>
+<?php /*                    </div>*/ ?>
+<?php /*                    <div class="panel-footer py-2 mt-2 mr-3 d-flex justify-content-end">*/ ?>
+<?php /*                        <div class="btn btn-primary btn-sm px-3">Save</div>*/ ?>
+<?php /*                    </div>*/ ?>
+<?php /*                </div>*/ ?>
+<?php /*            </div>*/ ?>
+
+<?php /*        </div>*/ ?>
+ </div>
+<?php $this->stopSection(); ?>
+
+<?php if (@$_shouldextend[1]) { echo $this->runChild('user.layout.access_role'); } ?>
