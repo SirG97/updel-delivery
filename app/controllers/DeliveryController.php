@@ -94,6 +94,16 @@ class DeliveryController extends BaseController {
        return view('user\rider_routes', ['profile' => $riders,'routes' => $routes, 'assigned_routes' => $assigned_routes, ]);
    }
 
+   public function filter_dropdown($array, $value){
+        $temp = [];
+        foreach($array as $item){
+            if($item['route_id'] !== $value){
+                array_push($temp, $item);
+            }
+        }
+        return $temp;
+    }
+
    public function assign_route(){
        if(Request::has('post')) {
            $request = Request::get('post');
@@ -139,15 +149,23 @@ class DeliveryController extends BaseController {
        }
    }
 
-   public function filter_dropdown($array, $value){
-        $temp = [];
-        foreach($array as $item){
-            if($item['route_id'] !== $value){
-                array_push($temp, $item);
+    public function delete_assigned_route($id){
+        $rider_id = $id['rider_id'];
+
+        if(Request::has('post')){
+            $request = Request::get('post');
+            if(CSRFToken::verifyCSRFToken($request->token)){
+                $rider = Rider::where('rider_id', '=', $rider_id)->first();
+                $rider->delete();
+                Session::add('success', 'Route unassigned successfully');
+                Redirect::back();
+                exit();
             }
+            Session::add('error', 'Operation failed, please try again.');
+            Redirect::back();
+        }else{
+            Session::add('error', 'Operation failed, please try again.');
+            Redirect::back();
         }
-        return $temp;
-   }
-
-
+    }
 }

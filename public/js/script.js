@@ -414,6 +414,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
         $("#staffDeleteForm").submit();
     });
 
+    $('#deleteAssignedRouteModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget); // Button that triggered the modal
+        let rider_id = button.data('rider_id'); // Extract info from data-* attributes
+        let form_action = `/assigned_routes/${rider_id}/delete`;
+
+        let modal = $(this);
+        modal.find('#assignedRouteDeleteForm').attr("action", form_action);
+    });
+
+    $('#deleteAssignedRouteBtn').on('click', (e)=>{
+        e.preventDefault();
+        $("#assignedRouteDeleteForm").submit();
+    });
+
     $("#request_type").on('change', () => {
         let request = $("#request_type").val();
         if(request === 'collection'){

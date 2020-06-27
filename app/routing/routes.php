@@ -38,6 +38,7 @@ $router->map('POST', '/route/create', '\App\Controllers\DistrictController@store
 $router->map('GET', '/assign_routes', '\App\Controllers\DeliveryController@get_assign_route', 'get_assign_route');
 $router->map('GET', '/assign_routes/[:rider_id]', '\App\Controllers\DeliveryController@get_rider_routes', 'rider_routes');
 $router->map('POST', '/route/assign', '\App\Controllers\DeliveryController@assign_route', 'assign_route');
+$router->map('POST', '/assigned_routes/[:rider_id]/delete', '\App\Controllers\DeliveryController@delete_assigned_route', 'delete_assigned_route');
 
 $router->map('POST', '/route/[:route_id]/edit', '\App\Controllers\DistrictController@edit_route', 'edit_route');
 $router->map('POST', '/route/[:route_id]/delete', '\App\Controllers\DistrictController@delete_route', 'delete_route');

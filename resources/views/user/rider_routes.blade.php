@@ -52,15 +52,15 @@
                                                     <i class="fas fa-fw fa-trash text-danger"
                                                        title="Delete assigned route"
                                                        data-toggle="modal"
-                                                       data-target="#deleteModal"
-                                                       data-route_id="{{ $assigned_route['rider_id'] }}"></i>
+                                                       data-target="#deleteAssignedRouteModal"
+                                                       data-rider_id="{{ $assigned_route['rider_id'] }}"></i>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @endforeach
 
                                     {{-- Delete Modal--}}
-                                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteAssignedRouteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -70,16 +70,16 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <form id="routeDeleteForm" action="" method="POST">
+                                                    <form id="assignedRouteDeleteForm" action="" method="POST">
                                                         <div class="col-md-12">
-                                                            Delete route?
+                                                            Delete assigned route?
                                                             <input type="hidden" id="token" name="token" value="{{\App\Classes\CSRFToken::_token()}}">
                                                         </div>
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-danger" id="deleteRouteBtn">Delete</button>
+                                                    <button type="button" class="btn btn-danger" id="deleteAssignedRouteBtn">Delete</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -94,14 +94,10 @@
                                 </tbody>
                             </table>
                         </div>
-
-
                     </div>
-
                 </div>
                 <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
                     <div class="d-flex flex-column">
-
                         <form class="mt-3" action="/route/assign" method="POST">
                             <input type="hidden" id="token" name="token" value="{{\App\Classes\CSRFToken::_token()}}">
                             <input type="hidden" id="user_id" name="user_id" value="{{$profile->user_id}}">
