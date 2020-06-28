@@ -334,6 +334,14 @@ header{
     border-top: 1px solid #e3e8ee !important;
 }
 
+.cool-border-bottom{
+    border-bottom: 1px solid #e3e8ee !important;
+}
+
+.order-details-container{
+    background-color: #f7fafc;
+}
+
 .contribution-overview{
     background-color: #007bff;
     color: white;
@@ -472,6 +480,56 @@ header{
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.order-name{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    color: #1a1f36;
+    margin-top: 8px;
+    display: inline;
+}
+
+.order-name span{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    color: #1a1f36;
+    margin-top: 8px;
+    display: inline;
+}
+
+.order-details{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.order-detail{
+    box-shadow: inset  -1px 0 #e3e8ee;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+
+.order-detail-title{
+    color: #697386;
+}
+
+.order-detail:last-child{
+    box-shadow: none;
+}
+
+.full-details{
+    font-weight: 500;
+    background-color: #f7fafc;
+}
+
+.full-details > .list-group > .list-group-item{
+    background: transparent;
+}
+.full-details > .list-group{
+    background: transparent;
 }
 
 .bg-c-blue{

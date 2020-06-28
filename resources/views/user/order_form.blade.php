@@ -12,17 +12,26 @@
                     <form action="/save_order" method="POST">
                         <div class="container">
                             <div class="row cool-border trx-bg-head py-3">
-                                <div class="col-md-8 offset-md-2">
+                                <div class="col-md-10 offset-md-1">
                                     @include('includes\message')
                                     <div class="form-row">
                                         <input type="hidden" id="token" name="token" value="{{\App\Classes\CSRFToken::_token()}}">
-                                        <div class="col-md-5 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="amount">Request Type</label>
                                             <select class="custom-select" id="request_type" name="request_type" onchange="input_to_disable()" required>
                                                 <option value="combo">Combo Request</option>
                                                 <option value="collection">Collection Request</option>
                                                 <option value="delivery">Delivery Request</option>
                                                 <option value="swap">Swap Request</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-3 mb-3">
+                                            <label for="amount">Sub services</label>
+                                            <select class="custom-select" id="request_type" name="request_type" onchange="input_to_disable()" required>
+                                                <option value="same-day">Same day delivery</option>
+                                                <option value="next-day">Next day delivery</option>
+                                                <option value="two-day">Two day delivery</option>
+                                                <option value="premium">Premium service</option>
                                             </select>
                                         </div>
                                         <div class="col-md-3 mb-3">
@@ -38,7 +47,7 @@
                                                 @endif
                                             </select>
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class="col-md-3 mb-3">
                                             <label for="admin_right">Select route</label>
                                             <select class="custom-select" id="route" name="route" required>
                                                 @if(!empty($routes) && count($routes) > 0)
@@ -54,7 +63,7 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-4 mb-3">
-                                            <label for="fullname">Full name</label>
+                                            <label for="fullname">Customer name</label>
                                             <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
 
                                         </div>

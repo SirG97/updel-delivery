@@ -45,6 +45,10 @@ class OrderController extends BaseController{
         return view('user\orders', [ 'orders' => $orders,'districts' => $districts, 'routes' => $routes]);
     }
 
+    public function get_order($id){
+        return view('user\order');
+    }
+
     public function get_order_form(){
         $districts = District::all();
         $routes = Route::all();
