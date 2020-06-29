@@ -16,16 +16,26 @@ use App\Models\User;
 
 class UserController extends BaseController {
      public function get_riders(){
-        return view('user\riders', ['staffs' => []]);
+         $riders = User::where('admin_right','Rider')->get();
+
+        return view('user\riders', ['staffs' => $riders]);
      }
 
      public function get_support_staff(){
-         return view('user\support_staff', ['staffs' => []]);
+         $support_staff = User::where('admin_right','Customer Service Adviser')->get();
+         return view('user\support_staff', ['staffs' => $support_staff]);
      }
 
      public function get_managers(){
-         $managers = User::all();
+         $managers = User::where('admin_right','Manager')->get();
          return view('user\managers', ['staffs' => $managers]);
+     }
+
+     public function get_staff($id){
+         $id = $id['staff_id'];
+         $profile = User::where('user_id', $id)->first();
+         //dd($profile);
+         return view('user\staff', ['profile' => $profile]);
      }
 
      public function new_staff_form(){

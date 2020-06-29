@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin :: @yield('title')</title>
+    <link rel="favicon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/Chart.min.css">
@@ -34,7 +35,7 @@
                 <div class="nav_item prelative">
                     <a href="" class="nav_flex">
                             <span class="company-icon d-flex justify-content-center">
-                             <i class="fas fa-fw fa-shield-alt align-self-center"></i>
+                             <img src="/img/favicon.png" class="img-fluid" />
                             </span>
                         <span class="company_text font-weight-bold">Updel Admin</span>
                     </a>

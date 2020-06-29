@@ -1,5 +1,5 @@
 @extends('user.layout.access_role')
-@section('title', 'Manager')
+@section('title', 'Managers')
 @section('icon', 'fa-user-plus')
 @section('content')
 <div class="container-fluid">
@@ -45,7 +45,7 @@
                                 <td class="align-middle">{{ $staff['phone'] }}</td>
                                 <td class="align-middle">{{ $staff['created_at']->diffForHumans() }}</td>
                                     <td class="table-action align-middle">
-                                        <a href="/staff/{{ $staff['user_id'] }}" ><i class="fas fa-fw fa-eye text-success" title="View order details"></i></a> &nbsp; &nbsp;
+                                        <a href="/manager/{{ $staff['user_id'] }}" ><i class="fas fa-fw fa-eye text-success" title="View order details"></i></a> &nbsp; &nbsp;
                                         <i class="fas fa-fw fa-edit text-primary align-"
                                            data-toggle="modal"
                                            data-target="#editStaffModal"

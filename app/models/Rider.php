@@ -15,6 +15,10 @@ class Rider extends Model{
         return $this->hasMany(Route::class, 'route_id', 'route_id');
     }
 
+    public function user(){
+        return $this->hasOne(User::class, 'user_id', 'user_id');
+    }
+
     public function transform($data){
         $routes = [];
         foreach ($data as $item){

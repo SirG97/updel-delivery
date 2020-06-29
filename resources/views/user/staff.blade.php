@@ -1,6 +1,6 @@
 
 @extends('user.layout.access_role')
-@section('title', 'Profile')
+@section('title', 'Staff Detail')
 @section('icon', 'fa-user-plus')
 @section('content')
     <div class="container-fluid">
@@ -10,7 +10,6 @@
                     <div class="font-weight-bold text-secondary mb-1 py-3 px-3">
                         Profile
                     </div>
-                    <form action="/profile/edit" method="POST">
                         <div class="container">
                             <div class="row trx-bg-head py-3">
                                 <div class="col-md-8 offset-md-2">
@@ -76,7 +75,6 @@
                             </div>
                         </div>
 
-                    </form>
                 </div>
             </div>
 

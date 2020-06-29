@@ -2,15 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d681a3b-3bfc-44b5-9e5a-794b10ccfa08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/order.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/order.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/order_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order_form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Rider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Rider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/routing/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routing/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user.layout.base.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user.layout.base.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/managers.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/managers.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/profile.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/profile.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/riders.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/riders.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/support_staff.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/support_staff.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/layout/base.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/layout/base.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/managers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/managers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/riders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/riders.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/support_staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/support_staff.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,9 +81,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1dzEQ6tbx6cObCQGfEI0X3PlPPn" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\mclone\public\img" />
+      <recent name="C:\xampp\htdocs\mclone\public" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -103,7 +118,7 @@
       <updated>1593419507407</updated>
       <workItem from="1593419598223" duration="973000" />
       <workItem from="1593420746838" duration="1021000" />
-      <workItem from="1593421837289" duration="6915000" />
+      <workItem from="1593421837289" duration="17111000" />
     </task>
     <servers />
   </component>

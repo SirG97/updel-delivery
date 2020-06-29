@@ -20,6 +20,10 @@ class Order extends Model{
                             'delivery_address', 'delivery_landmark', 'description', 'request_type',
                             'rider_id', 'order_status'];
 
+    public function rider(){
+        return $this->hasOneThrough(User::class, Rider::class, 'user_id', 'rider_id', 'user_id', 'rider_id');
+    }
+
     public function transform($data){
         $orders = [];
         foreach ($data as $item){
