@@ -4,7 +4,7 @@
 namespace App\Controllers;
 
 
-use App\Classes\Encryption;
+
 use App\Models\District;
 use App\Models\Route;
 use Illuminate\Database\Capsule\Manager as Capsule;
@@ -15,8 +15,8 @@ use App\Classes\Request;
 use App\Classes\Session;
 use App\Classes\Validation;
 use App\Models\Order;
-use App\Models\Pin;
-use App\Models\Contribution;
+use Carbon\Carbon;
+
 
 class OrderController extends BaseController{
     public $table_name = 'orders';
@@ -46,7 +46,10 @@ class OrderController extends BaseController{
     }
 
     public function get_order($id){
-        return view('user\order');
+        $order_no = $id['order_no'];
+        $order = Order::where('order_no',$order_no)->first();
+
+        return view('user\order', ['order' => $order]);
     }
 
     public function get_order_form(){
@@ -61,6 +64,8 @@ class OrderController extends BaseController{
             if(CSRFToken::verifyCSRFToken($request->token)){
                 $rules = [
                     'request_type' => ['required' => true],
+                    'service_type' => ['required' => true],
+                    'email' => ['required' => true, 'email' => true],
                     'district' => ['required' => true, 'maxLength' => 100, 'mixed' => true],
                     'route' => ['required' => true,'string' => true],
                     'fullname' => ['required' => true,'maxLength' => 50, ],
@@ -82,10 +87,15 @@ class OrderController extends BaseController{
                     return view('user\order_form', ['errors' => $errors]);
                 }
 
+                // Calculate due date from from service type
+                $due_date = $this->calculate_due_date($request->service_type);
+
                 //Add the user
                 $details = [
                     'order_no' => Random::generateId(16),
                     'request_type' => $request->request_type,
+                    'service_type' => $request->service_type,
+                    'email' => $request->email,
                     'district' => $request->district,
                     'route' => $request->route,
                     'fullname' => $request->fullname,
@@ -100,7 +110,8 @@ class OrderController extends BaseController{
                     'delivery_landmark' => $request->delivery_landmark,
                     'description' => $request->description,
                     'rider_id' => '',
-                    'order_status' => 'registered'
+                    'order_status' => 'registered',
+                    'due_date' => $due_date
                 ];
 
                 Order::create($details);
@@ -197,6 +208,42 @@ class OrderController extends BaseController{
         }else{
             echo 'request error';
         }
+    }
+
+    private function calculate_due_date($service_type){
+        $dt = Carbon::now();
+        switch ($service_type){
+            case 'same-day';
+                if($dt->hour > 18){
+                    $dt2 = Carbon::tomorrow()->addHours(8);
+                    return $dt2;
+                }else{
+                    $dt->addHours(6);
+                    return $dt;
+                }
+                break;
+            case 'next-day':
+                $dt->addHours(18);
+                return $dt;
+                break;
+            case 'two-day':
+                $dt->addDays(2);
+                return $dt;
+                break;
+            case 'premium':
+                if($dt->hour > 20){
+                    $dt2 = Carbon::tomorrow();
+                    return $dt2->addHours(6);
+                }else{
+                    $dt->addHours(5);
+                    return $dt;
+                }
+                break;
+            default:
+                return Carbon::now()->addHours(24);
+        }
+
+
     }
 
     public function show(){

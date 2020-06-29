@@ -8,13 +8,13 @@
                 <div class="custom-panel card ">
                     <div class="d-flex justify-content-between py-2 px-3">
                         <div class="text-secondary mb-1">
-                            <div class="">Combo Request</div>
-                            <div class="order-name">Pair of shoe<span><i class="fas fa-fw fa-check-circle text-success"></i></span></div>
+                            <div class="">{{$order->request_type}} Request</div>
+                            <div class="order-name">{{$order->parcel_name}}<span><i class="fas fa-fw fa-check-circle text-success"></i></span></div>
 
                         </div>
                         <div class="font-weight-bold text-secondary mb-1 d-flex justify-content-end">
                             <div class="text-right">
-                                Order ID: 1215FS8KJGSK
+                                Order ID: {{$order->order_no}}
                             </div>
 
                         </div>
@@ -23,19 +23,19 @@
                         <div class="order-details d-flex flex-column flex-sm-row py-3">
                             <div class="order-detail px-2">
                                 <div class="order-detail-title mt-1">Name</div>
-                                <div>Jennifer Peters</div>
+                                <div>{{$order->fullname}}</div>
                             </div>
                             <div class="order-detail px-2">
                                 <div class="order-detail-title mt-1">Address:</div>
-                                <div>No 10 Obanye Streeet, Onitsha</div>
+                                <div>{{$order->address}}</div>
                             </div>
                             <div class="order-detail px-2">
                                 <div class="order-detail-title mt-1">Phone:</div>
-                                <div>09076545362</div>
+                                <div>{{$order->phone}}</div>
                             </div>
                             <div class="order-detail px-2">
                                 <div class="order-detail-title mt-1">Email:</div>
-                                <div>jondoe@gmail.com</div>
+                                <div>{{$order->email}}</div>
                             </div>
                         </div>
                     </div>
@@ -52,80 +52,90 @@
                     <div class="full-details d-flex flex-column px-3">
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
+                                <div class="col-sm-4 order-detail-title">Service type:</div>
+                                <div class="col-sm-8"> {{$order->service_type}}</div>
+                            </div>
+                        </div>
+                        <div class="full-details-item">
+                            <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Registration date:</div>
-                                <div class="col-sm-8"> 1st June 2020</div>
+                                <div class="col-sm-8"> {{$order->created_at->DiffForHumans(['parts' => 2,'short' => true])}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Due date:</div>
-                                <div class="col-sm-8"> 1st June 2020</div>
+                                <div class="col-sm-8">
+                                    {{Carbon\Carbon::parse($order->due_date)->toDateTimeString()}}
+                                </div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Delivery date:</div>
-                                <div class="col-sm-8"> 1st June 2020</div>
+                                <div class="col-sm-8">
+                                    {{Carbon\Carbon::parse($order->due_date)->subHours(3)->toDateTimeString()}}
+                                </div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Rider assigned:</div>
-                                <div class="col-sm-8"> Jonny Chase</div>
+                                <div class="col-sm-8"> {{$order->rider_id}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">District:</div>
-                                <div class="col-sm-8"> Maitama</div>
+                                <div class="col-sm-8">{{$order->district}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Route:</div>
-                                <div class="col-sm-8"> Awolowo drive, Kubwa junction Maitama</div>
+                                <div class="col-sm-8">{{$order->route}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Parcel size:</div>
-                                <div class="col-sm-8"> 110g</div>
+                                <div class="col-sm-8"> {{$order->parcel_size}}g</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Quantity:</div>
-                                <div class="col-sm-8"> 1</div>
+                                <div class="col-sm-8">{{$order->parcel_quantity}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Pickup address:</div>
-                                <div class="col-sm-8"> 1 Isioko Street, Anam</div>
+                                <div class="col-sm-8"> {{$order->pick_up_address}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Pickup landmark:</div>
-                                <div class="col-sm-8"> Anyara junction</div>
+                                <div class="col-sm-8"> {{$order->pick_up_landmark}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Delivery address:</div>
-                                <div class="col-sm-8"> 1 akuwnna Lane, Mile 2</div>
+                                <div class="col-sm-8"> {{$order->delivery_address}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Delivery landmark:</div>
-                                <div class="col-sm-8"> Ikeja junction</div>
+                                <div class="col-sm-8"> {{$order->delivery_landmark}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Description:</div>
-                                <div class="col-sm-8"> This is a package for my sweetheart in Lagos. fuck you</div>
+                                <div class="col-sm-8"> {{$order->description}}</div>
                             </div>
                         </div>
                     </div>
@@ -143,7 +153,7 @@
                                     <h6 class="mb-1">Registered</h6>
                                     <small>3 days ago</small>
                                 </div>
-                                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. </p>
+                                <p class="mb-1 font-weight-normal">Donec id elit non mi porta gravida at eget metus. </p>
                             </a>
                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">

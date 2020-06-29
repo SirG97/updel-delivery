@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8538c06b-4e34-43a3-be8e-bb227e44e364" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/user/order.blade.php" afterDir="false" />
+    <list default="true" id="7d681a3b-3bfc-44b5-9e5a-794b10ccfa08" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/routing/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routing/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/order.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/order.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/order_form.bladec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/user/order_form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order_form.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +21,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable path="composer" />
+      <executable />
     </execution>
   </component>
   <component name="Git.Settings">
@@ -25,63 +29,55 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/stackkit/blade-standalone" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random-lib" />
-      <path value="$PROJECT_DIR$/vendor/ircmaxell/security-lib" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
-      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/container" />
-      <path value="$PROJECT_DIR$/vendor/altorouter/altorouter" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/events" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/contracts" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/support" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/filesystem" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/view" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/filp/whoops" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
-      <path value="$PROJECT_DIR$/vendor/voku/pagination" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/vendor/illuminate/view" />
+      <path value="$PROJECT_DIR$/vendor/ircmaxell/security-lib" />
       <path value="$PROJECT_DIR$/vendor/nesbot/carbon" />
-      <path value="$PROJECT_DIR$/vendor/eftec/bladeone" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random-lib" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/sodium_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpmailer/phpmailer" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/vendor/stackkit/blade-standalone" />
+      <path value="$PROJECT_DIR$/vendor/symfony/console" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-dumper" />
-      <path value="$PROJECT_DIR$/vendor/illuminate/database" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/console" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
       <path value="$PROJECT_DIR$/vendor/tecnickcom/tc-lib-barcode" />
       <path value="$PROJECT_DIR$/vendor/tecnickcom/tc-lib-color" />
+      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/vendor/voku/pagination" />
+      <path value="$PROJECT_DIR$/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/vendor/altorouter/altorouter" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/eftec/bladeone" />
     </include_path>
   </component>
-  <component name="ProjectId" id="1dNKJ5G5O9LIeLuRa2kLoG55zup" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1dzEQ6tbx6cObCQGfEI0X3PlPPn" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\mclone\resources\views\user\layout" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -100,23 +96,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8538c06b-4e34-43a3-be8e-bb227e44e364" name="Default Changelist" comment="" />
-      <created>1592319504381</created>
+      <changelist id="7d681a3b-3bfc-44b5-9e5a-794b10ccfa08" name="Default Changelist" comment="" />
+      <created>1593419507407</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1592319504381</updated>
-      <workItem from="1592319510427" duration="14463000" />
-      <workItem from="1592416436729" duration="23872000" />
-      <workItem from="1592475958945" duration="31670000" />
-      <workItem from="1592548047943" duration="21831000" />
-      <workItem from="1592574614898" duration="42778000" />
-      <workItem from="1592759239838" duration="6997000" />
-      <workItem from="1592772092271" duration="14297000" />
-      <workItem from="1592825557755" duration="18008000" />
-      <workItem from="1592940585640" duration="75870000" />
-      <workItem from="1593262792908" duration="14620000" />
-      <workItem from="1593291657025" duration="7653000" />
-      <workItem from="1593342010254" duration="13119000" />
+      <updated>1593419507407</updated>
+      <workItem from="1593419598223" duration="973000" />
+      <workItem from="1593420746838" duration="1021000" />
+      <workItem from="1593421837289" duration="6915000" />
     </task>
     <servers />
   </component>

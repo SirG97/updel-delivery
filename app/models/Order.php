@@ -15,7 +15,7 @@ class Order extends Model{
 
     public $timestamps = true;
     protected $dates = ['deleted_at'];
-    protected $fillable = ['district','route', 'order_no', 'fullname', 'address', 'phone', 'parcel_name',
+    protected $fillable = ['district','route','email', 'service_type','due_date', 'order_no', 'fullname', 'address', 'phone', 'parcel_name',
                             'parcel_quantity', 'parcel_size', 'pick_up_address', 'pick_up_landmark',
                             'delivery_address', 'delivery_landmark', 'description', 'request_type',
                             'rider_id', 'order_status'];
