@@ -43,11 +43,14 @@ body {
     bottom: 0;
     padding-top: 55px;
     /*padding-bottom: 22px;*/
-    flex-direction: column;
     overflow: hidden;
     z-index: 2;
     transition: all 0.3s ease-in-out;
     width: 50px;
+}
+
+.nav-sidebar:hover{
+    overflow-y: auto;
 }
 
 .navigation-menu {
@@ -86,7 +89,7 @@ body {
 }
 
 .nav_section_content{
-    padding: 14px 0;
+
 }
 
 .prelative{

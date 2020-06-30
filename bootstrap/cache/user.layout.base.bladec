@@ -137,6 +137,14 @@
  <div class="nav_item prelative">
  <a href="/settings" class="nav_link nav_flex">
  <span class="nav_link_icon">
+ <i class="fas fa-fw fa-warehouse"></i>
+ </span>
+ <span class="nav_link_text">Port</span>
+ </a>
+ </div>
+ <div class="nav_item prelative">
+ <a href="/settings" class="nav_link nav_flex">
+ <span class="nav_link_icon">
  <i class="fas fa-fw fa-cogs"></i>
  </span>
  <span class="nav_link_text">Settings</span>
