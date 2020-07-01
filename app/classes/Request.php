@@ -41,4 +41,6 @@ class Request{
         $_POST = [];
         $_FILES = [];
     }
+
+
 }

@@ -7,14 +7,14 @@
             <div class="col-md-6 col-xl-3">
                 <div class="card bg-c-blue order-card text-secondary">
                     <div class="card-body">
-                        <h6 class="text-primary">Total Customers</h6>
+                        <h6 class="text-primary">Total Orders</h6>
                         <h5 class="text-right">
                             <i class="fas fa-user  float-left"></i>
                             <span>
                               10
                             </span>
                         </h5>
-                        <p class="mb-0">New customers<span class="float-right">n/a</span></p>
+                        <p class="mb-0">New orders<span class="float-right">n/a</span></p>
                     </div>
                 </div>
             </div>

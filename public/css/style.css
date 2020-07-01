@@ -116,6 +116,13 @@ body {
     text-decoration: none;
 }
 
+.active{
+    background-color: white;
+    width: 250px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
 .nav_link_icon{
     width: 30px;
     padding-left: 10px;

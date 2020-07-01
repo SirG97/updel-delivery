@@ -19,6 +19,9 @@
                                         <div class="col-md-3 mb-3">
                                             <label for="amount">Request Type</label>
                                             <select class="custom-select" id="request_type" name="request_type" onchange="input_to_disable()" required>
+                                                <option value="{{ \App\Classes\Request::old('post', 'request_type') }}">
+                                                    {{ \App\Classes\Request::old('post', 'request_type') ? : "Select request type"}}
+                                                </option>
                                                 <option value="combo">Combo Request</option>
                                                 <option value="collection">Collection Request</option>
                                                 <option value="delivery">Delivery Request</option>
@@ -27,7 +30,10 @@
                                         </div>
                                         <div class="col-md-5 mb-3">
                                             <label for="service_type">Sub services</label>
-                                            <select class="custom-select" id="service_type" name="service_type" onchange="input_to_disable()" required>
+                                            <select class="custom-select" id="service_type" name="service_type" required>
+                                                <option value="{{ \App\Classes\Request::old('post', 'service_type') }}">
+                                                    {{ \App\Classes\Request::old('post', 'service_type') ? : "Select sub service"}}
+                                                </option>
                                                 <option value="same-day">Same day delivery</option>
                                                 <option value="next-day">Next day delivery</option>
                                                 <option value="two-day">Two day delivery</option>
@@ -38,7 +44,9 @@
                                             <label for="amount">Select district</label>
                                             <select class="custom-select" name="district" id="district" required>
                                                 @if(!empty($districts) && count($districts) > 0)
-                                                    <option value="" selected>Select a district</option>
+                                                    <option value="{{ \App\Classes\Request::old('post', 'district') }}">
+                                                        {{ \App\Classes\Request::old('post', 'district') ? : "Select sub service"}}
+                                                    </option>
                                                     @foreach($districts as $district)
                                                         <option value={{$district->name}}> {{$district->name}}</option>
                                                     @endforeach
@@ -54,7 +62,9 @@
                                             <label for="admin_right">Select route</label>
                                             <select class="custom-select" id="route" name="route" required>
                                                 @if(!empty($routes) && count($routes) > 0)
-                                                    <option value="" selected>Select a route</option>
+                                                    <option value="{{ \App\Classes\Request::old('post', 'route') }}">
+                                                        {{ \App\Classes\Request::old('post', 'route') ? : "Select route"}}
+                                                    </option>
                                                     @foreach($routes as $route)
                                                         <option value={{$route->name}}> {{$route->name}}</option>
                                                     @endforeach
@@ -65,25 +75,25 @@
                                         </div>
                                         <div class="col-md-5 mb-3">
                                             <label for="fullname">Customer name</label>
-                                            <input type="text" class="form-control" id="fullname" name="fullname" value="" required>
+                                            <input type="text" class="form-control" id="fullname" name="fullname" value="{{ \App\Classes\Request::old('post', 'fullname') }}" required>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="email">Email</label>
-                                            <input type="text" class="form-control" id="email" name="email" value="" required>
+                                            <input type="text" class="form-control" id="email" name="email" value="{{ \App\Classes\Request::old('post', 'email') }}">
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-4 mb-3">
                                             <label for="address">Address</label>
-                                            <input type="text" class="form-control" id="address" name="address" value="" required>
+                                            <input type="text" class="form-control" id="address" name="address" value="{{ \App\Classes\Request::old('post', 'address') }}" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="phone">Phone number</label>
-                                            <input type="text" class="form-control"  name="phone" id="phone" required>
+                                            <input type="text" class="form-control"  name="phone" value="{{ \App\Classes\Request::old('post', 'phone') }}" id="phone" required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="parcel_name">Parcel name</label>
-                                            <input type="text" class="form-control"  name="parcel_name" id="parcel_name" required>
+                                            <input type="text" class="form-control"  name="parcel_name" value="{{ \App\Classes\Request::old('post', 'parcel_name') }}" id="parcel_name" required>
                                         </div>
 
 
@@ -91,34 +101,34 @@
                                     <div class="form-row">
                                         <div class="col-md-3 mb-3">
                                             <label for="parcel_size">Parcel size</label>
-                                            <input type="text" class="form-control" name="parcel_size" id="parcel_size" required>
+                                            <input type="text" class="form-control" name="parcel_size" value="{{ \App\Classes\Request::old('post', 'parcel_size') }}" id="parcel_size" required>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="parcel_quantity">Quantity</label>
-                                            <input type="number" min="1" value="1" class="form-control" name="parcel_quantity" id="parcel_quantity" required>
+                                            <input type="number" min="1" value="{{ \App\Classes\Request::old('post', 'parcel_quantity') }}" class="form-control" name="parcel_quantity"  id="parcel_quantity" required>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="pick_up_address">Pickup address</label>
-                                            <input type="text" class="form-control" name="pick_up_address" id="pick_up_address" required>
+                                            <input type="text" class="form-control" name="pick_up_address" value="{{ \App\Classes\Request::old('post', 'pick_up_address') }}" id="pick_up_address" required>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="pick_up_landmark">Pickup landmark</label>
-                                            <input type="text" class="form-control" name="pick_up_landmark" id="pick_up_landmark" required>
+                                            <input type="text" class="form-control" name="pick_up_landmark" value="{{ \App\Classes\Request::old('post', 'pick_up_landmark') }}" id="pick_up_landmark" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-4 mb-3">
                                             <label for="delivery_address">Delivery address</label>
-                                            <input type="text" class="form-control"  name="delivery_address" id="delivery_address" required>
+                                            <input type="text" class="form-control"  name="delivery_address" value="{{ \App\Classes\Request::old('post', 'delivery_address') }}" id="delivery_address" required>
                                         </div>
                                         <div class="col-md-3 mb-3">
                                             <label for="delivery_landmark">Delivery landmark</label>
-                                            <input type="text" class="form-control"  name="delivery_landmark" id="delivery_landmark" required>
+                                            <input type="text" class="form-control"  name="delivery_landmark" value="{{ \App\Classes\Request::old('post', 'delivery_landmark') }}" id="delivery_landmark" required>
                                         </div>
                                         <div class="col-md-5 mb-3">
                                             <label for="description">Description</label>
                                             <div class="input-group mb-3">
-                                                <input type="text" name="description" value="" id="description"  class="form-control" >
+                                                <input type="text" name="description" value="{{ \App\Classes\Request::old('post', 'description') }}" id="description"  class="form-control" >
                                             </div>
                                         </div>
                                     </div>

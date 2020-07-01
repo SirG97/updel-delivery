@@ -83,8 +83,10 @@ class OrderController extends BaseController{
                 $validation = new Validation();
                 $validation->validate($_POST, $rules);
                 if($validation->hasError()){
+                    $districts = District::all();
+                    $routes = Route::all();
                     $errors = $validation->getErrorMessages();
-                    return view('user\order_form', ['errors' => $errors]);
+                    return view('user\order_form', ['errors' => $errors,'districts' => $districts, 'routes' => $routes]);
                 }
 
                 // Calculate due date from from service type
@@ -133,6 +135,8 @@ class OrderController extends BaseController{
             if(CSRFToken::verifyCSRFToken($request->token, false)){
                 $rules = [
                     'request_type' => ['required' => true],
+                    'service_type' => ['required' => true],
+                    'email' => ['required' => true, 'email' => true],
                     'district' => ['required' => true, 'maxLength' => 100, 'mixed' => true],
                     'route' => ['required' => true,'string' => true],
                     'fullname' => ['required' => true,'maxLength' => 50, ],
@@ -160,6 +164,8 @@ class OrderController extends BaseController{
                 $details = [
                     'request_type' => $request->request_type,
                     'district' => $request->district,
+                    'service_type' => $request->service_type,
+                    'email' => $request->email,
                     'route' => $request->route,
                     'fullname' => $request->fullname,
                     'address' => $request->address,
@@ -287,7 +293,6 @@ class OrderController extends BaseController{
         $contribution_id = $id['contribution_id'];
         return view('user/customercontributions');
     }
-
 
     public function showcustomerform(){
         return view('user/customer');

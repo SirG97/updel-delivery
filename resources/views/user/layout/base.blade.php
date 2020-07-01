@@ -45,7 +45,7 @@
         <div class="nav_section margin-fix scroll-menu">
             <div class="nav_section_content">
                 <div class="nav_item prelative">
-                    <a href="/dashboard" class="nav_link nav_flex">
+                    <a href="/dashboard" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/dashboard')}}">
                            <span class="nav_link_icon">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                            </span>
@@ -53,7 +53,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/profile" class="nav_link nav_flex">
+                    <a href="/profile" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/profile')}}">
                            <span class="nav_link_icon">
                             <i class="fas fa-fw fa-user"></i>
                            </span>
@@ -61,7 +61,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/authorize" class="nav_link nav_flex">
+                    <a href="/authorize" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/authorize')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-qrcode"></i>
                             </span>
@@ -69,7 +69,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/managers" class="nav_link nav_flex">
+                    <a href="/managers" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/managers')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-user-shield"></i>
                             </span>
@@ -77,7 +77,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/support_staff" class="nav_link nav_flex">
+                    <a href="/support_staff" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/support_staff')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-headset"></i>
                             </span>
@@ -85,7 +85,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/riders" class="nav_link nav_flex">
+                    <a href="/riders" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/riders')}}">
                         <span class="nav_link_icon">
                          <i class="fas fa-fw fa-motorcycle"></i>
                         </span>
@@ -93,7 +93,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/staff" class="nav_link nav_flex">
+                    <a href="/staff" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/staff')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-user-plus"></i>
                             </span>
@@ -101,7 +101,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/district_routes" class="nav_link nav_flex">
+                    <a href="/district_routes" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/district_routes')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-paper-plane"></i>
                             </span>
@@ -109,7 +109,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/assign_routes" class="nav_link nav_flex">
+                    <a href="/assign_routes" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/assign_routes')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-route"></i>
                             </span>
@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="nav_item prelative">
-                    <a href="/orders" class="nav_link nav_flex">
+                    <a href="/orders" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/orders')}}">
                          <span class="nav_link_icon">
                           <i class="fas fa-fw fa-truck"></i>
                          </span>
@@ -127,7 +127,7 @@
                 </div>
 
                 <div class="nav_item prelative">
-                    <a href="/create_order" class="nav_link nav_flex">
+                    <a href="/create_order" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/create_order')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-shipping-fast"></i>
                             </span>
@@ -135,7 +135,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/settings" class="nav_link nav_flex">
+                    <a href="/settings" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/settings')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-warehouse"></i>
                             </span>
@@ -143,7 +143,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/settings" class="nav_link nav_flex">
+                    <a href="/settings" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/settings')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-cogs"></i>
                             </span>
@@ -151,7 +151,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/logout" class="nav_link nav_flex">
+                    <a href="/logout" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/logout')}}">
                          <span class="nav_link_icon">
                           <i class="fas fa-fw fa-sign-out-alt"></i>
                          </span>

@@ -221,6 +221,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modal.find('#district').val(button.data('district')); // Extract info from data-* attributes
         modal.find('#route').val(button.data('route')); // Extract info from data-* attributes
         modal.find('#fullname').val(button.data('fullname')); // Extract info from data-* attributes
+        modal.find('#email').val(button.data('email')); // Extract info from data-* attributes
+        modal.find('#service_type').val(button.data('service_type')); // Extract info from data-* attributes
         modal.find('#address').val(button.data('address')); // Extract info from data-* attributes
         modal.find('#phone').val(button.data('phone')); // Extract info from data-* attributes
         modal.find('#parcel_name').val(button.data('parcel_name')); // Extract info from data-* attributes
@@ -241,6 +243,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const data = {
             token : $('#token').val(),
             request_type : $('#request_type').val(),
+            service_type : $('#service_type').val(),
+            email : $('#email').val(),
             district : $('#district').val(),
             route : $('#route').val(),
             fullname : $('#fullname').val(),
