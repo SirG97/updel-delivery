@@ -186,6 +186,16 @@ body {
     cursor: pointer;
 }
 
+.nav-dropdown-item-link:hover{
+    background-color: #0098DA;
+    color: white;
+    text-underline: none !important;
+}
+
+.nav-dropdown-item-link > a:hover{
+    text-underline: none !important;
+}
+
 .nav-dropdown.active {
 	display: block;
 }

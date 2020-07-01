@@ -4,7 +4,6 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Admin :: <?php echo $this->yieldContent('title'); ?></title>
- <link rel="favicon" href="/favicon.ico">
  <link rel="stylesheet" href="/css/bootstrap.min.css">
  <link rel="stylesheet" href="/css/all.css">
  <link rel="stylesheet" href="/css/Chart.min.css">
@@ -35,14 +34,14 @@
  <div class="nav_item prelative">
  <a href="" class="nav_flex">
  <span class="company-icon d-flex justify-content-center">
- <img src="/img/favicon.png" class="img-fluid" />
+ <i class="fas fa-fw fa-shield-alt align-self-center"></i>
  </span>
  <span class="company_text font-weight-bold">Updel Admin</span>
  </a>
  </div>
  </div>
  </div>
- <div class="nav_section margin-fix scroll-menu">
+ <div class="nav_section">
  <div class="nav_section_content">
  <div class="nav_item prelative">
  <a href="/dashboard" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/dashboard'), ENT_QUOTES, 'UTF-8', false); ?>">
@@ -60,6 +59,7 @@
  <span class="nav_link_text">Profile</span>
  </a>
  </div>
+
  <div class="nav_item prelative">
  <a href="/authorize" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/authorize'), ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav_link_icon">
@@ -68,42 +68,11 @@
  <span class="nav_link_text">Authorize Delivery</span>
  </a>
  </div>
- <div class="nav_item prelative">
- <a href="/managers" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/managers'), ENT_QUOTES, 'UTF-8', false); ?>">
- <span class="nav_link_icon">
- <i class="fas fa-fw fa-user-shield"></i>
- </span>
- <span class="nav_link_text">Managers</span>
- </a>
- </div>
- <div class="nav_item prelative">
- <a href="/support_staff" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/support_staff'), ENT_QUOTES, 'UTF-8', false); ?>">
- <span class="nav_link_icon">
- <i class="fas fa-fw fa-headset"></i>
- </span>
- <span class="nav_link_text">Customer service</span>
- </a>
- </div>
- <div class="nav_item prelative">
- <a href="/riders" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/riders'), ENT_QUOTES, 'UTF-8', false); ?>">
- <span class="nav_link_icon">
- <i class="fas fa-fw fa-motorcycle"></i>
- </span>
- <span class="nav_link_text">Riders</span>
- </a>
- </div>
- <div class="nav_item prelative">
- <a href="/staff" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/staff'), ENT_QUOTES, 'UTF-8', false); ?>">
- <span class="nav_link_icon">
- <i class="fas fa-fw fa-user-plus"></i>
- </span>
- <span class="nav_link_text">New staff</span>
- </a>
- </div>
+
  <div class="nav_item prelative">
  <a href="/district_routes" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/district_routes'), ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav_link_icon">
- <i class="fas fa-fw fa-paper-plane"></i>
+ <i class="fas fa-fw fa-route"></i>
  </span>
  <span class="nav_link_text">Districts/Routes</span>
  </a>
@@ -116,7 +85,6 @@
  <span class="nav_link_text">Assign Routes</span>
  </a>
  </div>
-
  <div class="nav_item prelative">
  <a href="/orders" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/orders'), ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav_link_icon">
@@ -125,7 +93,6 @@
  <span class="nav_link_text">Orders</span>
  </a>
  </div>
-
  <div class="nav_item prelative">
  <a href="/create_order" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/create_order'), ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav_link_icon">
@@ -134,12 +101,13 @@
  <span class="nav_link_text">New Order</span>
  </a>
  </div>
+
  <div class="nav_item prelative">
- <a href="/port" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/port'), ENT_QUOTES, 'UTF-8', false); ?>">
+ <a href="/pot" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/pot'), ENT_QUOTES, 'UTF-8', false); ?>">
  <span class="nav_link_icon">
  <i class="fas fa-fw fa-warehouse"></i>
  </span>
- <span class="nav_link_text">Port</span>
+ <span class="nav_link_text">Pot</span>
  </a>
  </div>
  <div class="nav_item prelative">
@@ -151,7 +119,7 @@
  </a>
  </div>
  <div class="nav_item prelative">
- <a href="/logout" class="nav_link nav_flex <?php echo \htmlentities(\App\Classes\Menu::is_active('/logout'), ENT_QUOTES, 'UTF-8', false); ?>">
+ <a href="/logout" class="nav_link nav_flex">
  <span class="nav_link_icon">
  <i class="fas fa-fw fa-sign-out-alt"></i>
  </span>
@@ -172,30 +140,24 @@
 
  <div class="header-nav">
  <span class="header-nav-item">
- <img class="avatar rounded-circle img-thumbnail img-fluid" src="/<?php echo \htmlentities(\App\Classes\Session::get('pics'), ENT_QUOTES, 'UTF-8', false); ?>" alt="profile pics">
+ <img class="avatar rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
 <?php /*            <p class="avatar">Hi! Noble</p>*/ ?>
  </span>
  <div class="nav-dropdown">
  <div class="nav-dropdown-item">
- <a href="/profile">
  <div class="nav-dropdown-item-link">
  Profile
  </div>
- </a>
  </div>
  <div class="nav-dropdown-item">
- <a href="/settings">
  <div class="nav-dropdown-item-link">
  Settings
  </div>
- </a>
  </div>
  <div class="nav-dropdown-item">
- <a href="/logout">
  <div class="nav-dropdown-item-link">
  Logout
  </div>
- </a>
  </div>
  </div>
  </div>
@@ -206,8 +168,10 @@
  </div>
 </main>
 
+
 <script>
  let ctx = $('#contribution-canvas');
+
 </script>
 
 </body>

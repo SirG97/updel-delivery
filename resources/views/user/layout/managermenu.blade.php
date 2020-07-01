@@ -44,7 +44,7 @@
         <div class="nav_section">
             <div class="nav_section_content">
                 <div class="nav_item prelative">
-                    <a href="/dashboard" class="nav_link nav_flex">
+                    <a href="/dashboard" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/dashboard')}}">
                            <span class="nav_link_icon">
                             <i class="fas fa-fw fa-tachometer-alt"></i>
                            </span>
@@ -52,7 +52,7 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/profile" class="nav_link nav_flex">
+                    <a href="/profile" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/profile')}}">
                            <span class="nav_link_icon">
                             <i class="fas fa-fw fa-user"></i>
                            </span>
@@ -60,18 +60,17 @@
                     </a>
                 </div>
 
-
                 <div class="nav_item prelative">
-                    <a href="/riders" class="nav_link nav_flex">
-                        <span class="nav_link_icon">
-                         <i class="fas fa-fw fa-motorcycle"></i>
-                        </span>
-                        <span class="nav_link_text">Riders</span>
+                    <a href="/authorize" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/authorize')}}">
+                            <span class="nav_link_icon">
+                             <i class="fas fa-fw fa-qrcode"></i>
+                            </span>
+                        <span class="nav_link_text">Authorize Delivery</span>
                     </a>
                 </div>
 
                 <div class="nav_item prelative">
-                    <a href="/district_routes" class="nav_link nav_flex">
+                    <a href="/district_routes" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/district_routes')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-route"></i>
                             </span>
@@ -79,7 +78,15 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/orders" class="nav_link nav_flex">
+                    <a href="/assign_routes" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/assign_routes')}}">
+                            <span class="nav_link_icon">
+                             <i class="fas fa-fw fa-route"></i>
+                            </span>
+                        <span class="nav_link_text">Assign Routes</span>
+                    </a>
+                </div>
+                <div class="nav_item prelative">
+                    <a href="/orders" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/orders')}}">
                          <span class="nav_link_icon">
                           <i class="fas fa-fw fa-truck"></i>
                          </span>
@@ -87,15 +94,24 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/create_order" class="nav_link nav_flex">
+                    <a href="/create_order" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/create_order')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-shipping-fast"></i>
                             </span>
                         <span class="nav_link_text">New Order</span>
                     </a>
                 </div>
+
                 <div class="nav_item prelative">
-                    <a href="/settings" class="nav_link nav_flex">
+                    <a href="/pot" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/pot')}}">
+                            <span class="nav_link_icon">
+                             <i class="fas fa-fw fa-warehouse"></i>
+                            </span>
+                        <span class="nav_link_text">Pot</span>
+                    </a>
+                </div>
+                <div class="nav_item prelative">
+                    <a href="/settings" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/settings')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-cogs"></i>
                             </span>

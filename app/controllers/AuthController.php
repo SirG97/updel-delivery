@@ -54,6 +54,12 @@ class AuthController{
                          Session::add('SESSION_USER_ID', $user->user_id);
                          Session::add('SESSION_USERNAME', $user->firstname);
                          Session::add('priviledge', $user->admin_right);
+                         if($user->image !== ''){
+                             Session::add('pics', $user->image);
+                         }else{
+                             Session::add('pics', "/img/avatar-1.jpg");
+                         }
+
 
                          Redirect::to('/dashboard');
                      }

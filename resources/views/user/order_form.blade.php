@@ -45,7 +45,7 @@
                                             <select class="custom-select" name="district" id="district" required>
                                                 @if(!empty($districts) && count($districts) > 0)
                                                     <option value="{{ \App\Classes\Request::old('post', 'district') }}">
-                                                        {{ \App\Classes\Request::old('post', 'district') ? : "Select sub service"}}
+                                                        {{ \App\Classes\Request::old('post', 'district') ? : "Select district"}}
                                                     </option>
                                                     @foreach($districts as $district)
                                                         <option value={{$district->name}}> {{$district->name}}</option>
@@ -59,18 +59,11 @@
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-4 mb-3">
-                                            <label for="admin_right">Select route</label>
+                                            <label for="route">Select route</label>
                                             <select class="custom-select" id="route" name="route" required>
-                                                @if(!empty($routes) && count($routes) > 0)
-                                                    <option value="{{ \App\Classes\Request::old('post', 'route') }}">
-                                                        {{ \App\Classes\Request::old('post', 'route') ? : "Select route"}}
-                                                    </option>
-                                                    @foreach($routes as $route)
-                                                        <option value={{$route->name}}> {{$route->name}}</option>
-                                                    @endforeach
-                                                @else
-                                                    <option value="" disabled selected>Create a route first</option>
-                                                @endif
+                                                <option value="{{ \App\Classes\Request::old('post', 'route') }}">
+                                                    {{ \App\Classes\Request::old('post', 'route') ? : "Select route"}}
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="col-md-5 mb-3">

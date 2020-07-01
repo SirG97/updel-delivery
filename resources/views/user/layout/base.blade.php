@@ -135,11 +135,11 @@
                     </a>
                 </div>
                 <div class="nav_item prelative">
-                    <a href="/settings" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/settings')}}">
+                    <a href="/pot" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/pot')}}">
                             <span class="nav_link_icon">
                              <i class="fas fa-fw fa-warehouse"></i>
                             </span>
-                        <span class="nav_link_text">Port</span>
+                        <span class="nav_link_text">Pot</span>
                     </a>
                 </div>
                 <div class="nav_item prelative">
@@ -172,24 +172,30 @@
 
     <div class="header-nav">
             <span class="header-nav-item">
-                <img class="avatar rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
+                <img class="avatar rounded-circle img-thumbnail img-fluid" src="/{{\App\Classes\Session::get('pics')}}" alt="profile pics">
 {{--            <p class="avatar">Hi! Noble</p>--}}
             </span>
         <div class="nav-dropdown">
             <div class="nav-dropdown-item">
-                <div class="nav-dropdown-item-link">
-                    Profile
-                </div>
+                <a href="/profile">
+                    <div class="nav-dropdown-item-link">
+                        Profile
+                    </div>
+                </a>
             </div>
             <div class="nav-dropdown-item">
-                <div class="nav-dropdown-item-link">
-                    Settings
-                </div>
+                <a href="/settings">
+                    <div class="nav-dropdown-item-link">
+                        Settings
+                    </div>
+                </a>
             </div>
             <div class="nav-dropdown-item">
+                <a href="/logout">
                 <div class="nav-dropdown-item-link">
                     Logout
                 </div>
+                </a>
             </div>
         </div>
     </div>

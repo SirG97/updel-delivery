@@ -252,51 +252,11 @@ class OrderController extends BaseController{
 
     }
 
-    public function show(){
-        $total = Customer::all()->count();
-        $object = new Customer();
-
-        list($customers, $links) = paginate(20, $total, $this->table_name, $object);
-        return view('user/customers', ['customers' => $customers, 'links' => $links]);
+    public function pot(){
+        $orders = Order::where('order_status', '!=', ['registered', 'completed'])->get();
+        return view('user\pot', ['orders' => $orders]);
     }
 
-    public function getcustomer($id){
-        $customer_id = $id['customer_id'];
-
-        $customer = Customer::where('customer_id', $customer_id)->first();
-
-        $total = Contribution::where('phone', $customer->phone)->count();
-        $object = new Contribution();
-        $filter = ['phone' => $customer->phone];
-        list($contributions, $links) = paginate(20,$total,'contributions', $object, $filter);
-
-        $total_donation = 0;
-        $total_available = 0;
-
-        $all_contribution = Contribution::where('phone', $customer->phone)->get();
-        for($i = 0; $i < count($all_contribution); $i++){
-            $total_donation = $total_donation + (int)$all_contribution[$i]->ledger_bal;
-            $total_available = $total_available + (int)$all_contribution[$i]->available_bal;
-        }
-
-        $maintenance = $total_donation - $total_available;
-
-        return view('user/customerdetails', ['customer' =>$customer,
-            'links' => $links,
-            'contributions' => $contributions,
-            'total_donation' => $total_donation,
-            'total_available' => $total_available,
-            'maintenance' => $maintenance]);
-    }
-
-    public function getcontribution($id){
-        $contribution_id = $id['contribution_id'];
-        return view('user/customercontributions');
-    }
-
-    public function showcustomerform(){
-        return view('user/customer');
-    }
 
     public function storecustomer(){
         if(Request::has('post')){
@@ -402,26 +362,6 @@ class OrderController extends BaseController{
 
     }
 
-    public  function deletecustomer($id){
-        $customer_id = $id['customer_id'];
-
-        if(Request::has('post')){
-            $request = Request::get('post');
-
-            if(CSRFToken::verifyCSRFToken($request->token)){
-
-                $customer = Customer::where('customer_id', '=', $customer_id)->first();
-                $customer->delete();
-                Session::add('success', 'Customer deleted successfully');
-                Redirect::to('/customers');
-            }
-//            Session::add('error', 'Customer deletion failed');
-//            Redirect::to('/customers');
-        }else{
-            echo 'request error';
-        }
-
-    }
 
     public function searchcustomer($terms){
         //Get the value of the term from the array
