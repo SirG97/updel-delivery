@@ -48,7 +48,7 @@
                                                         {{ \App\Classes\Request::old('post', 'district') ? : "Select district"}}
                                                     </option>
                                                     @foreach($districts as $district)
-                                                        <option value={{$district->name}}> {{$district->name}}</option>
+                                                        <option value={{$district->district_id}}> {{$district->name}}</option>
                                                     @endforeach
                                                 @else
                                                     <option value="" disabled selected>Create a district first</option>

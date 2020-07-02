@@ -7,6 +7,7 @@ use App\Models\Authorization;
 use App\Models\Route;
 use App\Models\User;
 use App\Models\Rider;
+use App\Models\District;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use App\Classes\CSRFToken;
 use App\Classes\Random;
@@ -78,26 +79,26 @@ class DeliveryController extends BaseController {
         return view('user\assign_route', ['staffs' => $riders]);
    }
 
-   public function get_rider_routes($id){
-        $id = $id['rider_id'];
-        $routes = Route::all()->toArray();
-        $assigned_routes = Rider::where('user_id', $id)->with(['routes'])->get();
+   public function get_rider_district($id){
+        $id = $id['district_id'];
+        $districts = District::all()->toArray();
+        $assigned_districts = Rider::where('user_id', $id)->with(['districts'])->get();
 
        //Remove routes to select from the dropdown
-       foreach($assigned_routes as $r){
-           foreach ($r->routes as $v){
-               $routes = $this->filter_dropdown( $routes, $v->route_id);
+       foreach($assigned_districts as $r){
+           foreach ($r->districts as $v){
+               $districts = $this->filter_dropdown( $districts, $v->district_id);
            }
        }
 
        $riders = User::where('user_id', $id)->first();
-       return view('user\rider_routes', ['profile' => $riders,'routes' => $routes, 'assigned_routes' => $assigned_routes, ]);
+       return view('user\rider_routes', ['profile' => $riders, 'districts' => $districts, 'assigned_districts' => $assigned_districts]);
    }
 
    public function filter_dropdown($array, $value){
         $temp = [];
         foreach($array as $item){
-            if($item['route_id'] !== $value){
+            if($item['district_id'] !== $value){
                 array_push($temp, $item);
             }
         }
@@ -109,7 +110,7 @@ class DeliveryController extends BaseController {
            $request = Request::get('post');
            if (CSRFToken::verifyCSRFToken($request->token)) {
                $rules = [
-                   'route_to_assign' => ['required' => true, 'maxLength' => '50', 'mixed' => true],
+                   'district_to_assign' => ['required' => true, 'maxLength' => '50', 'mixed' => true],
                    'user_id' => ['required' => true, 'maxLength' => '50', 'mixed' => true],
                ];
 
@@ -119,7 +120,6 @@ class DeliveryController extends BaseController {
                if($validation->hasError()){
                    $errors = $validation->getErrorMessages();
                    Session::add('error', $errors);
-                   dd($errors);
                    Redirect::back();
                    exit();
                }
@@ -128,17 +128,19 @@ class DeliveryController extends BaseController {
                    $details = [
                        'user_id' => $request->user_id,
                        'rider_id' => Random::generateId(16),
-                       'route_id' => $request->route_to_assign,
+                       'district_id' => $request->district_to_assign,
+                       'assigned_by' => Session::get('SESSION_USERNAME'),
+                       'assignee_status' => Session::get('priviledge'),
                    ];
 
                    Rider::create($details);
                    Request::refresh();
-                   Session::add('success', 'Route assigned successfully');
+                   Session::add('success', 'District assigned successfully');
 
                    Redirect::back();
                    exit();
                }catch (\Exception $e){
-                   Session::add('error', 'Route could not be assigned');
+                   Session::add('error', 'District could not be assigned');
                    dd($e);
                    Redirect::back();
                    exit();
@@ -157,7 +159,7 @@ class DeliveryController extends BaseController {
             if(CSRFToken::verifyCSRFToken($request->token)){
                 $rider = Rider::where('rider_id', '=', $rider_id)->first();
                 $rider->delete();
-                Session::add('success', 'Route unassigned successfully');
+                Session::add('success', 'District unassigned successfully');
                 Redirect::back();
                 exit();
             }

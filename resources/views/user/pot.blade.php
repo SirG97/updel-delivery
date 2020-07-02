@@ -1,6 +1,6 @@
 @extends('user.layout.access_role')
-@section('title', 'Orders')
-@section('icon', 'fa-truck')
+@section('title', 'Pot')
+@section('icon', 'fa-trash-restore')
 @section('content')
     <div class="container-fluid">
         <div class="row">

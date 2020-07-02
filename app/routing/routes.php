@@ -38,7 +38,7 @@ $router->map('GET', '/district_routes', '\App\Controllers\DistrictController@get
 $router->map('POST', '/district/create', '\App\Controllers\DistrictController@store_district', 'store_district');
 $router->map('POST', '/route/create', '\App\Controllers\DistrictController@store_route', 'store_route');
 $router->map('GET', '/assign_routes', '\App\Controllers\DeliveryController@get_assign_route', 'get_assign_route');
-$router->map('GET', '/assign_routes/[:rider_id]', '\App\Controllers\DeliveryController@get_rider_routes', 'rider_routes');
+$router->map('GET', '/assign_routes/[:district_id]', '\App\Controllers\DeliveryController@get_rider_district', 'rider_district');
 $router->map('POST', '/route/assign', '\App\Controllers\DeliveryController@assign_route', 'assign_route');
 $router->map('POST', '/assigned_routes/[:rider_id]/delete', '\App\Controllers\DeliveryController@delete_assigned_route', 'delete_assigned_route');
 
@@ -49,6 +49,7 @@ $router->map('POST', '/route/[:route_id]/delete', '\App\Controllers\DistrictCont
 //Order Routes
 $router->map('GET', '/orders', '\App\Controllers\OrderController@show_orders', 'orders');
 $router->map('GET', '/create_order', '\App\Controllers\OrderController@get_order_form', 'order_form');
+$router->map('GET', '/routes/[:district_id]', '\App\Controllers\OrderController@get_routes', 'get_routes');
 $router->map('POST', '/save_order', '\App\Controllers\OrderController@save_order', 'save_order');
 $router->map('GET', '/order/[:order_no]', '\App\Controllers\OrderController@get_order', 'get_order');
 $router->map('POST', '/order/[:order_no]/edit', '\App\Controllers\OrderController@edit_order', 'edit_order');

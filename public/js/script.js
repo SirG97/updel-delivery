@@ -331,23 +331,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         e.preventDefault();
         let user_id = $('#user_id').val();
         const url = `/staff/${user_id}/edit`;
-        // const data = {
-        //     token : $('#token').val(),
-        //     username : $('#username').val(),
-        //     firstname: $('#firstname').val(),
-        //     lastname : $('#lastname').val(),
-        //     email : $('#email').val(),
-        //     password : $('#password').val(),
-        //     phone : $('#phone').val(),
-        //     address : $('#address').val(),
-        //     city : $('#city').val(),
-        //     state : $('#state').val(),
-        //     admin_right : $('#admin_right').val(),
-        //     job_title : $('#job_title').val(),
-        //     job_description : $('#job_description').val(),
-        //     image: $("#profile_pics").prop("files")[0]
-        // };
-        // serialize
 
         let d = new FormData();
         d.append('token', $('#token').val());
@@ -450,6 +433,48 @@ document.addEventListener('DOMContentLoaded', (event) => {
             $("#delivery_address, #delivery_landmark").prop('readonly', false).css('cursor', 'text');
             // $("").prop('disabled', false);
         }
+    });
+
+    $('#district').on('change', ()=>{
+        // let district = $("#district" + " option:selected").val();
+        let district = $("#district").val();
+        const data = {
+            district: district
+        };
+        $.ajax({
+            url: `/routes/${district}`,
+            type: 'GET',
+            data: data,
+            beforeSend: function(){
+                $('#route').html('`<option value="">loading</option>`');
+            },
+            success: function (response) {
+                $('#route').html(``);
+                let routes = JSON.parse(response);
+                console.log(JSON.parse(response));
+                if(routes.length){
+                    $.each(routes, (key, value)=>{
+                        $("#route").append(`<option value="${value.route_id}">${value.name}</option>`);
+                    })
+                }else{
+                    $("#route").append(`<option value="">No routes for district</option>`);
+                }
+
+            },
+            error: function(request, error){
+                let errors = JSON.parse(request.responseText);
+                console.log(errors);
+                let ul = '';
+                $.each(errors, (key, value) => {
+                    $.each(value, (index, item)=>{
+                        console.log(item);
+                        ul += `${item} <br>`;
+                    });
+                });
+
+            }
+        });
+
     });
 
     function alertMessage(status, message){

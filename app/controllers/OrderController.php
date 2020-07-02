@@ -40,22 +40,28 @@ class OrderController extends BaseController{
 
     public function show_orders(){
         $districts = District::all();
-        $routes = Route::all();
         $orders = Order::all();
-        return view('user\orders', [ 'orders' => $orders,'districts' => $districts, 'routes' => $routes]);
+        return view('user\orders', [ 'orders' => $orders,'districts' => $districts,]);
     }
 
     public function get_order($id){
         $order_no = $id['order_no'];
-        $order = Order::where('order_no',$order_no)->first();
+        $order = Order::where('order_no',$order_no)->with(['route'])->first();
 
         return view('user\order', ['order' => $order]);
     }
 
+    public function get_routes($id){
+        $id = $id['district_id'];
+        $routes = Route::where('district_id', $id)->get();
+        echo json_encode($routes);
+        exit;
+    }
+
     public function get_order_form(){
         $districts = District::all();
-        $routes = Route::all();
-        return view('user\order_form', ['districts' => $districts, 'routes' => $routes]);
+
+        return view('user\order_form', ['districts' => $districts]);
     }
 
     public function save_order(){
@@ -67,7 +73,7 @@ class OrderController extends BaseController{
                     'service_type' => ['required' => true],
                     'email' => ['required' => true, 'email' => true],
                     'district' => ['required' => true, 'maxLength' => 100, 'mixed' => true],
-                    'route' => ['required' => true,'string' => true],
+                    'route' => ['required' => true,'mixed' => true],
                     'fullname' => ['required' => true,'maxLength' => 50, ],
                     'address' => ['required' => true, 'maxLength' => 100],
                     'phone' => ['required' => true, 'maxLength' => '50'],
@@ -84,9 +90,9 @@ class OrderController extends BaseController{
                 $validation->validate($_POST, $rules);
                 if($validation->hasError()){
                     $districts = District::all();
-                    $routes = Route::all();
+
                     $errors = $validation->getErrorMessages();
-                    return view('user\order_form', ['errors' => $errors,'districts' => $districts, 'routes' => $routes]);
+                    return view('user\order_form', ['errors' => $errors,'districts' => $districts]);
                 }
 
                 // Calculate due date from from service type
@@ -98,8 +104,8 @@ class OrderController extends BaseController{
                     'request_type' => $request->request_type,
                     'service_type' => $request->service_type,
                     'email' => $request->email,
-                    'district' => $request->district,
-                    'route' => $request->route,
+                    'district_id' => $request->district,
+                    'route_id' => $request->route,
                     'fullname' => $request->fullname,
                     'address' => $request->address,
                     'phone' => $request->phone,
@@ -163,10 +169,10 @@ class OrderController extends BaseController{
                 //Add the order details to an array
                 $details = [
                     'request_type' => $request->request_type,
-                    'district' => $request->district,
+                    'district_id' => $request->district,
                     'service_type' => $request->service_type,
                     'email' => $request->email,
-                    'route' => $request->route,
+                    'route_id' => $request->route,
                     'fullname' => $request->fullname,
                     'address' => $request->address,
                     'phone' => $request->phone,

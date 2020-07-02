@@ -34,26 +34,28 @@
                             <table class="table table-hover ">
                                 <thead class="trx-bg-head text-secondary py-3 px-3">
                                 <tr>
-                                    <th scope="col">Route name</th>
                                     <th scope="col">District</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">Assigned by</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col" class="d-flex justify-content-center">Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody class="table-style">
 
-                                @if(!empty($assigned_routes) && count($assigned_routes) > 0)
-                                    @foreach($assigned_routes as $assigned_route)
-                                        @foreach($assigned_route->routes as $r)
+                                @if(!empty($assigned_districts) && count($assigned_districts) > 0)
+                                    @foreach($assigned_districts as $assigned_district)
+                                        @foreach($assigned_district->districts as $district)
                                             <tr>
-                                                <td scope="row">{{$r['name']}}</td>
-                                                <td>{{ $r['district'] }}</td>
-                                                <td class="table-action d-flex flex-nowrap">
+                                                <td scope="row">{{ $district['name'] }}</td>
+                                                <td scope="row">{{ $assigned_district['assigned_by'] }}</td>
+                                                <td scope="row">{{ $assigned_district['assignee_status'] }}</td>
+                                                <td class="table-action d-flex justify-content-center">
                                                 &nbsp; &nbsp
                                                     <i class="fas fa-fw fa-trash text-danger"
                                                        title="Delete assigned route"
                                                        data-toggle="modal"
                                                        data-target="#deleteAssignedRouteModal"
-                                                       data-rider_id="{{ $assigned_route['rider_id'] }}"></i>
+                                                       data-rider_id="{{ $assigned_district['rider_id'] }}"></i>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -64,7 +66,7 @@
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Delete route</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Delete district</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -72,7 +74,7 @@
                                                 <div class="modal-body">
                                                     <form id="assignedRouteDeleteForm" action="" method="POST">
                                                         <div class="col-md-12">
-                                                            Delete assigned route?
+                                                            Delete assigned district?
                                                             <input type="hidden" id="token" name="token" value="{{\App\Classes\CSRFToken::_token()}}">
                                                         </div>
                                                     </form>
@@ -87,7 +89,7 @@
                                 @else
                                     <tr>
                                         <td colspan="7">
-                                            <div class="d-flex justify-content-center">No routes assigned</div>
+                                            <div class="d-flex justify-content-center">No district assigned</div>
                                         </td>
                                     </tr>
                                 @endif
@@ -101,15 +103,15 @@
                         <form class="mt-3" action="/route/assign" method="POST">
                             <input type="hidden" id="token" name="token" value="{{\App\Classes\CSRFToken::_token()}}">
                             <input type="hidden" id="user_id" name="user_id" value="{{$profile->user_id}}">
-                            <label for="routes_to_assign" class="">Select a route to assign</label>
-                            <select class="custom-select" name="route_to_assign" id="routes_to_assign" required>
-                                @if(!empty($routes) && count($routes) > 0)
-                                    <option value="" selected>Select a route</option>
-                                    @foreach($routes as $route)
-                                        <option value={{$route['route_id']}}> {{$route['name']}}</option>
+                            <label for="district_to_assign" class="">Select a district to assign</label>
+                            <select class="custom-select" name="district_to_assign" id="district_to_assign" required>
+                                @if(!empty($districts) && count($districts) > 0)
+                                    <option value="" selected>Select a district</option>
+                                    @foreach($districts as $district)
+                                        <option value={{$district['district_id']}}> {{$district['name']}}</option>
                                     @endforeach
                                 @else
-                                    <option value="" disabled selected>No routes available to assign</option>
+                                    <option value="" disabled selected>No district available to assign</option>
                                 @endif
                             </select>
                             <div class="panel-footer py-2 mt-2  d-flex justify-content-end">

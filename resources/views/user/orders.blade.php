@@ -137,7 +137,7 @@
                                                                     @if(!empty($districts) && count($districts) > 0)
                                                                         <option value="" selected>Select a district</option>
                                                                         @foreach($districts as $district)
-                                                                            <option value={{$district->name}}> {{$district->name}}</option>
+                                                                            <option value={{$district->district_id}}> {{$district->name}}</option>
                                                                         @endforeach
                                                                     @else
                                                                         <option value="" disabled selected>Create a district first</option>
@@ -149,14 +149,7 @@
                                                             <div class="col-md-4 mb-3">
                                                                 <label for="admin_right">Select route</label>
                                                                 <select class="custom-select" id="route" name="route" required>
-                                                                    @if(!empty($routes) && count($routes) > 0)
                                                                         <option value="" selected>Select a route</option>
-                                                                        @foreach($routes as $route)
-                                                                            <option value={{$route->name}}> {{$route->name}}</option>
-                                                                        @endforeach
-                                                                    @else
-                                                                        <option value="" disabled selected>Create a route first</option>
-                                                                    @endif
                                                                 </select>
                                                             </div>
                                                             <div class="col-md-5 mb-3">
@@ -181,8 +174,6 @@
                                                                 <label for="parcel_name">Parcel name</label>
                                                                 <input type="text" class="form-control"  name="parcel_name" id="parcel_name" required>
                                                             </div>
-
-
                                                         </div>
                                                         <div class="form-row">
                                                             <div class="col-md-3 mb-3">
@@ -258,7 +249,10 @@
                             @else
                                 <tr>
                                     <td colspan="7">
-                                        <div class="d-flex justify-content-center">No pins generated</div>
+                                        <div class="d-flex justify-content-center flex-column align-items-center">
+                                            <div class="align-items-center"><i class="fas fa-fw fa-shipping-fast fa-2x"></i></div>
+                                            <div>No Orders yet</div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endif

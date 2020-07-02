@@ -137,7 +137,7 @@
                 <div class="nav_item prelative">
                     <a href="/pot" class="nav_link nav_flex {{\App\Classes\Menu::is_active('/pot')}}">
                             <span class="nav_link_icon">
-                             <i class="fas fa-fw fa-warehouse"></i>
+                             <i class="fas fa-fw fa-trash-restore"></i>
                             </span>
                         <span class="nav_link_text">Pot</span>
                     </a>

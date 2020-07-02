@@ -87,13 +87,13 @@
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">District:</div>
-                                <div class="col-sm-8">{{$order->district}}</div>
+                                <div class="col-sm-8">{{$order->route->district}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Route:</div>
-                                <div class="col-sm-8">{{$order->route}}</div>
+                                <div class="col-sm-8">{{$order->route->name}}</div>
                             </div>
                         </div>
                         <div class="full-details-item">

@@ -9,10 +9,10 @@ class Rider extends Model{
     public $timestamps = true;
 //    protected $primaryKey = 'user_id';
     protected $dates = ['deleted_at'];
-    protected $fillable = ['rider_id','user_id','route_id'];
+    protected $fillable = ['rider_id','user_id','district_id', 'assigned_by', 'assignee_status'];
 
-    public function routes(){
-        return $this->hasMany(Route::class, 'route_id', 'route_id');
+    public function districts(){
+        return $this->hasMany(District::class, 'district_id', 'district_id');
     }
 
     public function user(){
