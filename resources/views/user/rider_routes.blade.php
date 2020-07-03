@@ -28,8 +28,8 @@
             <div class="col-md-7">
                 <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
                     <div class="d-flex flex-column">
-                        <i class="far fa-fw fa-paper-plane fa-3x align-self-center icon-color"></i>
-                        <h6 class="text-center">Assigned Routes</h6>
+                        <i class="far fa-fw fa-building fa-3x align-self-center icon-color"></i>
+                        <h6 class="text-center">Assigned District</h6>
                         <div class="table-responsive">
                             <table class="table table-hover ">
                                 <thead class="trx-bg-head text-secondary py-3 px-3">

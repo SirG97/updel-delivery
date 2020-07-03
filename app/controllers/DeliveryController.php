@@ -53,12 +53,13 @@ class DeliveryController extends BaseController {
                     file_put_contents($target_path . $img_name, $qr_code_image);
                     // Save to DB
                     $image_path = "img{$ds}qrcode{$ds}" . $img_name;
-                    Authorization::create([
-                        'user_id' => $request->user_id,
-                        'auth_img' => $image_path
+                    Authorization::updateOrCreate([
+                        'user_id' => $request->user_id],[
+                        'auth_img' => $image_path,
+
                     ]);
                     Session::add('success', 'QR code created successfully');
-                    return view('user\authorizedelivery', ['qr_code' => $image_path]);
+                    Redirect::back();
                 }catch (\Exception $e){
                     Session::add('error', 'QR code could not be generated');
                     Redirect::back();
@@ -75,7 +76,7 @@ class DeliveryController extends BaseController {
     }
 
    public function get_assign_route(){
-       $riders = User::where('admin_right', 'Rider')->get();
+       $riders = User::where('admin_right', 'Rider')->orderBy('id','desc')->get();
         return view('user\assign_route', ['staffs' => $riders]);
    }
 
@@ -136,7 +137,6 @@ class DeliveryController extends BaseController {
                    Rider::create($details);
                    Request::refresh();
                    Session::add('success', 'District assigned successfully');
-
                    Redirect::back();
                    exit();
                }catch (\Exception $e){

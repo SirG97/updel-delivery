@@ -52,6 +52,14 @@
                     <div class="full-details d-flex flex-column px-3">
                         <div class="full-details-item">
                             <div class="d-flex row my-1">
+                                <div class="col-sm-4 order-detail-title">Product QRcode:</div>
+                                <div class="col-sm-8">
+                                    <img src="/{{$order->barcode}}" class="img-fluid" alt="Product QRcode">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="full-details-item">
+                            <div class="d-flex row my-1">
                                 <div class="col-sm-4 order-detail-title">Service type:</div>
                                 <div class="col-sm-8"> {{$order->service_type}}</div>
                             </div>

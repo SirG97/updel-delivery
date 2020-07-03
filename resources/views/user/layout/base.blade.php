@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/css/Chart.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <script src="/js/Chart.bundle.min.js"></script>
     <script src="/js/jquery-3.2.1.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/moment.min.js"></script>

@@ -18,7 +18,7 @@ class Order extends Model{
     protected $fillable = ['district_id','route_id','email', 'service_type','due_date', 'order_no', 'fullname', 'address', 'phone', 'parcel_name',
                             'parcel_quantity', 'parcel_size', 'pick_up_address', 'pick_up_landmark',
                             'delivery_address', 'delivery_landmark', 'description', 'request_type',
-                            'rider_id', 'order_status'];
+                            'rider_id', 'order_status', 'barcode'];
 
     public function rider(){
         return $this->hasOneThrough(User::class, Rider::class, 'user_id', 'rider_id', 'user_id', 'rider_id');

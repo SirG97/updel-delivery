@@ -55,6 +55,7 @@ $router->map('GET', '/order/[:order_no]', '\App\Controllers\OrderController@get_
 $router->map('POST', '/order/[:order_no]/edit', '\App\Controllers\OrderController@edit_order', 'edit_order');
 $router->map('POST', '/order/[:order_no]/delete', '\App\Controllers\OrderController@delete_order', 'delete_order');
 $router->map('GET', '/pot', '\App\Controllers\OrderController@pot', 'pot');
+$router->map('GET', '/orders/[:terms]/search', '\App\Controllers\OrderController@search_orders', 'search_orders');
 
 
 // Delivery Authorization and authentication
@@ -69,4 +70,8 @@ $router->map('POST', '/customer/[:customer_id]/edit', '\App\Controllers\Customer
 // Settings
 $router->map('GET', '/settings', '\App\Controllers\SettingsController@showSettings', 'show_settings');
 $router->map('POST', '/settings', '\App\Controllers\SettngsController@settings', 'settings');
+
+//Access Denied and error page
+$router->map('GET', '/unauthorized', '\App\Controllers\BaseController@access_denied', 'access_denied');
+
 

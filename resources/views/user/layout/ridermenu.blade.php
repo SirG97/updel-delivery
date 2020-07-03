@@ -33,8 +33,8 @@
             <div class="nav_section_content company">
                 <div class="nav_item prelative">
                     <a href="" class="nav_flex">
-                            <span class="company-icon d-flex justify-content-center">
-                             <i class="fas fa-fw fa-shield-alt align-self-center"></i>
+                       <span class="company-icon d-flex justify-content-center">
+                             <img src="/img/favicon.png" class="img-fluid" />
                             </span>
                         <span class="company_text font-weight-bold">Updel Admin</span>
                     </a>
@@ -145,7 +145,7 @@
 
     <div class="header-nav">
             <span class="header-nav-item">
-                <img class="avatar rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
+                <img class="avatar rounded-circle img-thumbnail img-fluid" src="/{{\App\Classes\Session::get('pics')}}" alt="profile pics">
 {{--            <p class="avatar">Hi! Noble</p>--}}
             </span>
         <div class="nav-dropdown">

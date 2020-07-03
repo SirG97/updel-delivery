@@ -16,18 +16,18 @@ use App\Models\User;
 
 class UserController extends BaseController {
      public function get_riders(){
-         $riders = User::where('admin_right','Rider')->get();
+         $riders = User::where('admin_right','Rider')->orderBy('id','desc')->get();
 
         return view('user\riders', ['staffs' => $riders]);
      }
 
      public function get_support_staff(){
-         $support_staff = User::where('admin_right','Customer Service Adviser')->get();
+         $support_staff = User::where('admin_right','Customer Service Adviser')->orderBy('id','desc')->get();
          return view('user\support_staff', ['staffs' => $support_staff]);
      }
 
      public function get_managers(){
-         $managers = User::where('admin_right','Manager')->get();
+         $managers = User::where('admin_right','Manager')->orderBy('id','desc')->get();
          return view('user\managers', ['staffs' => $managers]);
      }
 

@@ -8,7 +8,7 @@
                 <div class="searchbox mt-0 mr-0">
                     <div class="form-group has-search">
                         <span class="fa fa-search form-control-feedback"></span>
-                        <input type="text" class="form-control" id="search" placeholder="Search orders" style="border:0;">
+                        <input type="text" class="form-control" id="search_order" placeholder="Search orders" style="border:0;">
                     </div>
                     <div class="search-result">
                         <ul class="list-group list-group-flush" id="search-result-list">
@@ -21,6 +21,7 @@
         <div class="row">
             <div class="col-md-12">
                 @include('includes\message')
+
             </div>
         </div>
         <div class="row">

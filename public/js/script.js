@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     })
 
     // Show search dropdown
-    const search = $('#search');
+    const search = $('#search_order');
     const search_result = $('.search-result');
     search.on('input', ()=>{
         search.addClass('no-bottom-borders');
         $('.search-result').css('display','block');
         let terms = search.val();
-        const url = `/customer/${terms}/search`;
+        const url = `/orders/${terms}/search`;
         $.ajax({
             url: url,
             type: 'GET',
@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     $.each(value, (index, item)=>{
                         console.log(item);
                         ul += `<li class="list-group list-group-item">
-                                   <a href="#">
+                                   <a href="/order/${item.order_no}">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h6>${item.firstname}  ${item.surname}</h6>
-                                        <small>${item.phone}</small>
+                                        <h6>${item.parcel_name}  by ${item.fullname}</h6>
+                                        <small>${item.order_no}</small>
                                     </div>
                                     <p class="mb-1">${item.email}</p> 
                                     </a>
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // ul += '<li class="list-group list-group-item"><div class="d-flex w-100 justify-content-between"><h6>' + item.firstname + ' ' + item.surname + '</h6><small>'+ item.phone +'</small></div><p class="mb-1">'+ item.email +'</p></li>';
     search.on('blur', ()=>{
         $('#search').removeClass('no-bottom-borders');
-        $('.search-result').css('display','none');
+        // $('.search-result').css('display','none');
     });
 
     const search_contribution = $('#search-contribution');
@@ -233,7 +233,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modal.find('#delivery_landmark').val(button.data('delivery_address')); // Extract info from data-* attributes
         modal.find('#description').val(button.data('description')); // Extract info from data-* attributes
 
-
+        let request = button.data('request_type');
+        if(request === 'collection'){
+            $("#delivery_address, #delivery_landmark").prop('readonly', true).val('').css('cursor', 'not-allowed');
+            // $("").prop('readonly', true);
+            $("#pick_up_address, #pick_up_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('readonly', false);
+        }else if(request === 'delivery'){
+            $("#pick_up_address, #pick_up_landmark").prop('readonly', true).val('').css('cursor', 'not-allowed');
+            // $("").prop('readonly', true);
+            $("#delivery_address, #delivery_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('disabled', false);
+        }else if(request === 'combo' || request === 'swap'){
+            $("#pick_up_address,#pick_up_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('disabled', false);
+            $("#delivery_address, #delivery_landmark").prop('readonly', false).css('cursor', 'text');
+            // $("").prop('disabled', false);
+        }
     });
 
     $('#editOrderBtn').on('click', (e)=>{

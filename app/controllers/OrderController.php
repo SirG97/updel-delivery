@@ -40,7 +40,7 @@ class OrderController extends BaseController{
 
     public function show_orders(){
         $districts = District::all();
-        $orders = Order::all();
+        $orders = Order::orderBy('id', 'desc')->get();
         return view('user\orders', [ 'orders' => $orders,'districts' => $districts,]);
     }
 
@@ -53,7 +53,7 @@ class OrderController extends BaseController{
 
     public function get_routes($id){
         $id = $id['district_id'];
-        $routes = Route::where('district_id', $id)->get();
+        $routes = Route::where('district_id', $id)->orderBy('id','desc')->get();
         echo json_encode($routes);
         exit;
     }
@@ -90,7 +90,6 @@ class OrderController extends BaseController{
                 $validation->validate($_POST, $rules);
                 if($validation->hasError()){
                     $districts = District::all();
-
                     $errors = $validation->getErrorMessages();
                     return view('user\order_form', ['errors' => $errors,'districts' => $districts]);
                 }
@@ -98,9 +97,34 @@ class OrderController extends BaseController{
                 // Calculate due date from from service type
                 $due_date = $this->calculate_due_date($request->service_type);
 
+                // Genereate product barcode
+                $barcode = new \Com\Tecnick\Barcode\Barcode();
+                $order_no = Random::generateId(16);
+                try{
+                    $qr_code = $barcode->getBarcodeObj('QRCODE,H',
+                        $order_no,
+                        200,
+                        200,
+                        'black',
+                        array(0, 0, 0, 0));
+                    $qr_code_image = $qr_code->getPngData();
+                    $ds = DIRECTORY_SEPARATOR;
+                    $target_path = BASE_PATH."{$ds}public{$ds}img{$ds}order_barcode{$ds}";
+                    $timestamp = time();
+                    $img_name = $order_no . $timestamp  . '.png';
+                    file_put_contents($target_path . $img_name, $qr_code_image);
+                    // Save to DB
+                    $image_path = "img{$ds}order_barcode{$ds}" . $img_name;
+
+                }catch (\Exception $e){
+                    Session::add('error', 'QR code could not be generated');
+                    Redirect::back();
+                    exit();
+                }
+
                 //Add the user
                 $details = [
-                    'order_no' => Random::generateId(16),
+                    'order_no' => $order_no,
                     'request_type' => $request->request_type,
                     'service_type' => $request->service_type,
                     'email' => $request->email,
@@ -119,7 +143,8 @@ class OrderController extends BaseController{
                     'description' => $request->description,
                     'rider_id' => '',
                     'order_status' => 'registered',
-                    'due_date' => $due_date
+                    'due_date' => $due_date,
+                    'barcode' => $image_path
                 ];
 
                 Order::create($details);
@@ -259,7 +284,7 @@ class OrderController extends BaseController{
     }
 
     public function pot(){
-        $orders = Order::where('order_status', '!=', ['registered', 'completed'])->get();
+        $orders = Order::where('order_status', '!=', ['registered', 'completed', 'ongoing'])->orderBy('id','desc')->get();
         return view('user\pot', ['orders' => $orders]);
     }
 
@@ -369,12 +394,12 @@ class OrderController extends BaseController{
     }
 
 
-    public function searchcustomer($terms){
+    public function search_orders($terms){
         //Get the value of the term from the array
         $term = trim($terms['terms']);
-        $searchresult = Customer::query()
-            ->where('surname', 'LIKE', "%{$term}%")
-            ->orWhere('firstname', 'LIKE', "%{$term}%")
+        $searchresult = Order::query()
+            ->where('order_no', 'LIKE', "%{$term}%")
+            ->orWhere('parcel_name', 'LIKE', "%{$term}%")
             ->orWhere('email', 'LIKE', "%{$term}%")
             ->orWhere('phone', 'LIKE', "%{$term}%")->get();
         if(count($searchresult) > 0){

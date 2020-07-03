@@ -1,6 +1,6 @@
 @extends('user.layout.access_role')
 @section('title', 'Authorization')
-@section('icon', 'fa-user-plus')
+@section('icon', 'fa-shield-alt')
 @section('content')
     <div class="container-fluid">
         <div class="row ">

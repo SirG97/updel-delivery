@@ -22,13 +22,18 @@ class DashboardController extends BaseController{
     }
     public function show(){
         // TODO: Total customer
-//        $total_customer = Order::all()->count();
-//
-//        // Total saved
-//        $total_saved_ledger = "SELECT SUM(ledger_bal) total_saved FROM contributions";
-//        $total_ledger = Capsule::select($total_saved_ledger);
-//        $total_saved = $total_ledger[0]->total_saved;
-//
+        $total_orders = Order::all()->count();
+
+        // Total completed
+        $total_completed = Order::where('order_status', '=', ['completed', 'delivered'])->count();
+
+        // Total ongoing
+        $total_ongoing = Order::where('order_status', 'ongoing')->count();
+
+        // Total pot
+        $total_pot = Order::where('order_status', '=', ['uncompleted', 'abandoned'])->count();
+
+        $latest_order = Order::take(15)->orderBy('id', 'desc')->get();
 //        // Total revenue generated
 //
 //        $total_saved_available = "SELECT SUM(available_bal) total FROM contributions";
@@ -63,24 +68,11 @@ class DashboardController extends BaseController{
 //        $latest_contributions = Contribution::orderBy('id', 'desc')->take(10)->get();
 
         // TODO: Doughnut pie of channel used
-        return view('user\dashboard');
-    }
-
-    public function chart_info(){
-            $get_contribution_count = "SELECT count(*) daily_total, created_at
-                                    FROM contributions 
-                                    WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
-                                    GROUP BY DATE(created_at)";
-
-            $contribution_count = Capsule::select($get_contribution_count);
-            if($contribution_count){
-                echo json_encode(['success' => 'Chart data retrieved successfully', 'contribution_count' => $contribution_count]);
-                exit();
-            }
-
-            echo json_encode(['error' => 'Could not get chart data']);
-            exit();
-
+        return view('user\dashboard', ['total_orders'=> $total_orders,
+                                            'total_completed' => $total_completed,
+                                            'total_ongoing' => $total_ongoing,
+                                            'total_pot' => $total_pot,
+                                            'orders' => $latest_order]);
     }
 
     public function get(){
@@ -105,15 +97,10 @@ class DashboardController extends BaseController{
                     var_dump($validation->getErrorMessages());
                     exit();
                 }
-
                 return view('user/dashboard', compact('error'));
-
             }
 
             throw new \Exception('Token mismatch');
-
-
-
         }
 
 

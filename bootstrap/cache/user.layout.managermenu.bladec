@@ -34,7 +34,7 @@
  <div class="nav_item prelative">
  <a href="" class="nav_flex">
  <span class="company-icon d-flex justify-content-center">
- <i class="fas fa-fw fa-shield-alt align-self-center"></i>
+ <img src="/img/favicon.png" class="img-fluid" />
  </span>
  <span class="company_text font-weight-bold">Updel Admin</span>
  </a>
@@ -140,7 +140,7 @@
 
  <div class="header-nav">
  <span class="header-nav-item">
- <img class="avatar rounded-circle img-thumbnail img-fluid" src="/img/avatar-1.jpg" alt="profile pics">
+ <img class="avatar rounded-circle img-thumbnail img-fluid" src="/<?php echo \htmlentities(\App\Classes\Session::get('pics'), ENT_QUOTES, 'UTF-8', false); ?>" alt="profile pics">
 <?php /*            <p class="avatar">Hi! Noble</p>*/ ?>
  </span>
  <div class="nav-dropdown">
