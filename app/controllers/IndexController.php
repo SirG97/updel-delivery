@@ -5,8 +5,7 @@ use App\Classes\Mail;
 use App\Classes\Redirect;
 
 class IndexController extends BaseController{
-    public function show(){
-        return view('user\login');
-
+    public function index(){
+        return view('user\index');
     }
 }
