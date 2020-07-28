@@ -21,7 +21,9 @@ class District extends Model
         return $this->hasMany(Route::class, 'district_id', 'route_id');
     }
 
-
+    public function orders(){
+        return $this->hasMany(Order::class, 'district_id', 'order_no');
+    }
 
 
     public function transform($data){

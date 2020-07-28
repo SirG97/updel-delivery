@@ -11,6 +11,7 @@ use App\Classes\Request;
 use App\Classes\Session;
 use App\Classes\Validation;
 use App\Models\User;
+use \Firebase\JWT\JWT;
 
 
 class AuthController{
@@ -59,8 +60,6 @@ class AuthController{
                          }else{
                              Session::add('pics', "/img/avatar-1.jpg");
                          }
-
-
                          Redirect::to('/dashboard');
                      }
                  }else{
@@ -78,6 +77,7 @@ class AuthController{
         }
 
     }
+
 
 
     public function showRegister(){
@@ -127,8 +127,9 @@ class AuthController{
 
     }
 
-    public function logout(){
-        if(isAuthenticated()){
+    public function logout()
+    {
+        if (isAuthenticated()) {
             Session::remove('SESSION_USER_ID');
             Session::remove('SESSION_USERNAME');
             session_destroy();
@@ -136,4 +137,8 @@ class AuthController{
         }
         Redirect::to('login');
     }
+
+
+
+
 }

@@ -311,6 +311,40 @@ body {
     padding: 5px;
 }
 
+.masthead{
+    height: 40vh;
+    margin-top: -20px;
+    background-color: #00273b;
+}
+
+.masthead-text{
+    color: white;
+}
+
+
+.mission-container{
+    padding: 0px;
+    background-color: #54A1E1;
+}
+
+.mission{
+    padding: 80px 30px;
+}
+
+.mission-heading{
+    font-size: 36px;
+    line-height: 47px;
+    margin-bottom: 15px;
+}
+
+.mission-text{
+    font-size: 20px;
+}
+
+.stats-container{
+    padding: 100px 0;
+}
+
 
 .main{
     min-height: 100vh;
@@ -921,6 +955,9 @@ header{
 }
 
 @media screen and (min-width: 1200px){
+    .masthead {
+        height: 55vh;
+    }
     .main{
         width: calc(100% - 250px);
         padding: 80px 44px 124px 7px;

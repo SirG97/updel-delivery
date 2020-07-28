@@ -17,6 +17,7 @@ set_error_handler([new App\Classes\ErrorHandler(), 'handleErrors']);
 
 //require the routes file
 require_once __DIR__ . '/../app/routing/routes.php';
+require_once __DIR__ . '/../app/routing/api.php';
 
 
  new \App\RouteDispatcher($router);

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +17,10 @@ class Rider extends Model{
 
     public function user(){
         return $this->hasOne(User::class, 'user_id', 'user_id');
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class, 'district_id', 'district_id');
     }
 
     public function transform($data){

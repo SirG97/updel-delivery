@@ -82,4 +82,13 @@ $router->map('POST', '/settings', '\App\Controllers\SettngsController@settings',
 //Access Denied and error page
 $router->map('GET', '/unauthorized', '\App\Controllers\BaseController@access_denied', 'access_denied');
 
+// App API routes
+$router->map('POST', '/app/login', '\App\Controllers\AppController@appLogin', 'appLogin');
+$router->map('GET', '/app/district', '\App\Controllers\AppController@getRiderDistrict', 'getRiderDistrict');
+$router->map('GET', '/app/orders', '\App\Controllers\AppController@getRiderOrders', 'appGetRiderOrder');
+$router->map('POST', '/app/updateorder', '\App\Controllers\AppController@updateOrder', 'updateOrder');
+$router->map('GET', '/app/track', '\App\Controllers\AppController@track', 'appTrack');
+$router->map('GET', '/app/profile', '\App\Controllers\AppController@profile', 'appProfile');
+
+
 

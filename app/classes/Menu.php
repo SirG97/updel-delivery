@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\classes;
+namespace App\Classes;
 
 
 class Menu{

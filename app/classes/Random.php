@@ -31,107 +31,107 @@ class Random{
 
         switch($num){
             case 1:
-                $ret = "a";
+                $ret = "A";
                 break;
 
             case 2:
-                $ret = "b";
+                $ret = "B";
                 break;
 
             case 3:
-                $ret = "c";
+                $ret = "C";
                 break;
 
             case 4:
-                $ret = "d";
+                $ret = "D";
                 break;
 
             case 5:
-                $ret = "e";
+                $ret = "E";
                 break;
 
             case 6:
-                $ret = "f";
+                $ret = "F";
                 break;
 
             case 7:
-                $ret = "g";
+                $ret = "G";
                 break;
 
             case 8:
-                $ret = "h";
+                $ret = "H";
                 break;
 
             case 9:
-                $ret = "i";
+                $ret = "I";
                 break;
 
             case 10:
-                $ret = "j";
+                $ret = "J";
                 break;
 
             case 11:
-                $ret = "k";
+                $ret = "K";
                 break;
 
             case 12:
-                $ret = "l";
+                $ret = "L";
                 break;
 
             case 13:
-                $ret = "m";
+                $ret = "M";
                 break;
 
             case 14:
-                $ret = "n";
+                $ret = "N";
                 break;
 
             case 15:
-                $ret = "o";
+                $ret = "O";
                 break;
 
             case 16:
-                $ret = "p";
+                $ret = "P";
                 break;
 
             case 17:
-                $ret = "q";
+                $ret = "Q";
                 break;
 
             case 18:
-                $ret = "r";
+                $ret = "R";
                 break;
 
             case 19:
-                $ret = "s";
+                $ret = "S";
                 break;
 
             case 20:
-                $ret = "t";
+                $ret = "T";
                 break;
 
             case 21:
-                $ret = "u";
+                $ret = "U";
                 break;
 
             case 22:
-                $ret = "v";
+                $ret = "V";
                 break;
 
             case 23:
-                $ret = "w";
+                $ret = "W";
                 break;
 
             case 24:
-                $ret = "x";
+                $ret = "X";
                 break;
 
             case 25:
-                $ret = "y";
+                $ret = "Y";
                 break;
 
             case 26:
-                $ret = "z";
+                $ret = "Z";
                 break;
         }
 

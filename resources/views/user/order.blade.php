@@ -156,29 +156,15 @@
                     </div>
                     <div class="full-details">
                         <div class="list-group list-group-flush">
+                            @foreach($order->events as $event)
                             <a href="#" class="list-group-item list-group-item-action flex-column align-items-start ">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Registered</h6>
-                                    <small>3 days ago</small>
+                                    <h6 class="mb-1">{{$event->status}}</h6>
+                                    <small>{{$event->created_at->diffForHumans()}}</small>
                                 </div>
-                                <p class="mb-1 font-weight-normal">Donec id elit non mi porta gravida at eget metus. </p>
+                                <p class="mb-1 font-weight-normal">{{$event->comment}} </p>
                             </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Ongoing</h6>
-                                    <small class="text-muted">3 days ago</small>
-                                </div>
-                                <p class="mb-1">Donec id elit non mi porta gravida.</p>
-
-                            </a>
-                            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h6 class="mb-1">Delivered</h6>
-                                    <small class="text-muted">3 days ago</small>
-                                </div>
-                                <p class="mb-1">Donec id elit non mi porta gravida at eget </p>
-
-                            </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>

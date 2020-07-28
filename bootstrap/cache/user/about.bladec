@@ -1,0 +1,135 @@
+<?php echo $this->runChild('includes\head'); ?>
+<div>
+ <nav class="navbar navbar-expand-lg navbar-light navbar-transparent fixed-top main-menu custom">
+ <a class="navbar-brand " href="#"><img src="/img/favicon.png" style="height: 40px" alt=""class="img-fluid"><span> Updel Services</span></a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+ <span class="navbar-toggler-icon"></span>
+ </button>
+ <div class="collapse navbar-collapse " id="navbarNavDropdown">
+ <ul class="navbar-nav ml-auto">
+ <li class="nav-item  px-3">
+ <a class="nav-link" href="/">Home</a>
+ </li>
+ <li class="nav-item active px-3">
+ <a class="nav-link" href="/about">About</a>
+ </li>
+
+ <li class="nav-item px-3">
+ <a class="nav-link" href="/services" >Services</a>
+ </li>
+ <li class="nav-item px-3">
+ <a class="nav-link" href="/track">Track</a>
+ </li>
+ <li class="nav-item px-3">
+ <a class="nav-link" href="/faq">FAQ</a>
+ </li>
+ <li class="nav-item px-3 ">
+ <a class="nav-link" href="/contact">Contact us</a>
+ </li>
+ </ul>
+ </div>
+ </nav>
+</div>
+<!-- Start of the hero section -->
+<div class="masthead d-flex align-items-center">
+ <div class="container">
+ <div class="row">
+ <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+ <div class="align-middle">
+ <div class="masthead-text">
+ <h1>About Updel Services</h1>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+</div>
+<!-- End of the hero section -->
+<section class="who">
+ <div class="whotext-container text-black-50">
+ <div class="do-you text-center font-weight-bold">Welcome to Updel Services</div>
+ <div>Updel Services is a courier company borne out of the need to bridge the growing gap between the need for fast, flexible supply of delivery service and available options. Led by an experienced leadership team and a versatile operational group, we are here to serve as a premier partner to every business that believes that Customer service is important to their business growth.</div>
+ </div>
+</section>
+
+<section class="mission-container">
+ <div class="container-fluid">
+ <div class="row">
+ <div class="col-md-6">
+ <div class="d-flex flex-column pl-3 mt-4 mission">
+ <h3 class="mission-heading font-weight-bold">Mission and Vision</h3>
+ <p class="mission-text">Our mission is providing delivery options to every door step in Nigeria
+ and to be the leading name in parcel delivery and collection in Nigeria.
+ Led by an experienced leadership team and a versatile operational group,
+ we are here to serve as a premier partner to every business that believes that Customer service is important to their business growth.
+ </p>
+ </div>
+ </div>
+ <div class="col-md-6">
+ <img src="/img/about.gif" alt="" class="img-fluid">
+ </div>
+ </div>
+ </div>
+</section>
+
+<section class="stats-container">
+ <div class="what-widget">
+ <div class="container">
+ <div class="row">
+ <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+ <div class="widget-item">
+ <div class="circle-icon">
+ <i class="fa fa-headset"></i>
+ </div>
+ <h6>10 Team members</h6>
+
+ </div>
+ </div>
+ <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+ <div class="widget-item">
+ <div class="circle-icon">
+ <i class="fa fa-shipping-fast"></i>
+ </div>
+ <h6>75 Deliveries</h6>
+
+ </div>
+ </div>
+ <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+ <div class="widget-item">
+ <div class="circle-icon">
+ <i class="fa fa-award"></i>
+ </div>
+ <h6>2 Award </h6>
+ </div>
+ </div>
+ <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+ <div class="widget-item">
+ <div class="circle-icon">
+ <i class="fa fa-grin-stars"></i>
+ </div>
+ <h6>64 Happy Clients</h6>
+
+ </div>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ <div class="container-fluid">
+ <div class="row">
+ <col-md-3>
+
+ </col-md-3>
+ <col-md-3>
+
+ </col-md-3>
+ <col-md-3>
+
+ </col-md-3>
+ <col-md-3>
+
+ </col-md-3>
+ </div>
+ </div>
+</section>
+<?php echo $this->runChild('includes\footer'); ?>

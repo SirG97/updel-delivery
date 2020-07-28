@@ -6,7 +6,10 @@ namespace App\Controllers;
 
 
 use App\Models\District;
+use App\Models\Event;
+use App\models\Rider;
 use App\Models\Route;
+use \Firebase\JWT\JWT;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use App\Classes\CSRFToken;
 use App\Classes\Random;
@@ -46,7 +49,7 @@ class OrderController extends BaseController{
 
     public function get_order($id){
         $order_no = $id['order_no'];
-        $order = Order::where('order_no',$order_no)->with(['route'])->first();
+        $order = Order::where('order_no',$order_no)->with(['route', 'events'])->first();
 
         return view('user\order', ['order' => $order]);
     }
@@ -148,6 +151,14 @@ class OrderController extends BaseController{
                 ];
 
                 Order::create($details);
+                $event_details = [
+                    'user_id' => Session::get('SESSION_USER_ID'),
+                    'order_no' => $order_no,
+                    'status' => 'registered',
+                    'comment' => 'Order has been registered'
+                ];
+
+                Event::create($event_details);
                 Request::refresh();
                 Session::add('success', 'New order created successfully');
 
@@ -169,7 +180,7 @@ class OrderController extends BaseController{
                     'service_type' => ['required' => true],
                     'email' => ['required' => true, 'email' => true],
                     'district' => ['required' => true, 'maxLength' => 100, 'mixed' => true],
-                    'route' => ['required' => true,'string' => true],
+                    'route' => ['required' => true],
                     'fullname' => ['required' => true,'maxLength' => 50, ],
                     'address' => ['required' => true, 'maxLength' => 100],
                     'phone' => ['required' => true, 'maxLength' => '50'],
@@ -214,6 +225,14 @@ class OrderController extends BaseController{
 
                 try{
                     Order::where('order_no', $order_no)->update($details);
+                    $event_details = [
+                        'user_id' => Session::get('SESSION_USER_ID'),
+                        'order_no' => $order_no,
+                        'status' => 'updated',
+                        'comment' => 'Order details updated'
+                    ];
+
+                    Event::create($event_details);
                     echo json_encode(['success' => 'Order updated successfully']);
                     exit();
                 }catch (\Exception $e){
@@ -289,109 +308,109 @@ class OrderController extends BaseController{
     }
 
 
-    public function storecustomer(){
-        if(Request::has('post')){
-            $request = Request::get('post');
-            if(CSRFToken::verifyCSRFToken($request->token)){
+//    public function storecustomer(){
+//        if(Request::has('post')){
+//            $request = Request::get('post');
+//            if(CSRFToken::verifyCSRFToken($request->token)){
+//
+//                $rules = [
+//                    'email' => ['required' => true, 'maxLength' => 30, 'email' => true, 'unique' =>'customers'],
+//                    'firstname' => ['required' => true, 'maxLength' => 40, 'string' => true],
+//                    'surname' => ['string' => true, 'maxLength' => 40],
+//                    'phone' => ['required' => true,'maxLength' => 14, 'minLength' => 11, 'number' => true, 'unique' => 'customers'],
+//                    'city' => ['required' => true, 'maxLength' => '50', 'string' => true],
+//                    'state' => ['required' => true, 'maxLength' => '50', 'string' => true],
+//                    'address' => ['required' => true, 'maxLength' => '150'],
+//                    'amount' => ['required' => true,  'number' => true]
+//                ];
+//                $validation = new Validation();
+//                $validation->validate($_POST, $rules);
+//                if($validation->hasError()){
+//                    $errors = $validation->getErrorMessages();
+//                    return view('user/customer', ['errors' => $errors]);
+//                }
+//
+//                //Add the user
+//                $details = [
+//                    'customer_id' => Random::generateId(16),
+//                    'surname' => $request->surname,
+//                    'firstname' => $request->firstname,
+//                    'email' => $request->email,
+//                    'phone' => $request->phone,
+//                    'address' => $request->address,
+//                    'city' => $request->city,
+//                    'state' => $request->state,
+//                    'amount' => $request->amount,
+//
+//                ];
+//
+//                Customer::create($details);
+//
+//                Request::refresh();
+//
+//                Session::add('success', 'New customer created successfully');
+//
+//                Redirect::to('/customers');
+//                exit();
+//
+//            }
+//
+//            Redirect::to('/customer');
+//        }
+//    }
 
-                $rules = [
-                    'email' => ['required' => true, 'maxLength' => 30, 'email' => true, 'unique' =>'customers'],
-                    'firstname' => ['required' => true, 'maxLength' => 40, 'string' => true],
-                    'surname' => ['string' => true, 'maxLength' => 40],
-                    'phone' => ['required' => true,'maxLength' => 14, 'minLength' => 11, 'number' => true, 'unique' => 'customers'],
-                    'city' => ['required' => true, 'maxLength' => '50', 'string' => true],
-                    'state' => ['required' => true, 'maxLength' => '50', 'string' => true],
-                    'address' => ['required' => true, 'maxLength' => '150'],
-                    'amount' => ['required' => true,  'number' => true]
-                ];
-                $validation = new Validation();
-                $validation->validate($_POST, $rules);
-                if($validation->hasError()){
-                    $errors = $validation->getErrorMessages();
-                    return view('user/customer', ['errors' => $errors]);
-                }
-
-                //Add the user
-                $details = [
-                    'customer_id' => Random::generateId(16),
-                    'surname' => $request->surname,
-                    'firstname' => $request->firstname,
-                    'email' => $request->email,
-                    'phone' => $request->phone,
-                    'address' => $request->address,
-                    'city' => $request->city,
-                    'state' => $request->state,
-                    'amount' => $request->amount,
-
-                ];
-
-                Customer::create($details);
-
-                Request::refresh();
-
-                Session::add('success', 'New customer created successfully');
-
-                Redirect::to('/customers');
-                exit();
-
-            }
-
-            Redirect::to('/customer');
-        }
-    }
-
-    public function editcustomer($id){
-
-        $customer_id = $id['customer_id'];
-        if(Request::has('post')){
-            $request = Request::get('post');
-            if(CSRFToken::verifyCSRFToken($request->token, false)){
-                $rules = [
-                    'email' => ['required' => true, 'maxLength' => 30, 'email' => true, 'unique_edit' => 'customers|' .$customer_id .'|customer_id'],
-                    'firstname' => ['required' => true, 'maxLength' => 40, 'string' => true],
-                    'surname' => ['string' => true, 'maxLength' => 40],
-                    'phone' => ['required' => true,'maxLength' => 14, 'minLength' => 11],
-                    'city' => ['required' => true, 'maxLength' => '50', 'string' => true],
-                    'state' => ['required' => true, 'maxLength' => '50', 'string' => true],
-                    'address' => ['required' => true, 'maxLength' => '150'],
-                    'amount' => ['required' => true,  'number' => true]
-                ];
-                $validation = new Validation();
-                $validation->validate($_POST, $rules);
-                if($validation->hasError()){
-                    $errors = $validation->getErrorMessages();
-                    header('HTTP 1.1 422 Unprocessable Entity', true, 422);
-                    echo json_encode($errors);
-                    exit();
-                }
-
-                //Add the user
-                $details = [
-                    'surname' => $request->surname,
-                    'firstname' => $request->firstname,
-                    'email' => $request->email,
-                    'phone' => $request->phone,
-                    'address' => $request->address,
-                    'city' => $request->city,
-                    'state' => $request->state,
-                    'amount' => $request->amount,
-
-                ];
-
-                Customer::where('customer_id', $customer_id)->update($details);
-                echo json_encode(['success' => 'Customer details updated successfully']);
-                exit();
-
-            }else{
-                echo 'token error';
-            }
-
-            //Redirect::to('/customer');
-        }else{
-            echo 'request error';
-        }
-
-    }
+//    public function editcustomer($id){
+//
+//        $customer_id = $id['customer_id'];
+//        if(Request::has('post')){
+//            $request = Request::get('post');
+//            if(CSRFToken::verifyCSRFToken($request->token, false)){
+//                $rules = [
+//                    'email' => ['required' => true, 'maxLength' => 30, 'email' => true, 'unique_edit' => 'customers|' .$customer_id .'|customer_id'],
+//                    'firstname' => ['required' => true, 'maxLength' => 40, 'string' => true],
+//                    'surname' => ['string' => true, 'maxLength' => 40],
+//                    'phone' => ['required' => true,'maxLength' => 14, 'minLength' => 11],
+//                    'city' => ['required' => true, 'maxLength' => '50', 'string' => true],
+//                    'state' => ['required' => true, 'maxLength' => '50', 'string' => true],
+//                    'address' => ['required' => true, 'maxLength' => '150'],
+//                    'amount' => ['required' => true,  'number' => true]
+//                ];
+//                $validation = new Validation();
+//                $validation->validate($_POST, $rules);
+//                if($validation->hasError()){
+//                    $errors = $validation->getErrorMessages();
+//                    header('HTTP 1.1 422 Unprocessable Entity', true, 422);
+//                    echo json_encode($errors);
+//                    exit();
+//                }
+//
+//                //Add the user
+//                $details = [
+//                    'surname' => $request->surname,
+//                    'firstname' => $request->firstname,
+//                    'email' => $request->email,
+//                    'phone' => $request->phone,
+//                    'address' => $request->address,
+//                    'city' => $request->city,
+//                    'state' => $request->state,
+//                    'amount' => $request->amount,
+//
+//                ];
+//
+//                Customer::where('customer_id', $customer_id)->update($details);
+//                echo json_encode(['success' => 'Customer details updated successfully']);
+//                exit();
+//
+//            }else{
+//                echo 'token error';
+//            }
+//
+//            //Redirect::to('/customer');
+//        }else{
+//            echo 'request error';
+//        }
+//
+//    }
 
 
     public function search_orders($terms){
@@ -410,6 +429,52 @@ class OrderController extends BaseController{
             exit();
         }
 
+    }
+
+
+    public function getRiderDistrict(){
+        $secret_key = "UPDEL";
+        $jwt = null;
+        $data = json_decode(file_get_contents("php://input"));
+
+        $authHeader = $_SERVER['HTTP_AUTHORIZATION'];
+
+        $arr = explode(" ", $authHeader);
+
+
+        /*echo json_encode(array(
+            "message" => "sd" .$arr[1]
+        ));*/
+
+        $jwt = $arr[1];
+
+        if ($jwt) {
+
+            try {
+
+                $decoded = JWT::decode($jwt, $secret_key, array('HS256'));
+
+                // Access is granted. Add code of the operation here
+
+                $district = Rider::where('user_id', $decoded->data->userid)->with(['orders'])->get();
+
+                echo json_encode(array(
+                    "message" => "Access granted:",
+                    "data" =>  $district,
+
+                ));
+
+            } catch (\Exception $e) {
+
+                http_response_code(401);
+
+                echo json_encode(array(
+                    "message" => "Access denied.",
+                    "error" => $e->getMessage()
+                ));
+            }
+
+        }
     }
 
 }
