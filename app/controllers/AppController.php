@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Event;
 use App\Models\Rider;
 use App\Models\User;
+use App\Models\Authorization;
 use Exception;
 use Firebase\JWT\JWT;
 
@@ -342,11 +343,11 @@ class AppController extends BaseController{
         }
     }
 
-    public function track(){
-
+    public function track($id){
+        $order_no = $id['order_no'];
         $data = json_decode(file_get_contents("php://input"));
-        if(!empty($data->order_no)) {
-            $order = Order::where('order_no', $data->order_no)->with(['route', 'events'])->first();
+        if(!empty($order_no)) {
+            $order = Order::where('order_no', $order_no)->with(['route', 'events'])->first();
 
             if($order !== null){
                 http_response_code(200);
@@ -371,6 +372,75 @@ class AppController extends BaseController{
                 "message" => "Order number is empty",
                 "status" => "Error"
             ));
+        }
+    }
+
+    public function authorize(){
+        $decoded = $this->verifyJWT();
+        if($decoded->data->userid !== null or $decoded->data->userid !== '' or $decoded->status !== 'failed'){
+            $data = json_decode(file_get_contents("php://input"));
+
+            if(!empty($data->id)){
+                $user = Authorization::where([['user_id', '=', $data->id], ['auth_img', '!=', null]])->get();
+
+                if($user !== null){
+                    try{
+                        //Update order in that district
+                        $riders = Rider::where('user_id', $decoded->data->userid)->with(['orders'])->get();
+                        $a = [];
+                        foreach($riders as $r){
+                            foreach($r->orders as $o){
+                                array_push($a, $o->order_no);
+                            }
+                        }
+                        Order::whereIn('order_no', $a)->update(['order_status' => 'ongoing', 'rider_id' => $decoded->data->userid]);
+                        $riders = Rider::where('user_id', $decoded->data->userid)->with(['orders'])->get();
+
+                        $event_array = array();
+
+                        for($i = 0; $i <= count($a); $i++){
+                            array_push($event_array,
+                                array('user_id' => $decoded->data->userid,
+                                      'order_no' => $a[$i],
+                                      'comment'=> 'Order has been dispatched for delivery',
+                                      'status' => 'ongoing')
+                            );
+                        }
+
+                        Event::insert($event_array);
+
+                        http_response_code(200);
+                        echo json_encode(array(
+                            "status" => "Success",
+                            "message" => "Orders updated successfully",
+                            "data" =>  $riders,
+                        ));
+                    }catch (\Exception $e){
+
+                        http_response_code(400);
+                        echo json_encode(array(
+                            "status" => "Error",
+                            "message" => $e->getMessage(),
+                            "data" =>  [],
+                        ));
+                    }
+
+                }else{
+                    http_response_code(400);
+                    echo json_encode(array(
+                        "status" => "Error",
+                        "message" => "Delivery Authorization failed",
+                        "data" =>  [],
+                    ));
+                }
+            }else{
+                http_response_code(400);
+                echo json_encode(array(
+                    "status" => "Error",
+                    "message" => "QR Code ID is empty",
+                    "data" =>  [],
+                ));
+            }
         }
     }
 

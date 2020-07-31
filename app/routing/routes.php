@@ -87,8 +87,8 @@ $router->map('POST', '/app/login', '\App\Controllers\AppController@appLogin', 'a
 $router->map('GET', '/app/district', '\App\Controllers\AppController@getRiderDistrict', 'getRiderDistrict');
 $router->map('GET', '/app/orders', '\App\Controllers\AppController@getRiderOrders', 'appGetRiderOrder');
 $router->map('POST', '/app/updateorder', '\App\Controllers\AppController@updateOrder', 'updateOrder');
-$router->map('GET', '/app/track', '\App\Controllers\AppController@track', 'appTrack');
+$router->map('GET', '/app/track/[:order_no]', '\App\Controllers\AppController@track', 'appTrack');
 $router->map('GET', '/app/profile', '\App\Controllers\AppController@profile', 'appProfile');
-
+$router->map('POST', '/app/authorize', '\App\Controllers\AppController@authorize', 'authorizedelivery');
 
 

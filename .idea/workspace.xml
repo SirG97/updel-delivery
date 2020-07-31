@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d681a3b-3bfc-44b5-9e5a-794b10ccfa08" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mclone.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mclone.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/classes/Menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/Menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/classes/Random.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/classes/Random.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/BaseController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/BaseController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/DistrictController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/DistrictController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/IndexController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/IndexController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/PinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AppController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/District.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/District.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Event.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Event.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/Rider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/Rider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/AppController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/AppController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routing/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/routing/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/index.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/index.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/cache/user/order.bladec" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/cache/user/order.bladec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/landing_gif1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/about.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/about.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/about.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/contact.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/order.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/order.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/services.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/services.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +17,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="mclone" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -149,7 +127,9 @@
       <workItem from="1595858921591" duration="7544000" />
       <workItem from="1595928207761" duration="775000" />
       <workItem from="1595929214644" duration="18256000" />
-      <workItem from="1595961026367" duration="1532000" />
+      <workItem from="1595961026367" duration="1692000" />
+      <workItem from="1595969608490" duration="3522000" />
+      <workItem from="1596090146639" duration="18683000" />
     </task>
     <servers />
   </component>
