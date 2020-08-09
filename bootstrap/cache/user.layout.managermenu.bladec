@@ -169,10 +169,7 @@
 </main>
 
 
-<script>
- let ctx = $('#contribution-canvas');
 
-</script>
 
 </body>
 </html>

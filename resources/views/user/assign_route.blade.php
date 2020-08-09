@@ -51,7 +51,7 @@
                             @else
                                 <tr>
                                     <td colspan="5">
-                                        <div class="d-flex justify-content-center">No Managers yet</div>
+                                        <div class="d-flex justify-content-center">No Riders yet</div>
                                     </td>
                                 </tr>
                             @endif

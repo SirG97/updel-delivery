@@ -1,5 +1,6 @@
  <?php 
  $priviledge = App\Classes\Session::get('priviledge');
+
  ?>
 <?php if($priviledge === 'Admin'): ?>
  <?php $_shouldextend[2]=1; ?>

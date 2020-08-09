@@ -1,5 +1,5 @@
 @extends('user.layout.access_role')
-@section('title', 'District')
+@section('title', 'FoodCategory')
 @section('icon', 'fa-building')
 @section('content')
     <div class="container-fluid">
@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
                     <form action="/district/create" method="POST">
                         <div class="d-flex flex-column">
@@ -17,8 +17,15 @@
                             <h6 class="text-center">Add a new district</h6>
                             <div class="input-group my-3">
                                 <input type="hidden" id="token" name="token" value="{{\App\Classes\CSRFToken::_token()}}">
-
-                                <input type="text" class="form-control" placeholder="Eg. Maitama, Surulere" name="name">
+                                <select class="custom-select form-control" name="state" id="inputGroupSelect01" required>
+                                    <option value="Anambra">Anambra</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="Enugu">Enugu</option>
+                                    <option value="Ebonyi">Ebonyi</option>
+                                    <option value="Imo">Imo</option>
+                                    <option value="Abia">Abia</option>
+                                </select>
+                                <input type="text" class="form-control" placeholder="Eg. Maitama" name="name">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary" type="submit">Create</button>
                                 </div>
@@ -27,7 +34,7 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="custom-panel card py-sm-3 py-2 px-2 px-sm-3">
                     <div class="d-flex flex-column">
                         <i class="far fa-fw fa-paper-plane fa-3x align-self-center icon-color"></i>

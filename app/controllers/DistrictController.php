@@ -32,18 +32,20 @@ class DistrictController extends BaseController
             if (CSRFToken::verifyCSRFToken($request->token)) {
                 $rules = [
                     'name' => ['required' => true, 'string' => true, 'minLength' => 2, 'maxLength' => 100, 'unique' => 'districts'],
+                    'state' => ['required' => true, 'string' => true, 'minLength' => 2, 'maxLength' => 15],
                 ];
                 $validation = new Validation();
                 $validation->validate($_POST, $rules);
                 if ($validation->hasError()) {
                     $errors = $validation->getErrorMessages();
-                    return view('user\district', ['errors' => $errors]);
+                    return view('user.district', ['errors' => $errors]);
                 }
 
                 //Add the user
                 $details = [
                     'district_id' => Random::generateId(16),
                     'name' => $request->name,
+                    'state' => $request->state,
                     'created_by' => Session::get('SESSION_USERNAME'),
                 ];
                 District::create($details);

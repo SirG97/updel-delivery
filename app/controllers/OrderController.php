@@ -43,8 +43,16 @@ class OrderController extends BaseController{
 
     public function show_orders(){
         $districts = District::all();
-        $orders = Order::orderBy('id', 'desc')->get();
-        return view('user\orders', [ 'orders' => $orders,'districts' => $districts,]);
+        $priviledge = Session::get('priviledge');
+        $state = Session::get('state');
+
+        if($priviledge === 'Manager'){
+            $orders = District::where('state', $state)->with('orders')->get();
+        }else{
+            $orders = District::with('orders')->get();
+        }
+
+        return view('user.orders', [ 'orders' => $orders,'districts' => $districts,]);
     }
 
     public function get_order($id){

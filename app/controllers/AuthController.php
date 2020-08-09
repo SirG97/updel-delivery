@@ -55,6 +55,7 @@ class AuthController{
                          Session::add('SESSION_USER_ID', $user->user_id);
                          Session::add('SESSION_USERNAME', $user->firstname);
                          Session::add('priviledge', $user->admin_right);
+                         Session::add('state', $user->state);
                          if($user->image !== ''){
                              Session::add('pics', $user->image);
                          }else{
@@ -68,7 +69,7 @@ class AuthController{
                  }
 
 //                Session::add('success', 'user created successfully');
-                Session::add('error', 'An error occured');
+                Session::add('error', 'An error occurred');
                 return view('user\login');
 
             }

@@ -41,7 +41,7 @@ $router->map('POST', '/staff/add', '\App\Controllers\UserController@store_staff'
 $router->map('POST', '/staff/[:user_id]/edit', '\App\Controllers\UserController@edit_staff', 'edit_staff');
 $router->map('POST', '/staff/[:user_id]/delete', '\App\Controllers\UserController@delete_staff', 'delete_staff');
 
-//District and route routes
+//FoodCategory and route routes
 $router->map('GET', '/district_routes', '\App\Controllers\DistrictController@get_district', 'district');
 $router->map('POST', '/district/create', '\App\Controllers\DistrictController@store_district', 'store_district');
 $router->map('POST', '/route/create', '\App\Controllers\DistrictController@store_route', 'store_route');

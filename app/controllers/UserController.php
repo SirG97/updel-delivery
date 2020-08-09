@@ -16,7 +16,13 @@ use App\Models\User;
 
 class UserController extends BaseController {
      public function get_riders(){
-         $riders = User::where('admin_right','Rider')->orderBy('id','desc')->get();
+         $priviledge = Session::get('priviledge');
+         $state = Session::get('state');
+         if($priviledge === 'Manager'){
+             $riders = User::where([['admin_right', '=', 'Rider'], ['state', '=', $state]])->orderBy('id','desc')->get();
+         }else{
+             $riders = User::where('admin_right','Rider')->orderBy('id','desc')->get();
+         }
 
         return view('user\riders', ['staffs' => $riders]);
      }
@@ -123,7 +129,7 @@ class UserController extends BaseController {
 
      public function edit_staff($id){
          $user_id = $id['user_id'];
-//            dd(Request::all());
+        // dd(Request::all());
          if(Request::has('post')){
              $request = Request::get('post');
 

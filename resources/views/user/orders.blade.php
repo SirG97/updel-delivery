@@ -46,54 +46,56 @@
                             <tbody class="table-style">
 
                             @if(!empty($orders) && count($orders) > 0)
-                                @foreach($orders as $order)<tr>
-                                    <td scope="row">
-                                        @if($order['order_status'] === 'delivered')
-                                            <i class="fas fa-fw fa-check-circle text-success"></i>
-                                        @elseif($order['order_status'] === 'ongoing')
-                                            <i class="fas fa-fw fa-shipping-fast text-info"></i>
-                                        @elseif($order['order_status'] === 'registered')
-                                            <i class="fas fa-fw fa-registered text-primary"></i>
-                                        @elseif($order['order_status'] === 'uncompleted')
-                                            <i class="fas fa-fw fa-times-circle text-danger"></i>
-                                        @endif
-                                    </td>
-                                    <td>{{ $order['order_no'] }}</td>
-                                    <td>{{ $order['parcel_name'] }}</td>
-                                    <td>{{ $order['fullname'] }}</td>
-                                    <td>{{ $order['request_type'] }}</td>
-                                    <td>{{ $order['phone'] }}</td>
-                                    <td class="table-action d-flex flex-nowrap">
-                                        <a href="/order/{{ $order['order_no'] }}" ><i class="fas fa-fw fa-eye text-success" title="View order details"></i></a> &nbsp; &nbsp;
-                                        <i class="fas fa-fw fa-edit text-primary"
-                                           data-toggle="modal"
-                                           data-target="#editOrderModal"
-                                           title="Edit order details"
-                                           data-order_no="{{ $order['order_no'] }}"
-                                           data-request_type="{{ $order['request_type'] }}"
-                                           data-district="{{ $order['district'] }}"
-                                           data-route="{{ $order['route'] }}"
-                                           data-fullname="{{ $order['fullname'] }}"
-                                           data-email="{{ $order['email'] }}"
-                                           data-service_type="{{ $order['service_type'] }}"
-                                           data-address="{{ $order['address'] }}"
-                                           data-phone="{{ $order['phone'] }}"
-                                           data-parcel_name="{{ $order['parcel_name'] }}"
-                                           data-parcel_size="{{ $order['parcel_size'] }}"
-                                           data-pick_up_address="{{ $order['pick_up_address'] }}"
-                                           data-pick_up_landmark="{{ $order['pick_up_landmark'] }}"
-                                           data-delivery_address="{{ $order['delivery_address'] }}"
-                                           data-delivery_landmark="{{ $order['delivery_landmark'] }}"
-                                           data-description="{{ $order['description'] }}"
-                                        ></i> &nbsp; &nbsp;
-                                        <i class="fas fa-fw fa-trash text-danger"
-                                           title="Delete order details"
-                                           data-toggle="modal"
-                                           data-target="#deleteOrderModal"
-                                           data-order_no="{{ $order['order_no'] }}"></i>
-                                    </td>
+                                @foreach($orders as $o)
+                                    @foreach($o->orders as $order)<tr>
+                                        <td scope="row">
+                                            @if($order['order_status'] === 'delivered')
+                                                <i class="fas fa-fw fa-check-circle text-success"></i>
+                                            @elseif($order['order_status'] === 'ongoing')
+                                                <i class="fas fa-fw fa-shipping-fast text-info"></i>
+                                            @elseif($order['order_status'] === 'registered')
+                                                <i class="fas fa-fw fa-registered text-primary"></i>
+                                            @elseif($order['order_status'] === 'uncompleted')
+                                                <i class="fas fa-fw fa-times-circle text-danger"></i>
+                                            @endif
+                                        </td>
+                                        <td>{{ $order['order_no'] }}</td>
+                                        <td>{{ $order['parcel_name'] }}</td>
+                                        <td>{{ $order['fullname'] }}</td>
+                                        <td>{{ $order['request_type'] }}</td>
+                                        <td>{{ $order['phone'] }}</td>
+                                        <td class="table-action d-flex flex-nowrap">
+                                            <a href="/order/{{ $order['order_no'] }}" ><i class="fas fa-fw fa-eye text-success" title="View order details"></i></a> &nbsp; &nbsp;
+                                            <i class="fas fa-fw fa-edit text-primary"
+                                               data-toggle="modal"
+                                               data-target="#editOrderModal"
+                                               title="Edit order details"
+                                               data-order_no="{{ $order['order_no'] }}"
+                                               data-request_type="{{ $order['request_type'] }}"
+                                               data-district="{{ $order['district'] }}"
+                                               data-route="{{ $order['route'] }}"
+                                               data-fullname="{{ $order['fullname'] }}"
+                                               data-email="{{ $order['email'] }}"
+                                               data-service_type="{{ $order['service_type'] }}"
+                                               data-address="{{ $order['address'] }}"
+                                               data-phone="{{ $order['phone'] }}"
+                                               data-parcel_name="{{ $order['parcel_name'] }}"
+                                               data-parcel_size="{{ $order['parcel_size'] }}"
+                                               data-pick_up_address="{{ $order['pick_up_address'] }}"
+                                               data-pick_up_landmark="{{ $order['pick_up_landmark'] }}"
+                                               data-delivery_address="{{ $order['delivery_address'] }}"
+                                               data-delivery_landmark="{{ $order['delivery_landmark'] }}"
+                                               data-description="{{ $order['description'] }}"
+                                            ></i> &nbsp; &nbsp;
+                                            <i class="fas fa-fw fa-trash text-danger"
+                                               title="Delete order details"
+                                               data-toggle="modal"
+                                               data-target="#deleteOrderModal"
+                                               data-order_no="{{ $order['order_no'] }}"></i>
+                                        </td>
 
-                                </tr>
+                                    </tr>
+                                    @endforeach
                                 @endforeach
                                 {{-- Edit Modal--}}
                                 <div class="modal fade bd-example-modal-lg" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -261,7 +263,7 @@
                         </table>
                     </div>
                     <div class="panel-footer py-1 mt-0 mr-3 d-flex justify-content-end">
-                        {!! $links !!}
+{{--                        {!! $links !!}--}}
                     </div>
 
                 </div>

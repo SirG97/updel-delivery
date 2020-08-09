@@ -15,14 +15,14 @@ class District extends Model
 
     //Tell laravel that the primary key is not an integer
     public $incrementing = false;
-    protected $fillable = ['district_id', 'name', 'created_by',];
+    protected $fillable = ['district_id', 'state', 'name', 'created_by',];
 
     public function routes(){
         return $this->hasMany(Route::class, 'district_id', 'route_id');
     }
 
     public function orders(){
-        return $this->hasMany(Order::class, 'district_id', 'order_no');
+        return $this->hasMany(Order::class, 'district_id', 'district_id');
     }
 
 

@@ -76,7 +76,13 @@ class DeliveryController extends BaseController {
     }
 
    public function get_assign_route(){
-       $riders = User::where('admin_right', 'Rider')->orderBy('id','desc')->get();
+       $priviledge = Session::get('priviledge');
+       $state = Session::get('state');
+       if($priviledge === 'Manager'){
+           $riders = User::where([['admin_right', '=', 'Rider'], ['state', '=', $state]])->orderBy('id','desc')->get();
+       }else{
+           $riders = User::where('admin_right','Rider')->orderBy('id','desc')->get();
+       }
         return view('user\assign_route', ['staffs' => $riders]);
    }
 
